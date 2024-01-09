@@ -1,0 +1,49 @@
+{
+    "name": "seatlon/cs2-log",
+    "description": "Counter-Strike 2 log parsing in PHP",
+    "keywords": [
+        "seatlon",
+        "cs2-log"
+    ],
+    "homepage": "https://github.com/seatlon/cs2-log",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander (SeatloN)",
+            "email": "alexander@seatlon.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.12",
+        "pestphp/pest": "^2.0",
+        "spatie/ray": "^1.28"
+    },
+    "autoload": {
+        "psr-4": {
+            "CSLog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CSLog\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
