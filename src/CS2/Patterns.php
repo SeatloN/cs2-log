@@ -18,6 +18,8 @@ use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\MatchStart;
 use CSLog\CS2\Models\MatchStatus;
+use CSLog\CS2\Models\MoneyChanged;
+use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\RoundEnd;
 use CSLog\CS2\Models\RoundRestart;
@@ -49,6 +51,8 @@ class Patterns
         'MatchEnd' => MatchEnd::PATTERN,
         'MatchStart' => MatchStart::PATTERN,
         'MatchStatus' => MatchStatus::PATTERN,
+        'MoneyChanged' => MoneyChanged::PATTERN,
+        'PickedUp' => PickedUp::PATTERN,
         'Purchased' => Purchased::PATTERN,
         'RoundEnd' => RoundEnd::PATTERN,
         'RoundRestart' => RoundRestart::PATTERN,

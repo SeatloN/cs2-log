@@ -1,0 +1,882 @@
+01/09/2024 - 03:50:11.727 - Log file started (file "logs/2024_01_09_035011.log") (game "csgo") (version "9842")
+01/09/2024 - 03:50:11.727 - server_cvar: "sv_tags" "dathost,dathost.net"
+01/09/2024 - 03:50:11.727 - server_cvar: "sv_tags" "dathost.net, dathost"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_player_interact_with_hostage" "300"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_elimination_hostage_map_t" "3000"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_elimination_hostage_map_ct" "3000"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_hostage_interaction" "600"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_bonus_shorthanded" "1000"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_rescued_hostage" "600"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_win_by_defusing_bomb" "3500"
+01/09/2024 - 03:50:11.727 - server_cvar: "cash_team_win_by_hostage_rescue" "2900"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_freezetime" "15"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_friendlyfire" "true"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_maxrounds" "24"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_roundtime" "1.920000"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_roundtime_hostage" "1.920000"
+01/09/2024 - 03:50:11.727 - server_cvar: "mp_roundtime_defuse" "1.920000"
+01/09/2024 - 03:50:11.727 - server_cvar: "sv_deadtalk" "true"
+01/09/2024 - 03:50:11.727 - Started:  ""
+01/09/2024 - 03:50:11.727 - "Blackwolf<0><BOT><>" connected, address "none"
+01/09/2024 - 03:50:11.727 - "Blackwolf<0><BOT><>" entered the game
+01/09/2024 - 03:50:11.727 - "Blackwolf<0><BOT>" switched from team <Unassigned> to <TERRORIST>
+01/09/2024 - 03:50:11.727 - World triggered "Game_Commencing"
+01/09/2024 - 03:50:11.727 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:50:11.727 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:50:11.727 - "Maximus<1><BOT><>" connected, address "none"
+01/09/2024 - 03:50:11.727 - "Maximus<1><BOT><>" entered the game
+01/09/2024 - 03:50:11.727 - "Maximus<1><BOT>" switched from team <Unassigned> to <CT>
+01/09/2024 - 03:50:11.727 - "Maximus<1><BOT><CT>" picked up "knife"
+01/09/2024 - 03:50:11.727 - "Maximus<1><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 03:50:13.077 - Starting Freeze period
+01/09/2024 - 03:50:13.077 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:50:13.077 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:50:13.077 - "Maximus<1><BOT><CT>" picked up "knife"
+01/09/2024 - 03:50:13.077 - "Maximus<1><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 03:50:13.077 - World triggered "Match_Start" on "de_dust2"
+01/09/2024 - 03:50:13.077 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:50:13.077 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:50:13.077 - MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: -1
+01/09/2024 - 03:50:14.154 - rcon from "212.102.62.206:44256": command "status_json"
+01/09/2024 - 03:50:14.186 - rcon from "212.102.62.206:44256": command "status"
+01/09/2024 - 03:50:15.077 - World triggered "Round_Start"
+01/09/2024 - 03:50:24.154 - rcon from "212.102.62.206:49726": command "status_json"
+01/09/2024 - 03:50:24.186 - rcon from "212.102.62.206:49726": command "status"
+01/09/2024 - 03:50:34.170 - rcon from "212.102.62.206:56312": command "status_json"
+01/09/2024 - 03:50:34.201 - rcon from "212.102.62.206:56312": command "status"
+01/09/2024 - 03:50:44.170 - rcon from "212.102.62.206:55040": command "status_json"
+01/09/2024 - 03:50:44.201 - rcon from "212.102.62.206:55040": command "status"
+01/09/2024 - 03:50:54.170 - rcon from "212.102.62.206:44186": command "status_json"
+01/09/2024 - 03:50:54.201 - rcon from "212.102.62.206:44186": command "status"
+01/09/2024 - 03:51:04.186 - rcon from "212.102.62.206:34116": command "status_json"
+01/09/2024 - 03:51:04.217 - rcon from "212.102.62.206:34116": command "status"
+01/09/2024 - 03:51:14.186 - rcon from "212.102.62.206:51808": command "status_json"
+01/09/2024 - 03:51:14.217 - rcon from "212.102.62.206:51808": command "status"
+01/09/2024 - 03:51:24.201 - rcon from "212.102.62.206:36760": command "status_json"
+01/09/2024 - 03:51:24.233 - rcon from "212.102.62.206:36760": command "status"
+01/09/2024 - 03:51:34.201 - rcon from "212.102.62.206:35708": command "status_json"
+01/09/2024 - 03:51:34.233 - rcon from "212.102.62.206:35708": command "status"
+01/09/2024 - 03:51:44.201 - rcon from "212.102.62.206:46714": command "status_json"
+01/09/2024 - 03:51:44.233 - rcon from "212.102.62.206:46714": command "status"
+01/09/2024 - 03:51:54.201 - rcon from "212.102.62.206:58956": command "status_json"
+01/09/2024 - 03:51:54.233 - rcon from "212.102.62.206:58956": command "status"
+01/09/2024 - 03:51:58.562 - "SeatloN<2><[U:1:6318168]><>" connected, address "158.174.186.235:23422"
+01/09/2024 - 03:51:59.952 - "SeatloN<2><[U:1:6318168]><>" STEAM USERID validated
+01/09/2024 - 03:52:01.486 - "SeatloN<2><[U:1:6318168]><>" entered the game
+01/09/2024 - 03:52:04.217 - rcon from "212.102.62.206:36888": command "status_json"
+01/09/2024 - 03:52:04.248 - rcon from "212.102.62.206:36888": command "status"
+01/09/2024 - 03:52:06.905 - "SeatloN<2><[U:1:6318168]>" switched from team <Unassigned> to <CT>
+01/09/2024 - 03:52:06.905 - "SeatloN<2><[U:1:6318168]><CT>" picked up "knife"
+01/09/2024 - 03:52:06.905 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hkp2000"
+01/09/2024 - 03:52:06.905 - "Maximus<1><BOT><CT>" disconnected (reason "NETWORK_DISCONNECT_KICKED")
+01/09/2024 - 03:52:06.905 - "Maximus<1><<none>><CT>" left buyzone with [ ]
+01/09/2024 - 03:52:14.075 - Starting Freeze period
+01/09/2024 - 03:52:14.075 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:52:14.075 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:52:14.075 - "SeatloN<2><[U:1:6318168]><CT>" picked up "knife"
+01/09/2024 - 03:52:14.075 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hkp2000"
+01/09/2024 - 03:52:14.075 - World triggered "Match_Start" on "de_dust2"
+01/09/2024 - 03:52:14.075 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:52:14.075 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:52:14.075 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:52:14.075 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:52:14.075 - MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: 0
+01/09/2024 - 03:52:14.221 - rcon from "212.102.62.206:35790": command "status_json"
+01/09/2024 - 03:52:14.252 - rcon from "212.102.62.206:35790": command "status"
+01/09/2024 - 03:52:24.221 - rcon from "212.102.62.206:56666": command "status_json"
+01/09/2024 - 03:52:24.252 - rcon from "212.102.62.206:56666": command "status"
+01/09/2024 - 03:52:26.736 - "SeatloN<3><[U:1:6318168]><CT>" money change 800-300 = $500 (tracked) (purchase: weapon_p250)
+01/09/2024 - 03:52:26.736 - "SeatloN<2><[U:1:6318168]><CT>" picked up "p250"
+01/09/2024 - 03:52:26.736 - "SeatloN<2><[U:1:6318168]><CT>" purchased "p250"
+01/09/2024 - 03:52:28.033 - "SeatloN<2><[U:1:6318168]><CT>" picked up "defuser"
+01/09/2024 - 03:52:28.033 - "SeatloN<3><[U:1:6318168]><CT>" money change 500-400 = $100 (tracked) (purchase: item_defuser)
+01/09/2024 - 03:52:28.033 - "SeatloN<2><[U:1:6318168]><CT>" purchased "item_defuser"
+01/09/2024 - 03:52:34.221 - rcon from "212.102.62.206:45042": command "status_json"
+01/09/2024 - 03:52:34.252 - rcon from "212.102.62.206:45042": command "status"
+01/09/2024 - 03:52:35.565 - World triggered "Round_Start"
+01/09/2024 - 03:52:38.330 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_p250 defuser ]
+01/09/2024 - 03:52:44.236 - rcon from "212.102.62.206:51552": command "status_json"
+01/09/2024 - 03:52:44.268 - rcon from "212.102.62.206:51552": command "status"
+01/09/2024 - 03:52:50.580 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:52:51.644 - "SeatloN<2><[U:1:6318168]><CT>" [266 -479 -1] attacked "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "p250" (damage "120") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:52:51.644 - "SeatloN<2><[U:1:6318168]><CT>" [266 -479 -1] killed "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "p250" (headshot)
+01/09/2024 - 03:52:51.644 - "SeatloN<3><[U:1:6318168]><CT>" money change 100+300 = $400 (tracked)
+01/09/2024 - 03:52:51.644 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "1") (T "0")
+01/09/2024 - 03:52:51.644 - Team "CT" scored "1" with "1" players
+01/09/2024 - 03:52:51.644 - Team "TERRORIST" scored "0" with "1" players
+01/09/2024 - 03:52:51.644 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:52:51.644 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:52:51.644 - MatchStatus: Score: 1:0 on map "de_dust2" RoundsPlayed: 1
+01/09/2024 - 03:52:51.644 - World triggered "Round_End"
+01/09/2024 - 03:52:51.644 - "SeatloN<3><[U:1:6318168]><CT>" money change 400+3250 = $3650 (tracked)
+01/09/2024 - 03:52:51.644 - "Blackwolf<1><BOT><TERRORIST>" money change 800+1900 = $2700 (tracked)
+01/09/2024 - 03:52:51.644 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:52:54.237 - rcon from "212.102.62.206:54140": command "status_json"
+01/09/2024 - 03:52:54.269 - rcon from "212.102.62.206:54140": command "status"
+01/09/2024 - 03:52:58.644 - Starting Freeze period
+01/09/2024 - 03:52:58.644 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:52:58.644 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:52:58.644 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:52:58.644 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:52:58.644 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:52:58.644 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:52:58.644 - MatchStatus: Score: 1:0 on map "de_dust2" RoundsPlayed: 1
+01/09/2024 - 03:53:04.237 - rcon from "212.102.62.206:56648": command "status_json"
+01/09/2024 - 03:53:04.253 - rcon from "212.102.62.206:56648": command "status"
+01/09/2024 - 03:53:07.987 - "SeatloN<2><[U:1:6318168]><CT>" picked up "vesthelm"
+01/09/2024 - 03:53:07.987 - "SeatloN<3><[U:1:6318168]><CT>" money change 3650-1000 = $2650 (tracked) (purchase: item_assaultsuit)
+01/09/2024 - 03:53:07.987 - "SeatloN<2><[U:1:6318168]><CT>" purchased "item_assaultsuit"
+01/09/2024 - 03:53:11.581 - "SeatloN<3><[U:1:6318168]><CT>" money change 2650-700 = $1950 (tracked) (purchase: weapon_deagle)
+01/09/2024 - 03:53:11.581 - "SeatloN<2><[U:1:6318168]><CT>" picked up "deagle"
+01/09/2024 - 03:53:11.581 - "SeatloN<2><[U:1:6318168]><CT>" purchased "deagle"
+01/09/2024 - 03:53:13.644 - World triggered "Round_Start"
+01/09/2024 - 03:53:14.253 - rcon from "212.102.62.206:49046": command "status_json"
+01/09/2024 - 03:53:14.284 - rcon from "212.102.62.206:49046": command "status"
+01/09/2024 - 03:53:16.331 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle defuser kevlar(100) helmet ]
+01/09/2024 - 03:53:24.253 - rcon from "212.102.62.206:42728": command "status_json"
+01/09/2024 - 03:53:24.284 - rcon from "212.102.62.206:42728": command "status"
+01/09/2024 - 03:53:28.659 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:53:30.176 - "SeatloN<2><[U:1:6318168]><CT>" [51 -597 3] attacked "Blackwolf<0><BOT><TERRORIST>" [-657 -756 120] with "deagle" (damage "162") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:53:30.176 - "SeatloN<2><[U:1:6318168]><CT>" [51 -597 3] killed "Blackwolf<0><BOT><TERRORIST>" [-657 -756 120] with "deagle" (headshot)
+01/09/2024 - 03:53:30.176 - "SeatloN<3><[U:1:6318168]><CT>" money change 1950+300 = $2250 (tracked)
+01/09/2024 - 03:53:30.176 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "2") (T "0")
+01/09/2024 - 03:53:30.176 - Team "CT" scored "2" with "1" players
+01/09/2024 - 03:53:30.176 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:53:30.176 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:53:30.176 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:53:30.176 - MatchStatus: Score: 2:0 on map "de_dust2" RoundsPlayed: 2
+01/09/2024 - 03:53:30.176 - World triggered "Round_End"
+01/09/2024 - 03:53:30.176 - "SeatloN<3><[U:1:6318168]><CT>" money change 2250+3250 = $5500 (tracked)
+01/09/2024 - 03:53:30.176 - "Blackwolf<1><BOT><TERRORIST>" money change 2700+2400 = $5100 (tracked)
+01/09/2024 - 03:53:30.176 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:53:33.800 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle defuser kevlar(100) helmet ]
+01/09/2024 - 03:53:34.269 - rcon from "212.102.62.206:40624": command "status_json"
+01/09/2024 - 03:53:34.300 - rcon from "212.102.62.206:40624": command "status"
+01/09/2024 - 03:53:37.177 - Starting Freeze period
+01/09/2024 - 03:53:37.177 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:53:37.177 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:53:37.177 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:53:37.177 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:53:37.177 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:53:37.177 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:53:37.177 - MatchStatus: Score: 2:0 on map "de_dust2" RoundsPlayed: 2
+01/09/2024 - 03:53:44.269 - rcon from "212.102.62.206:36062": command "status_json"
+01/09/2024 - 03:53:44.300 - rcon from "212.102.62.206:36062": command "status"
+01/09/2024 - 03:53:48.300 - "SeatloN<3><[U:1:6318168]><CT>" money change 5500-300 = $5200 (tracked) (purchase: weapon_smokegrenade)
+01/09/2024 - 03:53:48.300 - "SeatloN<2><[U:1:6318168]><CT>" picked up "smokegrenade"
+01/09/2024 - 03:53:48.300 - "SeatloN<2><[U:1:6318168]><CT>" purchased "smokegrenade"
+01/09/2024 - 03:53:48.675 - "SeatloN<3><[U:1:6318168]><CT>" money change 5200-300 = $4900 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 03:53:48.675 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hegrenade"
+01/09/2024 - 03:53:48.675 - "SeatloN<2><[U:1:6318168]><CT>" purchased "hegrenade"
+01/09/2024 - 03:53:48.956 - "SeatloN<3><[U:1:6318168]><CT>" money change 4900-600 = $4300 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 03:53:48.956 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 03:53:48.956 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 03:53:49.378 - "SeatloN<3><[U:1:6318168]><CT>" money change 4300-200 = $4100 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:53:49.378 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:53:49.378 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:53:51.878 - "SeatloN<3><[U:1:6318168]><CT>" money change 4100-1250 = $2850 (tracked) (purchase: weapon_mp9)
+01/09/2024 - 03:53:51.878 - "SeatloN<2><[U:1:6318168]><CT>" picked up "mp9"
+01/09/2024 - 03:53:51.878 - "SeatloN<2><[U:1:6318168]><CT>" purchased "mp9"
+01/09/2024 - 03:53:52.175 - World triggered "Round_Start"
+01/09/2024 - 03:53:54.268 - rcon from "212.102.62.206:49280": command "status_json"
+01/09/2024 - 03:53:54.300 - rcon from "212.102.62.206:49280": command "status"
+01/09/2024 - 03:53:54.925 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_hegrenade weapon_incgrenade weapon_flashbang weapon_mp9 defuser kevlar(100) helmet ]
+01/09/2024 - 03:53:57.659 - "SeatloN<2><[U:1:6318168]><CT>" threw flashbang [-363 646 590] flashbang entindex 433)
+01/09/2024 - 03:54:01.019 - Molotov projectile spawned at -388.390472 1003.932861 3.769046, velocity -11.703761 -948.806274 206.513260
+01/09/2024 - 03:54:02.331 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [-404 -227 2]
+01/09/2024 - 03:54:04.284 - rcon from "212.102.62.206:50234": command "status_json"
+01/09/2024 - 03:54:04.315 - rcon from "212.102.62.206:50234": command "status"
+01/09/2024 - 03:54:07.191 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:54:08.972 - "SeatloN<2><[U:1:6318168]><CT>" threw hegrenade [-556 -975 188]
+01/09/2024 - 03:54:08.972 - "SeatloN<2><[U:1:6318168]><CT>" [114 -486 2] attacked "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "hegrenade" (damage "10") (damage_armor "0") (health "90") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:09.770 - "SeatloN<2><[U:1:6318168]><CT>" [70 -633 5] attacked "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "mp9" (damage "81") (damage_armor "0") (health "8") (armor "0") (hitgroup "head")
+01/09/2024 - 03:54:09.847 - "SeatloN<2><[U:1:6318168]><CT>" [70 -633 5] attacked "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "mp9" (damage "81") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:54:09.847 - "SeatloN<2><[U:1:6318168]><CT>" [70 -633 5] killed "Blackwolf<0><BOT><TERRORIST>" [-761 -836 117] with "mp9" (headshot)
+01/09/2024 - 03:54:09.847 - "SeatloN<3><[U:1:6318168]><CT>" money change 2850+600 = $3450 (tracked)
+01/09/2024 - 03:54:09.847 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "3") (T "0")
+01/09/2024 - 03:54:09.847 - Team "CT" scored "3" with "1" players
+01/09/2024 - 03:54:09.847 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:54:09.847 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:54:09.847 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:54:09.847 - MatchStatus: Score: 3:0 on map "de_dust2" RoundsPlayed: 3
+01/09/2024 - 03:54:09.847 - World triggered "Round_End"
+01/09/2024 - 03:54:09.847 - "SeatloN<3><[U:1:6318168]><CT>" money change 3450+3250 = $6700 (tracked)
+01/09/2024 - 03:54:09.847 - "Blackwolf<1><BOT><TERRORIST>" money change 5100+2900 = $8000 (tracked)
+01/09/2024 - 03:54:09.847 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:54:14.284 - rcon from "212.102.62.206:48228": command "status_json"
+01/09/2024 - 03:54:14.315 - rcon from "212.102.62.206:48228": command "status"
+01/09/2024 - 03:54:16.851 - Starting Freeze period
+01/09/2024 - 03:54:16.851 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:54:16.851 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:54:16.851 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:54:16.851 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:54:16.851 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:54:16.851 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:54:16.851 - MatchStatus: Score: 3:0 on map "de_dust2" RoundsPlayed: 3
+01/09/2024 - 03:54:20.097 - "SeatloN<3><[U:1:6318168]><CT>" money change 6700-300 = $6400 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 03:54:20.097 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hegrenade"
+01/09/2024 - 03:54:20.097 - "SeatloN<2><[U:1:6318168]><CT>" purchased "hegrenade"
+01/09/2024 - 03:54:20.409 - "SeatloN<3><[U:1:6318168]><CT>" money change 6400-600 = $5800 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 03:54:20.409 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 03:54:20.409 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 03:54:20.800 - "SeatloN<3><[U:1:6318168]><CT>" money change 5800-200 = $5600 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:54:20.800 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:54:20.800 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:54:23.565 - "SeatloN<3><[U:1:6318168]><CT>" money change 5600-3100 = $2500 (tracked) (purchase: weapon_m4a1)
+01/09/2024 - 03:54:23.565 - "SeatloN<2><[U:1:6318168]><CT>" picked up "m4a1"
+01/09/2024 - 03:54:23.565 - "SeatloN<2><[U:1:6318168]><CT>" purchased "m4a1"
+01/09/2024 - 03:54:24.284 - rcon from "212.102.62.206:33662": command "status_json"
+01/09/2024 - 03:54:24.315 - rcon from "212.102.62.206:33662": command "status"
+01/09/2024 - 03:54:31.847 - World triggered "Round_Start"
+01/09/2024 - 03:54:33.160 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_hegrenade weapon_incgrenade weapon_flashbang weapon_m4a1 defuser kevlar(100) helmet ]
+01/09/2024 - 03:54:34.300 - rcon from "212.102.62.206:52182": command "status_json"
+01/09/2024 - 03:54:34.317 - rcon from "212.102.62.206:52182": command "status"
+01/09/2024 - 03:54:44.300 - rcon from "212.102.62.206:37136": command "status_json"
+01/09/2024 - 03:54:44.316 - rcon from "212.102.62.206:37136": command "status"
+01/09/2024 - 03:54:44.691 - "SeatloN<2><[U:1:6318168]><CT>" threw flashbang [-263 500 989] flashbang entindex 507)
+01/09/2024 - 03:54:46.862 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:54:51.019 - Molotov projectile spawned at 187.575119 -578.912170 69.963432, velocity -735.510498 -154.813110 247.046097
+01/09/2024 - 03:54:52.331 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [-777 -782 119]
+01/09/2024 - 03:54:52.753 - "SeatloN<2><[U:1:6318168]><CT>" [-40 -786 5] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "1") (damage_armor "0") (health "99") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:52.956 - "SeatloN<2><[U:1:6318168]><CT>" [-81 -815 13] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "2") (damage_armor "0") (health "96") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:53.160 - "SeatloN<2><[U:1:6318168]><CT>" [-119 -848 22] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "3") (damage_armor "0") (health "93") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:53.363 - "SeatloN<2><[U:1:6318168]><CT>" [-157 -883 33] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "4") (damage_armor "0") (health "89") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:53.550 - "SeatloN<2><[U:1:6318168]><CT>" [-197 -900 44] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "4") (damage_armor "0") (health "84") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:53.753 - "SeatloN<2><[U:1:6318168]><CT>" [-243 -921 57] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "5") (damage_armor "0") (health "78") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:53.956 - "SeatloN<2><[U:1:6318168]><CT>" [-286 -946 77] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "6") (damage_armor "0") (health "72") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:54.159 - "SeatloN<2><[U:1:6318168]><CT>" [-330 -967 87] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "7") (damage_armor "0") (health "64") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:54.315 - rcon from "212.102.62.206:60882": command "status_json"
+01/09/2024 - 03:54:54.347 - rcon from "212.102.62.206:60882": command "status"
+01/09/2024 - 03:54:54.363 - "SeatloN<2><[U:1:6318168]><CT>" [-350 -974 92] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "56") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:54.550 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "48") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:54.753 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "40") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:54.956 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "32") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:55.159 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "24") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:55.363 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "16") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:55.550 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "8") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:55.753 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] attacked "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno" (damage "8") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:54:55.753 - "SeatloN<2><[U:1:6318168]><CT>" [-354 -976 93] killed "Blackwolf<0><BOT><TERRORIST>" [-822 -796 117] with "inferno"
+01/09/2024 - 03:54:55.753 - "SeatloN<3><[U:1:6318168]><CT>" money change 2500+300 = $2800 (tracked)
+01/09/2024 - 03:54:55.753 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "4") (T "0")
+01/09/2024 - 03:54:55.753 - Team "CT" scored "4" with "1" players
+01/09/2024 - 03:54:55.753 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:54:55.753 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:54:55.753 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:54:55.753 - MatchStatus: Score: 4:0 on map "de_dust2" RoundsPlayed: 4
+01/09/2024 - 03:54:55.753 - World triggered "Round_End"
+01/09/2024 - 03:54:55.753 - "SeatloN<3><[U:1:6318168]><CT>" money change 2800+3250 = $6050 (tracked)
+01/09/2024 - 03:54:55.753 - "Blackwolf<1><BOT><TERRORIST>" money change 8000+3400 = $11400 (tracked)
+01/09/2024 - 03:54:55.753 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:55:02.755 - Starting Freeze period
+01/09/2024 - 03:55:02.755 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:55:02.755 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:55:02.755 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:55:02.755 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:55:02.755 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:55:02.755 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:55:02.755 - MatchStatus: Score: 4:0 on map "de_dust2" RoundsPlayed: 4
+01/09/2024 - 03:55:02.755 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_hegrenade weapon_m4a1 defuser kevlar(100) helmet ]
+01/09/2024 - 03:55:04.315 - rcon from "212.102.62.206:57070": command "status_json"
+01/09/2024 - 03:55:04.347 - rcon from "212.102.62.206:57070": command "status"
+01/09/2024 - 03:55:06.081 - "SeatloN<3><[U:1:6318168]><CT>" money change 6050-600 = $5450 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 03:55:06.081 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 03:55:06.081 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 03:55:06.690 - "SeatloN<3><[U:1:6318168]><CT>" money change 5450-200 = $5250 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:55:06.690 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:55:06.690 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:55:14.315 - rcon from "212.102.62.206:39042": command "status_json"
+01/09/2024 - 03:55:14.347 - rcon from "212.102.62.206:39042": command "status"
+01/09/2024 - 03:55:17.753 - World triggered "Round_Start"
+01/09/2024 - 03:55:20.519 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_hegrenade weapon_m4a1 weapon_incgrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:55:24.331 - rcon from "212.102.62.206:38678": command "status_json"
+01/09/2024 - 03:55:24.362 - rcon from "212.102.62.206:38678": command "status"
+01/09/2024 - 03:55:28.472 - "SeatloN<2><[U:1:6318168]><CT>" threw flashbang [-494 -736 642] flashbang entindex 163)
+01/09/2024 - 03:55:28.472 - "Blackwolf<0><BOT><TERRORIST>" blinded for 1.77 by "SeatloN<2><[U:1:6318168]><CT>" from flashbang entindex 163 
+01/09/2024 - 03:55:32.769 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:55:34.331 - rcon from "212.102.62.206:46194": command "status_json"
+01/09/2024 - 03:55:34.348 - rcon from "212.102.62.206:46194": command "status"
+01/09/2024 - 03:55:34.659 - "SeatloN<2><[U:1:6318168]><CT>" threw hegrenade [-343 -802 113]
+01/09/2024 - 03:55:34.659 - "SeatloN<2><[U:1:6318168]><CT>" [288 -562 -0] attacked "Blackwolf<0><BOT><TERRORIST>" [-367 -808 84] with "hegrenade" (damage "96") (damage_armor "0") (health "4") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:55:34.739 - "SeatloN<2><[U:1:6318168]><CT>" [288 -562 -0] attacked "Blackwolf<0><BOT><TERRORIST>" [-367 -808 84] with "m4a1" (damage "126") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:55:34.739 - "SeatloN<2><[U:1:6318168]><CT>" [288 -562 -0] killed "Blackwolf<0><BOT><TERRORIST>" [-367 -808 84] with "m4a1" (headshot)
+01/09/2024 - 03:55:34.739 - "SeatloN<3><[U:1:6318168]><CT>" money change 5250+300 = $5550 (tracked)
+01/09/2024 - 03:55:34.739 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "5") (T "0")
+01/09/2024 - 03:55:34.739 - Team "CT" scored "5" with "1" players
+01/09/2024 - 03:55:34.739 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:55:34.739 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:55:34.739 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:55:34.739 - MatchStatus: Score: 5:0 on map "de_dust2" RoundsPlayed: 5
+01/09/2024 - 03:55:34.739 - World triggered "Round_End"
+01/09/2024 - 03:55:34.739 - "SeatloN<3><[U:1:6318168]><CT>" money change 5550+3250 = $8800 (tracked)
+01/09/2024 - 03:55:34.739 - "Blackwolf<1><BOT><TERRORIST>" money change 11400+3400 = $14800 (tracked)
+01/09/2024 - 03:55:34.739 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:55:41.752 - Starting Freeze period
+01/09/2024 - 03:55:41.752 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:55:41.752 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:55:41.752 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:55:41.752 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:55:41.752 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:55:41.752 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:55:41.752 - MatchStatus: Score: 5:0 on map "de_dust2" RoundsPlayed: 5
+01/09/2024 - 03:55:43.803 - "SeatloN<3><[U:1:6318168]><CT>" money change 8800-300 = $8500 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 03:55:43.803 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hegrenade"
+01/09/2024 - 03:55:43.803 - "SeatloN<2><[U:1:6318168]><CT>" purchased "hegrenade"
+01/09/2024 - 03:55:44.147 - "SeatloN<3><[U:1:6318168]><CT>" money change 8500-200 = $8300 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:55:44.147 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:55:44.147 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:55:44.334 - rcon from "212.102.62.206:34688": command "status_json"
+01/09/2024 - 03:55:44.366 - rcon from "212.102.62.206:34688": command "status"
+01/09/2024 - 03:55:45.647 - "SeatloN<3><[U:1:6318168]><CT>" money change 8300-200 = $8100 (tracked) (purchase: weapon_taser)
+01/09/2024 - 03:55:45.647 - "SeatloN<2><[U:1:6318168]><CT>" picked up "taser"
+01/09/2024 - 03:55:45.647 - "SeatloN<2><[U:1:6318168]><CT>" purchased "taser"
+01/09/2024 - 03:55:54.350 - rcon from "212.102.62.206:52686": command "status_json"
+01/09/2024 - 03:55:54.381 - rcon from "212.102.62.206:52686": command "status"
+01/09/2024 - 03:55:56.741 - World triggered "Round_Start"
+01/09/2024 - 03:55:59.522 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang weapon_taser defuser kevlar(100) helmet ]
+01/09/2024 - 03:56:04.350 - rcon from "212.102.62.206:42320": command "status_json"
+01/09/2024 - 03:56:04.381 - rcon from "212.102.62.206:42320": command "status"
+01/09/2024 - 03:56:11.756 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:56:14.350 - rcon from "212.102.62.206:46266": command "status_json"
+01/09/2024 - 03:56:14.381 - rcon from "212.102.62.206:46266": command "status"
+01/09/2024 - 03:56:15.461 - "SeatloN<2><[U:1:6318168]><CT>" [-457 -872 101] attacked "Blackwolf<0><BOT><TERRORIST>" [-493 -808 109] with "taser" (damage "235") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:56:15.461 - "SeatloN<2><[U:1:6318168]><CT>" [-457 -872 101] killed "Blackwolf<0><BOT><TERRORIST>" [-493 -808 109] with "taser"
+01/09/2024 - 03:56:15.461 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "6") (T "0")
+01/09/2024 - 03:56:15.461 - Team "CT" scored "6" with "1" players
+01/09/2024 - 03:56:15.461 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:56:15.461 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:56:15.461 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:56:15.461 - MatchStatus: Score: 6:0 on map "de_dust2" RoundsPlayed: 6
+01/09/2024 - 03:56:15.461 - World triggered "Round_End"
+01/09/2024 - 03:56:15.461 - "SeatloN<3><[U:1:6318168]><CT>" money change 8100+3250 = $11350 (tracked)
+01/09/2024 - 03:56:15.461 - "Blackwolf<1><BOT><TERRORIST>" money change 14800+3400 = $16000 (tracked)
+01/09/2024 - 03:56:15.461 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:56:17.806 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:56:22.466 - Starting Freeze period
+01/09/2024 - 03:56:22.466 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:56:22.466 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:56:22.466 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:56:22.466 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:56:22.466 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:56:22.466 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:56:22.466 - MatchStatus: Score: 6:0 on map "de_dust2" RoundsPlayed: 6
+01/09/2024 - 03:56:24.352 - rcon from "212.102.62.206:56876": command "status_json"
+01/09/2024 - 03:56:24.384 - rcon from "212.102.62.206:56876": command "status"
+01/09/2024 - 03:56:34.352 - rcon from "212.102.62.206:57584": command "status_json"
+01/09/2024 - 03:56:34.384 - rcon from "212.102.62.206:57584": command "status"
+01/09/2024 - 03:56:37.462 - World triggered "Round_Start"
+01/09/2024 - 03:56:39.900 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:56:44.368 - rcon from "212.102.62.206:56612": command "status_json"
+01/09/2024 - 03:56:44.399 - rcon from "212.102.62.206:56612": command "status"
+01/09/2024 - 03:56:52.477 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:56:54.368 - rcon from "212.102.62.206:52254": command "status_json"
+01/09/2024 - 03:56:54.399 - rcon from "212.102.62.206:52254": command "status"
+01/09/2024 - 03:56:55.026 - "SeatloN<2><[U:1:6318168]><CT>" [-282 -750 67] attacked "Blackwolf<0><BOT><TERRORIST>" [-332 -754 79] with "knife" (damage "180") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:56:55.026 - "SeatloN<2><[U:1:6318168]><CT>" [-282 -750 67] killed "Blackwolf<0><BOT><TERRORIST>" [-332 -754 79] with "knife_m9_bayonet"
+01/09/2024 - 03:56:55.026 - "SeatloN<3><[U:1:6318168]><CT>" money change 11350+1500 = $12850 (tracked)
+01/09/2024 - 03:56:55.026 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "7") (T "0")
+01/09/2024 - 03:56:55.026 - Team "CT" scored "7" with "1" players
+01/09/2024 - 03:56:55.026 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:56:55.026 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:56:55.026 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:56:55.026 - MatchStatus: Score: 7:0 on map "de_dust2" RoundsPlayed: 7
+01/09/2024 - 03:56:55.026 - World triggered "Round_End"
+01/09/2024 - 03:56:55.026 - "SeatloN<3><[U:1:6318168]><CT>" money change 12850+3250 = $16000 (tracked)
+01/09/2024 - 03:56:55.026 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:57:02.029 - Starting Freeze period
+01/09/2024 - 03:57:02.029 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:57:02.029 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:57:02.029 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:57:02.029 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:57:02.029 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:57:02.029 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:57:02.029 - MatchStatus: Score: 7:0 on map "de_dust2" RoundsPlayed: 7
+01/09/2024 - 03:57:02.029 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:57:04.384 - rcon from "212.102.62.206:46104": command "status_json"
+01/09/2024 - 03:57:04.416 - rcon from "212.102.62.206:46104": command "status"
+01/09/2024 - 03:57:14.384 - rcon from "212.102.62.206:36702": command "status_json"
+01/09/2024 - 03:57:14.415 - rcon from "212.102.62.206:36702": command "status"
+01/09/2024 - 03:57:17.025 - World triggered "Round_Start"
+01/09/2024 - 03:57:19.713 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:57:24.384 - rcon from "212.102.62.206:52130": command "status_json"
+01/09/2024 - 03:57:24.415 - rcon from "212.102.62.206:52130": command "status"
+01/09/2024 - 03:57:32.041 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:57:34.384 - rcon from "212.102.62.206:59664": command "status_json"
+01/09/2024 - 03:57:34.415 - rcon from "212.102.62.206:59664": command "status"
+01/09/2024 - 03:57:34.948 - "SeatloN<2><[U:1:6318168]><CT>" [-374 -885 86] attacked "Blackwolf<0><BOT><TERRORIST>" [-428 -843 95] with "knife" (damage "90") (damage_armor "0") (health "10") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:57:35.855 - "SeatloN<2><[U:1:6318168]><CT>" [-394 -888 90] attacked "Blackwolf<0><BOT><TERRORIST>" [-428 -843 95] with "knife" (damage "90") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:57:35.855 - "SeatloN<2><[U:1:6318168]><CT>" [-394 -888 90] killed "Blackwolf<0><BOT><TERRORIST>" [-428 -843 95] with "knife_m9_bayonet"
+01/09/2024 - 03:57:35.855 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "8") (T "0")
+01/09/2024 - 03:57:35.855 - Team "CT" scored "8" with "1" players
+01/09/2024 - 03:57:35.855 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:57:35.855 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:57:35.855 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:57:35.855 - MatchStatus: Score: 8:0 on map "de_dust2" RoundsPlayed: 8
+01/09/2024 - 03:57:35.855 - World triggered "Round_End"
+01/09/2024 - 03:57:35.855 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:57:38.900 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:57:42.875 - Starting Freeze period
+01/09/2024 - 03:57:42.875 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:57:42.875 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:57:42.875 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:57:42.875 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:57:42.875 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:57:42.875 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:57:42.875 - MatchStatus: Score: 8:0 on map "de_dust2" RoundsPlayed: 8
+01/09/2024 - 03:57:42.875 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:57:44.395 - rcon from "212.102.62.206:44784": command "status_json"
+01/09/2024 - 03:57:44.426 - rcon from "212.102.62.206:44784": command "status"
+01/09/2024 - 03:57:54.411 - rcon from "212.102.62.206:44148": command "status_json"
+01/09/2024 - 03:57:54.442 - rcon from "212.102.62.206:44148": command "status"
+01/09/2024 - 03:57:57.849 - World triggered "Round_Start"
+01/09/2024 - 03:58:00.614 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_smokegrenade weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:58:04.411 - rcon from "212.102.62.206:43754": command "status_json"
+01/09/2024 - 03:58:04.427 - rcon from "212.102.62.206:43754": command "status"
+01/09/2024 - 03:58:08.567 - "SeatloN<2><[U:1:6318168]><CT>" threw flashbang [-483 -541 475] flashbang entindex 420)
+01/09/2024 - 03:58:12.864 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:58:14.411 - rcon from "212.102.62.206:59690": command "status_json"
+01/09/2024 - 03:58:14.442 - rcon from "212.102.62.206:59690": command "status"
+01/09/2024 - 03:58:18.708 - "SeatloN<2><[U:1:6318168]><CT>" threw smokegrenade [-1464 -626 127]
+01/09/2024 - 03:58:20.739 - "SeatloN<2><[U:1:6318168]><CT>" threw hegrenade [-1309 -707 124]
+01/09/2024 - 03:58:20.739 - "SeatloN<2><[U:1:6318168]><CT>" [-609 -955 129] attacked "Blackwolf<0><BOT><TERRORIST>" [-1181 -754 120] with "hegrenade" (damage "44") (damage_armor "0") (health "55") (armor "0") (hitgroup "generic")
+01/09/2024 - 03:58:24.114 - Molotov projectile spawned at -781.216614 -893.535400 201.213181, velocity -473.474487 169.312286 318.252747
+01/09/2024 - 03:58:24.411 - rcon from "212.102.62.206:45862": command "status_json"
+01/09/2024 - 03:58:24.442 - rcon from "212.102.62.206:45862": command "status"
+01/09/2024 - 03:58:26.130 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [-1728 -555 198]
+01/09/2024 - 03:58:26.881 - "SeatloN<2><[U:1:6318168]><CT>" [-808 -882 119] attacked "Blackwolf<0><BOT><TERRORIST>" [-1181 -754 120] with "m4a1" (damage "128") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:58:26.881 - "SeatloN<2><[U:1:6318168]><CT>" [-808 -882 119] killed "Blackwolf<0><BOT><TERRORIST>" [-1181 -754 120] with "m4a1" (headshot)
+01/09/2024 - 03:58:26.881 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "9") (T "0")
+01/09/2024 - 03:58:26.881 - Team "CT" scored "9" with "1" players
+01/09/2024 - 03:58:26.881 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:58:26.881 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:58:26.881 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:58:26.881 - MatchStatus: Score: 9:0 on map "de_dust2" RoundsPlayed: 9
+01/09/2024 - 03:58:26.881 - World triggered "Round_End"
+01/09/2024 - 03:58:26.881 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:58:29.755 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_m4a1 defuser kevlar(100) helmet ]
+01/09/2024 - 03:58:33.894 - Starting Freeze period
+01/09/2024 - 03:58:33.894 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:58:33.894 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:58:33.894 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:58:33.894 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:58:33.894 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:58:33.894 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:58:33.894 - MatchStatus: Score: 9:0 on map "de_dust2" RoundsPlayed: 9
+01/09/2024 - 03:58:34.430 - rcon from "212.102.62.206:33600": command "status_json"
+01/09/2024 - 03:58:34.461 - rcon from "212.102.62.206:33600": command "status"
+01/09/2024 - 03:58:41.539 - "SeatloN<3><[U:1:6318168]><CT>" money change 16000-600 = $15400 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 03:58:41.539 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 03:58:41.539 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 03:58:41.805 - "SeatloN<3><[U:1:6318168]><CT>" money change 15400-300 = $15100 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 03:58:41.805 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hegrenade"
+01/09/2024 - 03:58:41.805 - "SeatloN<2><[U:1:6318168]><CT>" purchased "hegrenade"
+01/09/2024 - 03:58:42.086 - "SeatloN<3><[U:1:6318168]><CT>" money change 15100-300 = $14800 (tracked) (purchase: weapon_smokegrenade)
+01/09/2024 - 03:58:42.086 - "SeatloN<2><[U:1:6318168]><CT>" picked up "smokegrenade"
+01/09/2024 - 03:58:42.086 - "SeatloN<2><[U:1:6318168]><CT>" purchased "smokegrenade"
+01/09/2024 - 03:58:42.336 - "SeatloN<3><[U:1:6318168]><CT>" money change 14800-200 = $14600 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:58:42.336 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:58:42.336 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:58:44.430 - rcon from "212.102.62.206:56342": command "status_json"
+01/09/2024 - 03:58:44.461 - rcon from "212.102.62.206:56342": command "status"
+01/09/2024 - 03:58:48.883 - World triggered "Round_Start"
+01/09/2024 - 03:58:51.321 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_m4a1 weapon_incgrenade weapon_hegrenade weapon_smokegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:58:54.430 - rcon from "212.102.62.206:56304": command "status_json"
+01/09/2024 - 03:58:54.461 - rcon from "212.102.62.206:56304": command "status"
+01/09/2024 - 03:59:03.899 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:59:04.446 - rcon from "212.102.62.206:47654": command "status_json"
+01/09/2024 - 03:59:04.477 - rcon from "212.102.62.206:47654": command "status"
+01/09/2024 - 03:59:05.821 - "SeatloN<2><[U:1:6318168]><CT>" threw flashbang [-1270 -836 149] flashbang entindex 226)
+01/09/2024 - 03:59:05.821 - "Blackwolf<0><BOT><TERRORIST>" blinded for 3.68 by "SeatloN<2><[U:1:6318168]><CT>" from flashbang entindex 226 
+01/09/2024 - 03:59:12.196 - Molotov projectile spawned at -1925.722168 -707.339600 190.221085, velocity 722.304565 -21.247301 180.166290
+01/09/2024 - 03:59:13.633 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [-897 -738 122]
+01/09/2024 - 03:59:14.446 - rcon from "212.102.62.206:41776": command "status_json"
+01/09/2024 - 03:59:14.477 - rcon from "212.102.62.206:41776": command "status"
+01/09/2024 - 03:59:17.055 - "SeatloN<2><[U:1:6318168]><CT>" [-1240 -990 125] attacked "Blackwolf<0><BOT><TERRORIST>" [-332 -754 79] with "deagle" (damage "152") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+01/09/2024 - 03:59:17.055 - "SeatloN<2><[U:1:6318168]><CT>" [-1240 -990 125] killed "Blackwolf<0><BOT><TERRORIST>" [-332 -754 79] with "deagle" (headshot)
+01/09/2024 - 03:59:17.055 - "SeatloN<3><[U:1:6318168]><CT>" money change 14600+300 = $14900 (tracked)
+01/09/2024 - 03:59:17.055 - Team "CT" triggered "SFUI_Notice_CTs_Win" (CT "10") (T "0")
+01/09/2024 - 03:59:17.055 - Team "CT" scored "10" with "1" players
+01/09/2024 - 03:59:17.055 - Team "TERRORIST" scored "0" with "2" players
+01/09/2024 - 03:59:17.055 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:59:17.055 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:59:17.055 - MatchStatus: Score: 10:0 on map "de_dust2" RoundsPlayed: 10
+01/09/2024 - 03:59:17.055 - World triggered "Round_End"
+01/09/2024 - 03:59:17.055 - "SeatloN<3><[U:1:6318168]><CT>" money change 14900+3250 = $16000 (tracked)
+01/09/2024 - 03:59:17.055 - "Blackwolf<0><BOT><TERRORIST>" left buyzone with [ ]
+01/09/2024 - 03:59:19.258 - "SeatloN<2><[U:1:6318168]><CT>" [-914 -948 129] attacked "SeatloN<2><[U:1:6318168]><CT>" [-914 -948 129] with "inferno" (damage "8") (damage_armor "0") (health "92") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:19.461 - "SeatloN<2><[U:1:6318168]><CT>" [-876 -917 121] attacked "SeatloN<2><[U:1:6318168]><CT>" [-876 -917 121] with "inferno" (damage "8") (damage_armor "0") (health "84") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:19.665 - "SeatloN<2><[U:1:6318168]><CT>" [-837 -888 119] attacked "SeatloN<2><[U:1:6318168]><CT>" [-837 -888 119] with "inferno" (damage "8") (damage_armor "0") (health "76") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:19.852 - "SeatloN<2><[U:1:6318168]><CT>" [-808 -851 117] attacked "SeatloN<2><[U:1:6318168]><CT>" [-808 -851 117] with "inferno" (damage "8") (damage_armor "0") (health "68") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:20.055 - "SeatloN<2><[U:1:6318168]><CT>" [-779 -809 117] attacked "SeatloN<2><[U:1:6318168]><CT>" [-779 -809 117] with "inferno" (damage "8") (damage_armor "0") (health "60") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:20.258 - "SeatloN<2><[U:1:6318168]><CT>" [-751 -767 119] attacked "SeatloN<2><[U:1:6318168]><CT>" [-751 -767 119] with "inferno" (damage "8") (damage_armor "0") (health "52") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:20.461 - "SeatloN<2><[U:1:6318168]><CT>" [-715 -735 123] attacked "SeatloN<2><[U:1:6318168]><CT>" [-715 -735 123] with "inferno" (damage "8") (damage_armor "0") (health "44") (armor "100") (hitgroup "generic")
+01/09/2024 - 03:59:22.211 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_m4a1 weapon_hegrenade weapon_smokegrenade defuser kevlar(100) helmet ]
+01/09/2024 - 03:59:24.059 - Starting Freeze period
+01/09/2024 - 03:59:24.059 - "Blackwolf<0><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 03:59:24.059 - "Blackwolf<0><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 03:59:24.059 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 03:59:24.059 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 03:59:24.059 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 03:59:24.059 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 03:59:24.059 - MatchStatus: Score: 10:0 on map "de_dust2" RoundsPlayed: 10
+01/09/2024 - 03:59:24.446 - rcon from "212.102.62.206:49682": command "status_json"
+01/09/2024 - 03:59:24.477 - rcon from "212.102.62.206:49682": command "status"
+01/09/2024 - 03:59:30.227 - "SeatloN<3><[U:1:6318168]><CT>" money change 16000-600 = $15400 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 03:59:30.227 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 03:59:30.227 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 03:59:30.680 - "SeatloN<3><[U:1:6318168]><CT>" money change 15400-200 = $15200 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 03:59:30.680 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 03:59:30.680 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 03:59:34.446 - rcon from "185.180.15.33:40348": command "status"
+01/09/2024 - 03:59:34.461 - rcon from "212.102.62.206:49628": command "status_json"
+01/09/2024 - 03:59:34.492 - rcon from "212.102.62.206:49628": command "status"
+01/09/2024 - 03:59:39.055 - World triggered "Round_Start"
+01/09/2024 - 03:59:41.149 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_m4a1 weapon_hegrenade weapon_smokegrenade weapon_incgrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 03:59:44.461 - rcon from "212.102.62.206:59034": command "status_json"
+01/09/2024 - 03:59:44.492 - rcon from "212.102.62.206:59034": command "status"
+01/09/2024 - 03:59:54.071 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 03:59:54.477 - rcon from "212.102.62.206:43564": command "status_json"
+01/09/2024 - 03:59:54.508 - rcon from "212.102.62.206:43564": command "status"
+01/09/2024 - 04:00:04.477 - rcon from "212.102.62.206:37196": command "status_json"
+01/09/2024 - 04:00:04.508 - rcon from "212.102.62.206:37196": command "status"
+01/09/2024 - 04:00:14.477 - rcon from "212.102.62.206:44368": command "status_json"
+01/09/2024 - 04:00:14.508 - rcon from "212.102.62.206:44368": command "status"
+01/09/2024 - 04:00:24.492 - rcon from "212.102.62.206:44436": command "status_json"
+01/09/2024 - 04:00:24.524 - rcon from "212.102.62.206:44436": command "status"
+01/09/2024 - 04:00:34.492 - rcon from "212.102.62.206:58896": command "status_json"
+01/09/2024 - 04:00:34.524 - rcon from "212.102.62.206:58896": command "status"
+01/09/2024 - 04:00:44.492 - rcon from "212.102.62.206:34094": command "status_json"
+01/09/2024 - 04:00:44.524 - rcon from "212.102.62.206:34094": command "status"
+01/09/2024 - 04:00:48.946 - "SeatloN<2><[U:1:6318168]><CT>" threw hegrenade [1080 2034 4]
+01/09/2024 - 04:00:48.946 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2060 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2060 1] with "hegrenade" (damage "51") (damage_armor "34") (health "49") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:50.071 - Molotov projectile spawned at 1083.495605 2070.093018 57.090511, velocity -12.308397 -609.220398 -290.385956
+01/09/2024 - 04:00:50.336 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [1082 2064 3]
+01/09/2024 - 04:00:50.758 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "1") (damage_armor "0") (health "47") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:50.961 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "2") (damage_armor "0") (health "45") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:51.164 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "3") (damage_armor "0") (health "41") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:51.368 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "4") (damage_armor "0") (health "37") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:51.555 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "4") (damage_armor "0") (health "32") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:51.758 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "5") (damage_armor "0") (health "26") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:51.961 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "6") (damage_armor "0") (health "20") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:52.165 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "7") (damage_armor "0") (health "13") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:52.368 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "8") (damage_armor "0") (health "5") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:52.555 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] attacked "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] with "inferno" (damage "8") (damage_armor "0") (health "0") (armor "66") (hitgroup "generic")
+01/09/2024 - 04:00:52.555 - "SeatloN<2><[U:1:6318168]><CT>" [1084 2085 1] committed suicide with "inferno"
+01/09/2024 - 04:00:52.555 - Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "10") (T "1")
+01/09/2024 - 04:00:52.555 - Team "CT" scored "10" with "1" players
+01/09/2024 - 04:00:52.555 - Team "TERRORIST" scored "1" with "2" players
+01/09/2024 - 04:00:52.555 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:00:52.555 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:00:52.555 - MatchStatus: Score: 10:1 on map "de_dust2" RoundsPlayed: 11
+01/09/2024 - 04:00:52.555 - World triggered "Round_End"
+01/09/2024 - 04:00:52.555 - "SeatloN<3><[U:1:6318168]><CT>" money change 15200+1400 = $16000 (tracked)
+01/09/2024 - 04:00:54.508 - rcon from "212.102.62.206:58920": command "status_json"
+01/09/2024 - 04:00:54.539 - rcon from "212.102.62.206:58920": command "status"
+01/09/2024 - 04:00:59.568 - Starting Freeze period
+01/09/2024 - 04:00:59.568 - "SeatloN<2><[U:1:6318168]><CT>" picked up "knife"
+01/09/2024 - 04:00:59.568 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hkp2000"
+01/09/2024 - 04:00:59.568 - "Blackwolf<0><BOT><TERRORIST>" picked up "c4"
+01/09/2024 - 04:00:59.568 - "Blackwolf<0><BOT><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 04:00:59.568 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:00:59.568 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:00:59.568 - MatchStatus: Score: 10:1 on map "de_dust2" RoundsPlayed: 11
+01/09/2024 - 04:01:03.619 - "SeatloN<2><[U:1:6318168]><CT>" picked up "vesthelm"
+01/09/2024 - 04:01:03.619 - "SeatloN<3><[U:1:6318168]><CT>" money change 16000-1000 = $15000 (tracked) (purchase: item_assaultsuit)
+01/09/2024 - 04:01:03.619 - "SeatloN<2><[U:1:6318168]><CT>" purchased "item_assaultsuit"
+01/09/2024 - 04:01:03.979 - "SeatloN<2><[U:1:6318168]><CT>" picked up "defuser"
+01/09/2024 - 04:01:03.979 - "SeatloN<3><[U:1:6318168]><CT>" money change 15000-400 = $14600 (tracked) (purchase: item_defuser)
+01/09/2024 - 04:01:03.979 - "SeatloN<2><[U:1:6318168]><CT>" purchased "item_defuser"
+01/09/2024 - 04:01:04.510 - rcon from "212.102.62.206:35768": command "status_json"
+01/09/2024 - 04:01:04.541 - rcon from "212.102.62.206:35768": command "status"
+01/09/2024 - 04:01:05.244 - "SeatloN<3><[U:1:6318168]><CT>" money change 14600-4750 = $9850 (tracked) (purchase: weapon_awp)
+01/09/2024 - 04:01:05.244 - "SeatloN<2><[U:1:6318168]><CT>" picked up "awp"
+01/09/2024 - 04:01:05.244 - "SeatloN<2><[U:1:6318168]><CT>" purchased "awp"
+01/09/2024 - 04:01:06.401 - "SeatloN<3><[U:1:6318168]><CT>" money change 9850-700 = $9150 (tracked) (purchase: weapon_deagle)
+01/09/2024 - 04:01:06.401 - "SeatloN<2><[U:1:6318168]><CT>" picked up "deagle"
+01/09/2024 - 04:01:06.401 - "SeatloN<2><[U:1:6318168]><CT>" purchased "deagle"
+01/09/2024 - 04:01:07.135 - "SeatloN<3><[U:1:6318168]><CT>" money change 9150-600 = $8550 (tracked) (purchase: weapon_incgrenade)
+01/09/2024 - 04:01:07.135 - "SeatloN<2><[U:1:6318168]><CT>" picked up "incgrenade"
+01/09/2024 - 04:01:07.135 - "SeatloN<2><[U:1:6318168]><CT>" purchased "incgrenade"
+01/09/2024 - 04:01:07.463 - "SeatloN<3><[U:1:6318168]><CT>" money change 8550-300 = $8250 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 04:01:07.463 - "SeatloN<2><[U:1:6318168]><CT>" picked up "hegrenade"
+01/09/2024 - 04:01:07.463 - "SeatloN<2><[U:1:6318168]><CT>" purchased "hegrenade"
+01/09/2024 - 04:01:07.775 - "SeatloN<3><[U:1:6318168]><CT>" money change 8250-300 = $7950 (tracked) (purchase: weapon_smokegrenade)
+01/09/2024 - 04:01:07.775 - "SeatloN<2><[U:1:6318168]><CT>" picked up "smokegrenade"
+01/09/2024 - 04:01:07.775 - "SeatloN<2><[U:1:6318168]><CT>" purchased "smokegrenade"
+01/09/2024 - 04:01:08.072 - "SeatloN<3><[U:1:6318168]><CT>" money change 7950-200 = $7750 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 04:01:08.072 - "SeatloN<2><[U:1:6318168]><CT>" picked up "flashbang"
+01/09/2024 - 04:01:08.072 - "SeatloN<2><[U:1:6318168]><CT>" purchased "flashbang"
+01/09/2024 - 04:01:14.510 - rcon from "212.102.62.206:52512": command "status_json"
+01/09/2024 - 04:01:14.541 - rcon from "212.102.62.206:52512": command "status"
+01/09/2024 - 04:01:14.557 - World triggered "Round_Start"
+01/09/2024 - 04:01:16.198 - "SeatloN<2><[U:1:6318168]><CT>" left buyzone with [ weapon_knife_m9_bayonet weapon_awp weapon_deagle weapon_incgrenade weapon_hegrenade weapon_smokegrenade weapon_flashbang defuser kevlar(100) helmet ]
+01/09/2024 - 04:01:17.682 - Molotov projectile spawned at 845.057434 2257.096680 34.338558, velocity -9.384841 -918.640625 -22.181435
+01/09/2024 - 04:01:18.370 - "SeatloN<2><[U:1:6318168]><CT>" threw molotov [841 2236 -30]
+01/09/2024 - 04:01:18.791 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "1") (damage_armor "0") (health "98") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:18.995 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "2") (damage_armor "0") (health "95") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:19.198 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "3") (damage_armor "0") (health "92") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:19.401 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "4") (damage_armor "0") (health "88") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:19.588 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "4") (damage_armor "0") (health "83") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:19.791 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "5") (damage_armor "0") (health "77") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:19.995 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "6") (damage_armor "0") (health "71") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:20.198 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "7") (damage_armor "0") (health "63") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:20.401 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "55") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:20.588 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "47") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:20.793 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "39") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:20.995 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "31") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:21.198 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "23") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:21.401 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "15") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:21.588 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "7") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:21.791 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] attacked "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] with "inferno" (damage "8") (damage_armor "0") (health "0") (armor "100") (hitgroup "generic")
+01/09/2024 - 04:01:21.791 - "SeatloN<2><[U:1:6318168]><CT>" [845 2217 -28] committed suicide with "inferno"
+01/09/2024 - 04:01:21.791 - Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "10") (T "2")
+01/09/2024 - 04:01:21.791 - Team "CT" scored "10" with "2" players
+01/09/2024 - 04:01:21.791 - Team "TERRORIST" scored "2" with "2" players
+01/09/2024 - 04:01:21.791 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:01:21.791 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:01:21.791 - MatchStatus: Score: 10:2 on map "de_dust2" RoundsPlayed: 12
+01/09/2024 - 04:01:21.791 - World triggered "Round_End"
+01/09/2024 - 04:01:21.791 - "SeatloN<3><[U:1:6318168]><CT>" money change 7750+1900 = $9650 (tracked)
+01/09/2024 - 04:01:24.526 - rcon from "212.102.62.206:53754": command "status_json"
+01/09/2024 - 04:01:24.557 - rcon from "212.102.62.206:53754": command "status"
+01/09/2024 - 04:01:29.573 - "Blackwolf<0><BOT><TERRORIST>" triggered "Dropped_The_Bomb"
+01/09/2024 - 04:01:30.302 - "Blackwolf<0><BOT>" switched from team <TERRORIST> to <CT>
+01/09/2024 - 04:01:30.302 - "SeatloN<2><[U:1:6318168]>" switched from team <CT> to <TERRORIST>
+01/09/2024 - 04:01:30.302 - Starting Freeze period
+01/09/2024 - 04:01:30.302 - "Blackwolf<0><BOT><CT>" picked up "knife"
+01/09/2024 - 04:01:30.302 - "Blackwolf<0><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 04:01:30.302 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "knife"
+01/09/2024 - 04:01:30.302 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "glock"
+01/09/2024 - 04:01:30.302 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "c4"
+01/09/2024 - 04:01:30.302 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 04:01:30.302 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:01:30.302 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:01:30.302 - MatchStatus: Score: 2:10 on map "de_dust2" RoundsPlayed: 12
+01/09/2024 - 04:01:30.302 - "Blackwolf<0><BOT><CT>" left buyzone with [ weapon_knife weapon_hkp2000 ]
+01/09/2024 - 04:01:34.526 - rcon from "212.102.62.206:47698": command "status_json"
+01/09/2024 - 04:01:34.557 - rcon from "212.102.62.206:47698": command "status"
+01/09/2024 - 04:01:41.761 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "vest"
+01/09/2024 - 04:01:41.761 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 800-650 = $150 (tracked) (purchase: item_kevlar)
+01/09/2024 - 04:01:41.761 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "item_kevlar"
+01/09/2024 - 04:01:44.526 - rcon from "212.102.62.206:59190": command "status_json"
+01/09/2024 - 04:01:44.558 - rcon from "212.102.62.206:59190": command "status"
+01/09/2024 - 04:01:45.417 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 150-50 = $100 (tracked) (purchase: weapon_decoy)
+01/09/2024 - 04:01:45.417 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "decoy"
+01/09/2024 - 04:01:45.417 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "decoy"
+01/09/2024 - 04:01:51.792 - World triggered "Round_Start"
+01/09/2024 - 04:01:54.027 - "SeatloN<2><[U:1:6318168]><TERRORIST>" left buyzone with [ weapon_knife_m9_bayonet weapon_glock weapon_c4 weapon_decoy kevlar(100) C4 ]
+01/09/2024 - 04:01:54.526 - rcon from "212.102.62.206:37188": command "status_json"
+01/09/2024 - 04:01:54.558 - rcon from "212.102.62.206:37188": command "status"
+01/09/2024 - 04:02:04.542 - rcon from "212.102.62.206:36438": command "status_json"
+01/09/2024 - 04:02:04.573 - rcon from "212.102.62.206:36438": command "status"
+01/09/2024 - 04:02:08.698 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite B
+01/09/2024 - 04:02:11.964 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 100+300 = $400 (tracked)
+01/09/2024 - 04:02:11.964 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B
+01/09/2024 - 04:02:14.542 - rcon from "212.102.62.206:59266": command "status_json"
+01/09/2024 - 04:02:14.573 - rcon from "212.102.62.206:59266": command "status"
+01/09/2024 - 04:02:24.542 - rcon from "212.102.62.206:59936": command "status_json"
+01/09/2024 - 04:02:24.573 - rcon from "212.102.62.206:59936": command "status"
+01/09/2024 - 04:02:24.777 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw decoy [-2055 1940 2]
+01/09/2024 - 04:02:28.872 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [-436 1908 -126] attacked "Blackwolf<0><BOT><CT>" [334 2434 -120] with "glock" (damage "32") (damage_armor "0") (health "68") (armor "0") (hitgroup "head")
+01/09/2024 - 04:02:34.558 - rcon from "212.102.62.206:51636": command "status_json"
+01/09/2024 - 04:02:34.589 - rcon from "212.102.62.206:51636": command "status"
+01/09/2024 - 04:02:43.245 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [312 2368 -120] attacked "Blackwolf<0><BOT><CT>" [334 2434 -120] with "glock" (damage "29") (damage_armor "0") (health "38") (armor "0") (hitgroup "right arm")
+01/09/2024 - 04:02:44.419 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [356 2344 -120] attacked "Blackwolf<0><BOT><CT>" [334 2434 -120] with "glock" (damage "29") (damage_armor "0") (health "9") (armor "0") (hitgroup "right arm")
+01/09/2024 - 04:02:44.558 - rcon from "212.102.62.206:40966": command "status_json"
+01/09/2024 - 04:02:44.589 - rcon from "212.102.62.206:40966": command "status"
+01/09/2024 - 04:02:46.169 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [356 2344 -120] attacked "Blackwolf<0><BOT><CT>" [334 2434 -120] with "glock" (damage "29") (damage_armor "0") (health "0") (armor "0") (hitgroup "right arm")
+01/09/2024 - 04:02:46.169 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [356 2344 -120] killed "Blackwolf<0><BOT><CT>" [334 2434 -120] with "glock"
+01/09/2024 - 04:02:46.169 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 400+300 = $700 (tracked)
+01/09/2024 - 04:02:46.169 - Team "TERRORIST" triggered "SFUI_Notice_Terrorists_Win" (CT "2") (T "11")
+01/09/2024 - 04:02:46.169 - Team "CT" scored "2" with "2" players
+01/09/2024 - 04:02:46.169 - Team "TERRORIST" scored "11" with "2" players
+01/09/2024 - 04:02:46.169 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:02:46.169 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:02:46.169 - MatchStatus: Score: 2:11 on map "de_dust2" RoundsPlayed: 13
+01/09/2024 - 04:02:46.169 - World triggered "Round_End"
+01/09/2024 - 04:02:46.169 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 700+3250 = $3950 (tracked)
+01/09/2024 - 04:02:46.169 - "Blackwolf<1><BOT><CT>" money change 800+1900 = $2700 (tracked)
+01/09/2024 - 04:02:46.169 - "Blackwolf<0><BOT><CT>" left buyzone with [ ]
+01/09/2024 - 04:02:53.178 - Starting Freeze period
+01/09/2024 - 04:02:53.178 - "Blackwolf<0><BOT><CT>" picked up "knife"
+01/09/2024 - 04:02:53.178 - "Blackwolf<0><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 04:02:53.178 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "c4"
+01/09/2024 - 04:02:53.178 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 04:02:53.178 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:02:53.178 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:02:53.178 - MatchStatus: Score: 2:11 on map "de_dust2" RoundsPlayed: 13
+01/09/2024 - 04:02:53.178 - "SeatloN<2><[U:1:6318168]><TERRORIST>" left buyzone with [ weapon_knife_m9_bayonet weapon_glock weapon_c4 kevlar(100) C4 ]
+01/09/2024 - 04:02:54.573 - rcon from "212.102.62.206:49256": command "status_json"
+01/09/2024 - 04:02:54.605 - rcon from "212.102.62.206:49256": command "status"
+01/09/2024 - 04:03:04.386 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "vesthelm"
+01/09/2024 - 04:03:04.386 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 3950-350 = $3600 (tracked) (purchase: item_assaultsuit)
+01/09/2024 - 04:03:04.386 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "item_assaultsuit"
+01/09/2024 - 04:03:04.573 - rcon from "212.102.62.206:51622": command "status_json"
+01/09/2024 - 04:03:04.605 - rcon from "212.102.62.206:51622": command "status"
+01/09/2024 - 04:03:06.495 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 3600-300 = $3300 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 04:03:06.495 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "hegrenade"
+01/09/2024 - 04:03:06.495 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "hegrenade"
+01/09/2024 - 04:03:06.761 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 3300-400 = $2900 (tracked) (purchase: weapon_molotov)
+01/09/2024 - 04:03:06.761 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "molotov"
+01/09/2024 - 04:03:06.761 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "molotov"
+01/09/2024 - 04:03:07.073 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 2900-300 = $2600 (tracked) (purchase: weapon_smokegrenade)
+01/09/2024 - 04:03:07.073 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "smokegrenade"
+01/09/2024 - 04:03:07.073 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "smokegrenade"
+01/09/2024 - 04:03:07.370 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 2600-200 = $2400 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 04:03:07.370 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "flashbang"
+01/09/2024 - 04:03:07.370 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "flashbang"
+01/09/2024 - 04:03:08.167 - World triggered "Round_Start"
+01/09/2024 - 04:03:08.464 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 2400-700 = $1700 (tracked) (purchase: weapon_deagle)
+01/09/2024 - 04:03:08.464 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "deagle"
+01/09/2024 - 04:03:08.464 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "deagle"
+01/09/2024 - 04:03:08.886 - "SeatloN<2><[U:1:6318168]><TERRORIST>" left buyzone with [ weapon_knife_m9_bayonet weapon_c4 weapon_hegrenade weapon_molotov weapon_smokegrenade weapon_flashbang weapon_deagle kevlar(100) helmet C4 ]
+01/09/2024 - 04:03:13.902 - Molotov projectile spawned at 278.697693 75.711037 66.774796, velocity -660.034912 684.591614 198.909348
+01/09/2024 - 04:03:14.573 - rcon from "212.102.62.206:43652": command "status_json"
+01/09/2024 - 04:03:14.605 - rcon from "212.102.62.206:43652": command "status"
+01/09/2024 - 04:03:15.917 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw molotov [-317 1160 -92]
+01/09/2024 - 04:03:24.589 - rcon from "212.102.62.206:60360": command "status_json"
+01/09/2024 - 04:03:24.620 - rcon from "212.102.62.206:60360": command "status"
+01/09/2024 - 04:03:25.402 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw flashbang [865 2069 -26] flashbang entindex 378)
+01/09/2024 - 04:03:30.558 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw hegrenade [311 2272 -89]
+01/09/2024 - 04:03:30.558 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [1319 2580 112] attacked "Blackwolf<0><BOT><CT>" [258 2481 -121] with "hegrenade" (damage "18") (damage_armor "0") (health "82") (armor "0") (hitgroup "generic")
+01/09/2024 - 04:03:32.105 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite A
+01/09/2024 - 04:03:34.589 - rcon from "212.102.62.206:34164": command "status_json"
+01/09/2024 - 04:03:34.620 - rcon from "212.102.62.206:34164": command "status"
+01/09/2024 - 04:03:35.371 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 1700+300 = $2000 (tracked)
+01/09/2024 - 04:03:35.371 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite A
+01/09/2024 - 04:03:44.589 - rcon from "212.102.62.206:33476": command "status_json"
+01/09/2024 - 04:03:44.620 - rcon from "212.102.62.206:33476": command "status"
+01/09/2024 - 04:03:50.402 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw smokegrenade [301 2458 -119]
+01/09/2024 - 04:03:54.605 - rcon from "212.102.62.206:59324": command "status_json"
+01/09/2024 - 04:03:54.636 - rcon from "212.102.62.206:59324": command "status"
+01/09/2024 - 04:04:04.605 - rcon from "212.102.62.206:43390": command "status_json"
+01/09/2024 - 04:04:04.636 - rcon from "212.102.62.206:43390": command "status"
+01/09/2024 - 04:04:14.605 - rcon from "212.102.62.206:36698": command "status_json"
+01/09/2024 - 04:04:14.636 - rcon from "212.102.62.206:36698": command "status"
+01/09/2024 - 04:04:16.371 - Team "TERRORIST" triggered "SFUI_Notice_Target_Bombed" (CT "2") (T "12")
+01/09/2024 - 04:04:16.371 - Team "CT" scored "2" with "3" players
+01/09/2024 - 04:04:16.371 - Team "TERRORIST" scored "12" with "1" players
+01/09/2024 - 04:04:16.371 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:04:16.371 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:04:16.371 - MatchStatus: Score: 2:12 on map "de_dust2" RoundsPlayed: 14
+01/09/2024 - 04:04:16.371 - World triggered "Round_End"
+01/09/2024 - 04:04:16.371 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 2000+3500 = $5500 (tracked)
+01/09/2024 - 04:04:16.371 - "Blackwolf<1><BOT><CT>" money change 2700+2400 = $5100 (tracked)
+01/09/2024 - 04:04:16.371 - "Blackwolf<0><BOT><CT>" [258 2481 -121] was killed by the bomb.
+01/09/2024 - 04:04:16.371 - "Blackwolf<0><BOT><CT>" [258 2481 -121] committed suicide with "world"
+01/09/2024 - 04:04:16.371 - "Blackwolf<0><BOT><CT>" left buyzone with [ ]
+01/09/2024 - 04:04:23.384 - Starting Freeze period
+01/09/2024 - 04:04:23.384 - "Blackwolf<0><BOT><CT>" picked up "knife"
+01/09/2024 - 04:04:23.384 - "Blackwolf<0><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 04:04:23.384 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "c4"
+01/09/2024 - 04:04:23.384 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Got_The_Bomb"
+01/09/2024 - 04:04:23.384 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:04:23.384 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:04:23.384 - MatchStatus: Score: 2:12 on map "de_dust2" RoundsPlayed: 14
+01/09/2024 - 04:04:24.607 - rcon from "212.102.62.206:36418": command "status_json"
+01/09/2024 - 04:04:24.638 - rcon from "212.102.62.206:36418": command "status"
+01/09/2024 - 04:04:26.373 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)
+01/09/2024 - 04:04:26.373 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "molotov"
+01/09/2024 - 04:04:26.373 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "molotov"
+01/09/2024 - 04:04:26.748 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5100-300 = $4800 (tracked) (purchase: weapon_hegrenade)
+01/09/2024 - 04:04:26.748 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "hegrenade"
+01/09/2024 - 04:04:26.748 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "hegrenade"
+01/09/2024 - 04:04:27.013 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 4800-300 = $4500 (tracked) (purchase: weapon_smokegrenade)
+01/09/2024 - 04:04:27.013 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "smokegrenade"
+01/09/2024 - 04:04:27.013 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "smokegrenade"
+01/09/2024 - 04:04:27.263 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 4500-200 = $4300 (tracked) (purchase: weapon_flashbang)
+01/09/2024 - 04:04:27.263 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "flashbang"
+01/09/2024 - 04:04:27.263 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "flashbang"
+01/09/2024 - 04:04:28.357 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 4300-2700 = $1600 (tracked) (purchase: weapon_ak47)
+01/09/2024 - 04:04:28.357 - "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "ak47"
+01/09/2024 - 04:04:28.357 - "SeatloN<2><[U:1:6318168]><TERRORIST>" purchased "ak47"
+01/09/2024 - 04:04:34.451 - rcon from "185.180.15.33:36168": command "status"
+01/09/2024 - 04:04:34.623 - rcon from "212.102.62.206:41850": command "status_json"
+01/09/2024 - 04:04:34.654 - rcon from "212.102.62.206:41850": command "status"
+01/09/2024 - 04:04:38.373 - World triggered "Round_Start"
+01/09/2024 - 04:04:39.467 - "SeatloN<2><[U:1:6318168]><TERRORIST>" left buyzone with [ weapon_knife_m9_bayonet weapon_deagle weapon_c4 weapon_molotov weapon_hegrenade weapon_smokegrenade weapon_flashbang weapon_ak47 kevlar(100) helmet C4 ]
+01/09/2024 - 04:04:44.623 - rcon from "212.102.62.206:48680": command "status_json"
+01/09/2024 - 04:04:44.654 - rcon from "212.102.62.206:48680": command "status"
+01/09/2024 - 04:04:46.654 - Molotov projectile spawned at -1668.506592 938.404175 96.939301, velocity 557.079468 742.150757 121.919197
+01/09/2024 - 04:04:47.951 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw molotov [-1215 1038 10]
+01/09/2024 - 04:04:52.529 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw flashbang [-1190 2660 259] flashbang entindex 466)
+01/09/2024 - 04:04:52.529 - "SeatloN<2><[U:1:6318168]><TERRORIST>" blinded for 0.62 by "SeatloN<2><[U:1:6318168]><TERRORIST>" from flashbang entindex 466 
+01/09/2024 - 04:04:54.638 - rcon from "212.102.62.206:50556": command "status_json"
+01/09/2024 - 04:04:54.670 - rcon from "212.102.62.206:50556": command "status"
+01/09/2024 - 04:04:55.029 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite B
+01/09/2024 - 04:04:58.295 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 1600+300 = $1900 (tracked)
+01/09/2024 - 04:04:58.295 - "SeatloN<2><[U:1:6318168]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B
+01/09/2024 - 04:05:01.842 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw smokegrenade [-1326 2176 4]
+01/09/2024 - 04:05:04.638 - rcon from "212.102.62.206:42636": command "status_json"
+01/09/2024 - 04:05:04.670 - rcon from "212.102.62.206:42636": command "status"
+01/09/2024 - 04:05:14.639 - rcon from "212.102.62.206:41818": command "status_json"
+01/09/2024 - 04:05:14.670 - rcon from "212.102.62.206:41818": command "status"
+01/09/2024 - 04:05:24.654 - rcon from "212.102.62.206:59652": command "status_json"
+01/09/2024 - 04:05:24.685 - rcon from "212.102.62.206:59652": command "status"
+01/09/2024 - 04:05:33.232 - "SeatloN<2><[U:1:6318168]><TERRORIST>" threw hegrenade [149 2239 -104]
+01/09/2024 - 04:05:33.232 - "SeatloN<2><[U:1:6318168]><TERRORIST>" [-513 2322 -111] attacked "Blackwolf<0><BOT><CT>" [351 2353 -120] with "hegrenade" (damage "12") (damage_armor "0") (health "87") (armor "0") (hitgroup "generic")
+01/09/2024 - 04:05:34.654 - rcon from "212.102.62.206:54694": command "status_json"
+01/09/2024 - 04:05:34.685 - rcon from "212.102.62.206:54694": command "status"
+01/09/2024 - 04:05:39.295 - Team "TERRORIST" triggered "SFUI_Notice_Target_Bombed" (CT "2") (T "13")
+01/09/2024 - 04:05:39.295 - Team "CT" scored "2" with "3" players
+01/09/2024 - 04:05:39.295 - Team "TERRORIST" scored "13" with "1" players
+01/09/2024 - 04:05:39.295 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:05:39.295 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:05:39.295 - MatchStatus: Score: 2:13 on map "de_dust2" RoundsPlayed: 15
+01/09/2024 - 04:05:39.295 - World triggered "Round_End"
+01/09/2024 - 04:05:39.295 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 1900+3500 = $5400 (tracked)
+01/09/2024 - 04:05:39.295 - "Blackwolf<1><BOT><CT>" money change 5100+2900 = $8000 (tracked)
+01/09/2024 - 04:05:39.295 - ACCOLADE, FINAL: {killreward},	Blackwolf<0>,	VALUE: 600.000000,	POS: 1,	SCORE: 2.121212
+01/09/2024 - 04:05:39.295 - ACCOLADE, FINAL: {mvps},	SeatloN<2>,	VALUE: 13.000000,	POS: 1,	SCORE: 69.333336
+01/09/2024 - 04:05:39.295 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:05:39.295 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:05:39.295 - MatchStatus: Score: 2:13 on map "de_dust2" RoundsPlayed: 15
+01/09/2024 - 04:05:39.295 - Game Over: competitive  de_dust2 score 2:13 after 14 min
+01/09/2024 - 04:05:44.654 - rcon from "212.102.62.206:40252": command "status_json"
+01/09/2024 - 04:05:44.685 - rcon from "212.102.62.206:40252": command "status"
+01/09/2024 - 04:05:54.670 - rcon from "212.102.62.206:60192": command "status_json"
+01/09/2024 - 04:05:54.701 - rcon from "212.102.62.206:60192": command "status"
+01/09/2024 - 04:06:04.311 - "Blackwolf<0><BOT><CT>" disconnected (reason "NETWORK_DISCONNECT_KICKED")
+01/09/2024 - 04:06:04.311 - "SeatloN<2><[U:1:6318168]>" switched from team <TERRORIST> to <Unassigned>
+01/09/2024 - 04:06:04.311 - Starting Freeze period
+01/09/2024 - 04:06:04.311 - "Blackwolf<0><<none>><CT>" left buyzone with [ ]
+01/09/2024 - 04:06:04.311 - World triggered "Match_Start" on "de_dust2"
+01/09/2024 - 04:06:04.311 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:06:04.311 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:06:04.311 - MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: -1
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><>" connected, address "none"
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><>" entered the game
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT>" switched from team <Unassigned> to <TERRORIST>
+01/09/2024 - 04:06:04.326 - World triggered "Game_Commencing"
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><>" connected, address "none"
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><>" entered the game
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT>" switched from team <Unassigned> to <CT>
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><CT>" picked up "knife"
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 04:06:04.326 - Starting Freeze period
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><CT>" picked up "knife"
+01/09/2024 - 04:06:04.326 - "Sas<4><BOT><CT>" picked up "hkp2000"
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><TERRORIST>" picked up "knife"
+01/09/2024 - 04:06:04.326 - "Aspirant<3><BOT><TERRORIST>" picked up "glock"
+01/09/2024 - 04:06:04.326 - World triggered "Match_Start" on "de_dust2"
+01/09/2024 - 04:06:04.326 - MatchStatus: Team "CT" is unset.
+01/09/2024 - 04:06:04.326 - MatchStatus: Team "TERRORIST" is unset.
+01/09/2024 - 04:06:04.326 - MatchStatus: Score: 0:0 on map "de_dust2" RoundsPlayed: -1
+01/09/2024 - 04:06:04.670 - rcon from "212.102.62.206:42346": command "status_json"
+01/09/2024 - 04:06:04.701 - rcon from "212.102.62.206:42346": command "status"
+01/09/2024 - 04:06:06.326 - World triggered "Round_Start"
+01/09/2024 - 04:06:14.670 - rcon from "212.102.62.206:53060": command "status_json"
+01/09/2024 - 04:06:14.701 - rcon from "212.102.62.206:53060": command "status"
+01/09/2024 - 04:06:24.685 - rcon from "212.102.62.206:37560": command "status_json"
+01/09/2024 - 04:06:24.717 - rcon from "212.102.62.206:37560": command "status"
+01/09/2024 - 04:06:34.685 - rcon from "212.102.62.206:39498": command "status_json"
+01/09/2024 - 04:06:34.717 - rcon from "212.102.62.206:39498": command "status"
+01/09/2024 - 04:06:38.420 - "SeatloN<2><[U:1:6318168]><Unassigned>" disconnected (reason "NETWORK_DISCONNECT_EXITING")
+01/09/2024 - 04:06:44.685 - rcon from "212.102.62.206:52982": command "status_json"
+01/09/2024 - 04:06:44.717 - rcon from "212.102.62.206:52982": command "status"
+01/09/2024 - 04:06:54.701 - rcon from "212.102.62.206:52380": command "status_json"
+01/09/2024 - 04:06:54.732 - rcon from "212.102.62.206:52380": command "status"
+01/09/2024 - 04:07:04.701 - rcon from "212.102.62.206:33948": command "status_json"
+01/09/2024 - 04:07:04.732 - rcon from "212.102.62.206:33948": command "status"
+01/09/2024 - 04:07:14.717 - rcon from "212.102.62.206:59720": command "status_json"

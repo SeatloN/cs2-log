@@ -7,6 +7,7 @@ use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\MatchEnd;
+use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\RoundEnd;
 use CSLog\CS2\Models\Connected;
 use CSLog\CS2\Models\Purchased;
@@ -21,6 +22,7 @@ use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\Disconnected;
+use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\EnteredTheGame;
 
@@ -100,11 +102,11 @@ test('BombPlanting', function () {
 
 test('ChangeMap', function () {
     // @todo
-});
+})->skip();
 
 test('ChangeName', function () {
     // @todo
-});
+})->skip();
 
 test('Connected', function () {
     $log = 'L 10/01/2023 - 16:32:46: "Scriib<8><[U:1:94156635]><>" connected, address "127.0.0.1:1234"';
@@ -364,4 +366,37 @@ test('Threw - smoke', function () {
     expect($model->posX)->toBe(735);
     expect($model->posY)->toBe(2440);
     expect($model->posZ)->toBe(138);
+});
+
+test('Picked Up', function () {
+    $log = 'L 10/01/2023 - 16:58:37: "SeatloN<2><[U:1:6318168]><TERRORIST>" picked up "molotov"';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(PickedUp::class);
+    expect($model->type)->toBe('PickedUp');
+
+    expect($model->userId)->toBe("2");
+    expect($model->userName)->toBe("SeatloN");
+    expect($model->userTeam)->toBe("TERRORIST");
+    expect($model->steamId)->toBe("[U:1:6318168]");
+    expect($model->object)->toBe("molotov");
+});
+
+test('Money Changed', function () {
+    $log = 'L 01/09/2024 - 04:04:26.373 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(MoneyChanged::class);
+    expect($model->type)->toBe('MoneyChanged');
+
+    expect($model->userId)->toBe("3");
+    expect($model->userName)->toBe("SeatloN");
+    expect($model->userTeam)->toBe("TERRORIST");
+    expect($model->steamId)->toBe("[U:1:6318168]");
+    expect($model->before)->toBe("5500");
+    expect($model->cost)->toBe("400");
+    expect($model->bank)->toBe("5100");
+    expect($model->purchase)->toBe("weapon_molotov");
 });
