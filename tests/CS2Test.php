@@ -207,7 +207,7 @@ test('KillHeadshot', function () {
     expect($model->killedY)->toBe(615);
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
-    expect($model->headshot)->toBe("headshot");
+    expect($model->headshot)->toBe(" (headshot)");
 });
 
 test('KillThroughSmoke', function () {
@@ -232,7 +232,7 @@ test('KillThroughSmoke', function () {
     expect($model->killedY)->toBe(615);
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
-    expect($model->headshot)->toBe("throughsmoke");
+    expect($model->headshot)->toBe(" (throughsmoke)");
 });
 
 test('KillAssist', function () {
