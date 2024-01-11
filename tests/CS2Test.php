@@ -9,8 +9,11 @@ use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\RoundEnd;
+use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\Connected;
 use CSLog\CS2\Models\Purchased;
+use CSLog\CS2\Models\ChangeName;
+use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\GotTheBomb;
 use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\MatchStart;
@@ -21,7 +24,6 @@ use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
-use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
@@ -102,12 +104,28 @@ test('BombPlanting', function () {
 });
 
 test('ChangeMap', function () {
-    // @todo
-})->skip();
+    $log = 'L 01/10/2024 - 20:22:50: Loading map "de_ancient"';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(ChangeMap::class);
+    expect($model->type)->toBe('ChangeMap');
+    expect($model->maps)->toBe("de_ancient");
+});
 
 test('ChangeName', function () {
-    // @todo
-})->skip();
+    $log = 'L 06/29/2023 - 19:36:46: "majky<4><STEAM_1:0:436676464><Unassigned>" changed name to "majkycs"';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(ChangeName::class);
+    expect($model->type)->toBe("ChangeName");
+    expect($model->userId)->toBe("4");
+    expect($model->userName)->toBe("majky");
+    expect($model->userTeam)->toBe("Unassigned");
+    expect($model->steamId)->toBe("STEAM_1:0:436676464");
+    expect($model->newName)->toBe("majkycs");
+});
 
 test('Connected', function () {
     $log = 'L 10/01/2023 - 16:32:46: "Scriib<8><[U:1:94156635]><>" connected, address "127.0.0.1:1234"';
