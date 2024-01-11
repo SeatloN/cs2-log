@@ -161,6 +161,31 @@ test('GotTheBomb', function () {
 });
 
 test('Kill', function () {
+    $log = 'L 10/01/2023 - 16:32:00: "GEO<0><[U:1:353168853]><CT>" [-835 525 -32] killed "Elix<3><[U:1:302549372]><TERRORIST>" [-762 615 -30] with "m4a1_silencer"';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(Kill::class);
+    expect($model->type)->toBe('Kill');
+    expect($model->killerId)->toBe("0");
+    expect($model->killerName)->toBe("GEO");
+    expect($model->killerSteamId)->toBe("[U:1:353168853]");
+    expect($model->killerTeam)->toBe("CT");
+    expect($model->killerX)->toBe(-835);
+    expect($model->killerY)->toBe(525);
+    expect($model->killerZ)->toBe(-32);
+    expect($model->killedName)->toBe("Elix");
+    expect($model->killedId)->toBe("3");
+    expect($model->killedSteamId)->toBe("[U:1:302549372]");
+    expect($model->killedTeam)->toBe("TERRORIST");
+    expect($model->killedX)->toBe(-762);
+    expect($model->killedY)->toBe(615);
+    expect($model->killedZ)->toBe(-30);
+    expect($model->weapon)->toBe("m4a1_silencer");
+    expect($model->headshot)->toBe("");
+});
+
+test('Kill Headshot', function () {
     $log = 'L 10/01/2023 - 16:32:00: "GEO<0><[U:1:353168853]><CT>" [-835 525 -32] killed "Elix<3><[U:1:302549372]><TERRORIST>" [-762 615 -30] with "m4a1_silencer" (headshot)';
 
     $model = Patterns::match($log);
@@ -182,7 +207,32 @@ test('Kill', function () {
     expect($model->killedY)->toBe(615);
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
-    expect($model->headshot)->toBe(" (headshot)");
+    expect($model->headshot)->toBe("headshot");
+});
+
+test('Kill Through Smoke', function () {
+    $log = 'L 10/01/2023 - 16:32:00: "GEO<0><[U:1:353168853]><CT>" [-835 525 -32] killed "Elix<3><[U:1:302549372]><TERRORIST>" [-762 615 -30] with "m4a1_silencer" (throughsmoke)';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(Kill::class);
+    expect($model->type)->toBe('Kill');
+    expect($model->killerId)->toBe("0");
+    expect($model->killerName)->toBe("GEO");
+    expect($model->killerSteamId)->toBe("[U:1:353168853]");
+    expect($model->killerTeam)->toBe("CT");
+    expect($model->killerX)->toBe(-835);
+    expect($model->killerY)->toBe(525);
+    expect($model->killerZ)->toBe(-32);
+    expect($model->killedName)->toBe("Elix");
+    expect($model->killedId)->toBe("3");
+    expect($model->killedSteamId)->toBe("[U:1:302549372]");
+    expect($model->killedTeam)->toBe("TERRORIST");
+    expect($model->killedX)->toBe(-762);
+    expect($model->killedY)->toBe(615);
+    expect($model->killedZ)->toBe(-30);
+    expect($model->weapon)->toBe("m4a1_silencer");
+    expect($model->headshot)->toBe("throughsmoke");
 });
 
 test('KillAssist', function () {
