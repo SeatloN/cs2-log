@@ -182,7 +182,7 @@ test('Kill', function () {
     expect($model->killedY)->toBe(615);
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
-    expect($model->headshot)->toBe("");
+    expect($model->headshot)->toBe(null);
 });
 
 test('Kill Headshot', function () {
