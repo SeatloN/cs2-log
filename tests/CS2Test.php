@@ -21,6 +21,7 @@ use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
+use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
@@ -233,6 +234,31 @@ test('KillThroughSmoke', function () {
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
     expect($model->headshot)->toBe(" (throughsmoke)");
+});
+
+test('KillThroughWall', function () {
+    $log = 'L 10/01/2023 - 16:32:00: "GEO<0><[U:1:353168853]><CT>" [-835 525 -32] killed "Elix<3><[U:1:302549372]><TERRORIST>" [-762 615 -30] with "m4a1_silencer" (penetrated)';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(Kill::class);
+    expect($model->type)->toBe('Kill');
+    expect($model->killerId)->toBe("0");
+    expect($model->killerName)->toBe("GEO");
+    expect($model->killerSteamId)->toBe("[U:1:353168853]");
+    expect($model->killerTeam)->toBe("CT");
+    expect($model->killerX)->toBe(-835);
+    expect($model->killerY)->toBe(525);
+    expect($model->killerZ)->toBe(-32);
+    expect($model->killedName)->toBe("Elix");
+    expect($model->killedId)->toBe("3");
+    expect($model->killedSteamId)->toBe("[U:1:302549372]");
+    expect($model->killedTeam)->toBe("TERRORIST");
+    expect($model->killedX)->toBe(-762);
+    expect($model->killedY)->toBe(615);
+    expect($model->killedZ)->toBe(-30);
+    expect($model->weapon)->toBe("m4a1_silencer");
+    expect($model->headshot)->toBe(" (penetrated)");
 });
 
 test('KillAssist', function () {
@@ -449,4 +475,17 @@ test('Money Changed', function () {
     expect($model->cost)->toBe("400");
     expect($model->bank)->toBe("5100");
     expect($model->purchase)->toBe("weapon_molotov");
+});
+
+test('Console Say', function () {
+    $log = 'L 01/10/2024 - 20:24:22: "Console<0>" say "[CM] ( 1 / 10 ) players online"';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(ConsoleSay::class);
+    expect($model->type)->toBe('ConsoleSay');
+
+    expect($model->userId)->toBe("0");
+    expect($model->userName)->toBe("Console");
+    expect($model->text)->toBe("[CM] ( 1 / 10 ) players online");
 });

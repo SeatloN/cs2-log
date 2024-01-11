@@ -8,6 +8,7 @@ use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\ChangeName;
+use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\Connected;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\EnteredTheGame;
@@ -41,6 +42,7 @@ class Patterns
         'BombPlanting' => BombPlanting::PATTERN,
         'ChangeMap' => ChangeMap::PATTERN,
         'ChangeName' => ChangeName::PATTERN,
+        'ConsoleSay' => ConsoleSay::PATTERN,
         'Connected' => Connected::PATTERN,
         'Disconnected' => Disconnected::PATTERN,
         'EnteredTheGame' => EnteredTheGame::PATTERN,
