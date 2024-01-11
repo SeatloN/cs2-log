@@ -40,5 +40,5 @@ class Kill extends Model
 
     public string $weapon;
 
-    public string $headshot;
+    public string $headshot = "";
 }
