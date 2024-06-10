@@ -5,6 +5,7 @@ namespace CSLog\CS2;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\BombDefusing;
+use CSLog\CS2\Models\BombPlanted;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\ChangeName;
@@ -39,6 +40,7 @@ class Patterns
         'Attack' => Attack::PATTERN,
         'Blinded' => Blinded::PATTERN,
         'BombDefusing' => BombDefusing::PATTERN,
+        'BombPlanted' => BombPlanted::PATTERN,
         'BombPlanting' => BombPlanting::PATTERN,
         'ChangeMap' => ChangeMap::PATTERN,
         'ChangeName' => ChangeName::PATTERN,

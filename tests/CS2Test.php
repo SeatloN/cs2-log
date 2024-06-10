@@ -23,6 +23,7 @@ use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
+use CSLog\CS2\Models\BombPlanted;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
@@ -91,7 +92,7 @@ test('BombDefusing', function () {
 });
 
 test('BombPlanting', function () {
-    $log = 'L 10/01/2023 - 16:53:03: "Kaph<6><[U:1:149882025]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B';
+    $log = 'L 10/01/2023 - 16:53:03: "Kaph<6><[U:1:149882025]><TERRORIST>" triggered "Bomb_Begin_Plant" at bombsite B';
 
     $model = Patterns::match($log);
 
@@ -506,4 +507,17 @@ test('Console Say', function () {
     expect($model->userId)->toBe("0");
     expect($model->userName)->toBe("Console");
     expect($model->text)->toBe("[CM] ( 1 / 10 ) players online");
+});
+
+test('Bomb Planted', function (){
+    $log = 'L 01/10/2024 - 20:38:06: "FinigaN<6><[U:1:226095351]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B';
+    
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(BombPlanted::class);
+    expect($model->userId)->toBe("6");
+    expect($model->userName)->toBe("FinigaN");
+    expect($model->userTeam)->toBe("TERRORIST");
+    expect($model->steamId)->toBe("[U:1:226095351]");
+    expect($model->bombsite)->toBe("B");
 });

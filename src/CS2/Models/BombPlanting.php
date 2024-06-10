@@ -6,7 +6,7 @@ use CSLog\Model;
 
 class BombPlanting extends Model
 {
-    public const PATTERN = '/"(?P<userName>.+)[<](?P<userId>\d+)[>][<](?P<steamId>.*)[>][<](?P<userTeam>CT|TERRORIST|Unassigned|Spectator)[>]" triggered "Planted_The_Bomb" at bombsite (?P<bombsite>A|B)/';
+    public const PATTERN = '/"(?P<userName>.+)[<](?P<userId>\d+)[>][<](?P<steamId>.*)[>][<](?P<userTeam>CT|TERRORIST|Unassigned|Spectator)[>]" triggered "Bomb_Begin_Plant" at bombsite (?P<bombsite>A|B)/';
     
     public string $type = 'BombPlanting';
 

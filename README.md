@@ -51,5 +51,5 @@ docker build -t cs2-log .
 
 ## Docker Run Command
 ```bash
-docker run -p 8000:8000 cs2-log
+docker run --rm --tty cs2-log
 ```
