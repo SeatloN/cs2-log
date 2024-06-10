@@ -2,37 +2,38 @@
 
 namespace CSLog\CS2;
 
+use CSLog\Model;
+use CSLog\CS2\Models\Say;
+use CSLog\CS2\Models\Kill;
+use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
-use CSLog\CS2\Models\BombDefusing;
-use CSLog\CS2\Models\BombPlanted;
-use CSLog\CS2\Models\BombPlanting;
+use CSLog\CS2\Models\SayTeam;
+use CSLog\CS2\Models\JoinTeam;
+use CSLog\CS2\Models\MatchEnd;
+use CSLog\CS2\Models\PickedUp;
+use CSLog\CS2\Models\RoundEnd;
 use CSLog\CS2\Models\ChangeMap;
+use CSLog\CS2\Models\Connected;
+use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\ChangeName;
 use CSLog\CS2\Models\ConsoleSay;
-use CSLog\CS2\Models\Connected;
-use CSLog\CS2\Models\Disconnected;
-use CSLog\CS2\Models\EnteredTheGame;
 use CSLog\CS2\Models\GotTheBomb;
-use CSLog\CS2\Models\JoinTeam;
-use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\KillAssist;
-use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\MatchStart;
-use CSLog\CS2\Models\MatchStatus;
-use CSLog\CS2\Models\MoneyChanged;
-use CSLog\CS2\Models\PickedUp;
-use CSLog\CS2\Models\Purchased;
-use CSLog\CS2\Models\RoundEnd;
-use CSLog\CS2\Models\RoundRestart;
-use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\RoundStart;
-use CSLog\CS2\Models\Say;
-use CSLog\CS2\Models\SayTeam;
 use CSLog\CS2\Models\SwitchTeam;
 use CSLog\CS2\Models\TeamScored;
-use CSLog\CS2\Models\Threw;
-use CSLog\Model;
+use CSLog\CS2\Models\BombPlanted;
+use CSLog\CS2\Models\LeftBuyZone;
+use CSLog\CS2\Models\MatchStatus;
+use CSLog\CS2\Models\RoundScored;
+use CSLog\CS2\Models\BombDefusing;
+use CSLog\CS2\Models\BombPlanting;
+use CSLog\CS2\Models\Disconnected;
+use CSLog\CS2\Models\MoneyChanged;
+use CSLog\CS2\Models\RoundRestart;
+use CSLog\CS2\Models\EnteredTheGame;
 
 class Patterns
 {
@@ -52,6 +53,7 @@ class Patterns
         'JoinTeam' => JoinTeam::PATTERN,
         'Kill' => Kill::PATTERN,
         'KillAssist' => KillAssist::PATTERN,
+        'LeftBuyZone' => LeftBuyZone::PATTERN,
         'MatchEnd' => MatchEnd::PATTERN,
         'MatchStart' => MatchStart::PATTERN,
         'MatchStatus' => MatchStatus::PATTERN,

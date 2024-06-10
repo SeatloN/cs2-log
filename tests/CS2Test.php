@@ -20,10 +20,11 @@ use CSLog\CS2\Models\MatchStart;
 use CSLog\CS2\Models\RoundStart;
 use CSLog\CS2\Models\SwitchTeam;
 use CSLog\CS2\Models\TeamScored;
+use CSLog\CS2\Models\BombPlanted;
+use CSLog\CS2\Models\LeftBuyZone;
 use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
-use CSLog\CS2\Models\BombPlanted;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
@@ -520,4 +521,16 @@ test('Bomb Planted', function (){
     expect($model->userTeam)->toBe("TERRORIST");
     expect($model->steamId)->toBe("[U:1:226095351]");
     expect($model->bombsite)->toBe("B");
+});
+
+test('Left Buyzone', function() {
+    $log = 'L 01/10/2024 - 21:02:00: "nicoodoz<8><[U:1:112851399]><TERRORIST>" left buyzone with [ weapon_knife_butterfly weapon_glock weapon_ak47 weapon_molotov weapon_hegrenade weapon_smokegrenade kevlar(100) helmet ]';
+    $model = Patterns::match($log);
+    
+    expect($model)->toBeInstanceOf(LeftBuyZone::class);
+    expect($model->userId)->toBe("8");
+    expect($model->userName)->toBe("nicoodoz");
+    expect($model->userTeam)->toBe("TERRORIST");
+    expect($model->userSteamId)->toBe("[U:1:112851399]");
+    expect($model->items)->toBe("weapon_knife_butterfly weapon_glock weapon_ak47 weapon_molotov weapon_hegrenade weapon_smokegrenade kevlar(100) helmet");
 });
