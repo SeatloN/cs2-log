@@ -6,6 +6,7 @@ use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
+use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\RoundEnd;
@@ -279,6 +280,22 @@ test('KillThroughWall', function () {
     expect($model->killedZ)->toBe(-30);
     expect($model->weapon)->toBe("m4a1_silencer");
     expect($model->headshot)->toBe(" (penetrated)");
+});
+
+test('BombKill', function() {
+    $log = 'L 01/10/2024 - 20:38:47: "sjuush<7><[U:1:200443857]><CT>" [-586 -856 85] was killed by the bomb.';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(BombKill::class);
+    expect($model->type)->toBe('BombKill');
+    expect($model->killedName)->toBe("sjuush");
+    expect($model->killedId)->toBe("7");
+    expect($model->killedSteamId)->toBe("[U:1:200443857]");
+    expect($model->killedTeam)->toBe("CT");
+    expect($model->killedX)->toBe(-586);
+    expect($model->killedY)->toBe(-856);
+    expect($model->killedZ)->toBe(85);
 });
 
 test('KillAssist', function () {

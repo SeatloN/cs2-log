@@ -9,6 +9,7 @@ use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\SayTeam;
+use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\JoinTeam;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\PickedUp;
@@ -43,6 +44,7 @@ class Patterns
         'BombDefusing' => BombDefusing::PATTERN,
         'BombPlanted' => BombPlanted::PATTERN,
         'BombPlanting' => BombPlanting::PATTERN,
+        'BombKill' => BombKill::PATTERN,
         'ChangeMap' => ChangeMap::PATTERN,
         'ChangeName' => ChangeName::PATTERN,
         'ConsoleSay' => ConsoleSay::PATTERN,
