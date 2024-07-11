@@ -6,7 +6,6 @@ use CSLog\Model;
 
 class TimeOut extends Model
 {
-    // L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "timeout_terrorist_start"
     public const PATTERN = '/rcon from "(?P<address>.*)": command "(?P<command>timeout_terrorist_start|timeout_ct_start|mp_pause_match|mp_unpause_match)"/';
 
     public const TERRORIST_TIMEOUT = 'terrorist_timeout';
