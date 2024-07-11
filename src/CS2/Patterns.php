@@ -9,6 +9,7 @@ use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\SayTeam;
+use CSLog\CS2\Models\TimeOut;
 use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\JoinTeam;
 use CSLog\CS2\Models\MatchEnd;
@@ -35,6 +36,8 @@ use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\EnteredTheGame;
+use CSLog\CS2\Models\MolotovSpawned;
+use CSLog\CS2\Models\FlashAssistedKill;
 
 class Patterns
 {
@@ -71,6 +74,9 @@ class Patterns
         'SwitchTeam' => SwitchTeam::PATTERN,
         'TeamScored' => TeamScored::PATTERN,
         'Threw' => Threw::PATTERN,
+        'FlashAssistedKill' => FlashAssistedKill::PATTERN,
+        'TimeOut' => TimeOut::PATTERN,
+        'MolotovSpawned' => MolotovSpawned::PATTERN,
     ];
 
     public static function match($log): Model|false

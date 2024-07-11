@@ -6,6 +6,7 @@ use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\Attack;
 use CSLog\CS2\Models\Blinded;
+use CSLog\CS2\Models\TimeOut;
 use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\PickedUp;
@@ -31,6 +32,8 @@ use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\EnteredTheGame;
+use CSLog\CS2\Models\MolotovSpawned;
+use CSLog\CS2\Models\FlashAssistedKill;
 
 test('Attack', function () {
     $log = 'L 10/01/2023 - 16:31:58: "GEO<0><[U:1:353168853]><CT>" [-884 537 -32] attacked "Elix<3><[U:1:302549372]><TERRORIST>" [-1035 564 -47] with "m4a1" (damage "90") (damage_armor "19") (health "10") (armor "81") (hitgroup "head")';
@@ -282,7 +285,7 @@ test('KillThroughWall', function () {
     expect($model->headshot)->toBe(" (penetrated)");
 });
 
-test('BombKill', function() {
+test('BombKill', function () {
     $log = 'L 01/10/2024 - 20:38:47: "sjuush<7><[U:1:200443857]><CT>" [-586 -856 85] was killed by the bomb.';
 
     $model = Patterns::match($log);
@@ -527,9 +530,9 @@ test('Console Say', function () {
     expect($model->text)->toBe("[CM] ( 1 / 10 ) players online");
 });
 
-test('Bomb Planted', function (){
+test('Bomb Planted', function () {
     $log = 'L 01/10/2024 - 20:38:06: "FinigaN<6><[U:1:226095351]><TERRORIST>" triggered "Planted_The_Bomb" at bombsite B';
-    
+
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(BombPlanted::class);
@@ -540,14 +543,93 @@ test('Bomb Planted', function (){
     expect($model->bombsite)->toBe("B");
 });
 
-test('Left Buyzone', function() {
+test('Left Buyzone', function () {
     $log = 'L 01/10/2024 - 21:02:00: "nicoodoz<8><[U:1:112851399]><TERRORIST>" left buyzone with [ weapon_knife_butterfly weapon_glock weapon_ak47 weapon_molotov weapon_hegrenade weapon_smokegrenade kevlar(100) helmet ]';
     $model = Patterns::match($log);
-    
+
     expect($model)->toBeInstanceOf(LeftBuyZone::class);
     expect($model->userId)->toBe("8");
     expect($model->userName)->toBe("nicoodoz");
     expect($model->userTeam)->toBe("TERRORIST");
     expect($model->userSteamId)->toBe("[U:1:112851399]");
     expect($model->items)->toBe("weapon_knife_butterfly weapon_glock weapon_ak47 weapon_molotov weapon_hegrenade weapon_smokegrenade kevlar(100) helmet");
+});
+
+test('Flash Assisted Kill', function () {
+    $log = 'L 01/10/2024 - 20:39:24: "znxjez<5><[U:1:23528558]><TERRORIST>" flash-assisted killing "sjuush<7><[U:1:200443857]><CT>"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(FlashAssistedKill::class);
+    expect($model->type)->toBe('FlashAssistedKill');
+    expect($model->assisterId)->toBe("5");
+    expect($model->assisterName)->toBe("znxjez");
+    expect($model->assisterSteamId)->toBe("[U:1:23528558]");
+    expect($model->assisterTeam)->toBe("TERRORIST");
+    expect($model->killedId)->toBe("7");
+    expect($model->killedName)->toBe("sjuush");
+    expect($model->killedSteamId)->toBe("[U:1:200443857]");
+    expect($model->killedTeam)->toBe("CT");
+});
+
+
+test('Timeout Terrorist', function () {
+    $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "timeout_terrorist_start"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(TimeOut::class);
+    expect($model->type)->toBe('TimeOut');
+    expect($model->address)->toBe("20.71.36.216:54356");
+    expect($model->command)->toBe("timeout_terrorist_start");
+    expect($model->timeOutType)->toBe("terrorist_timeout");
+    expect($model->team)->toBe("TERRORIST");
+});
+
+test('Timeout CT', function () {
+    $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "timeout_ct_start"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(TimeOut::class);
+    expect($model->type)->toBe('TimeOut');
+    expect($model->address)->toBe("20.71.36.216:54356");
+    expect($model->command)->toBe("timeout_ct_start");
+    expect($model->timeOutType)->toBe("ct_timeout");
+    expect($model->team)->toBe("CT");
+});
+
+test('Technical TimeOut', function () {
+    $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "mp_pause_match"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(TimeOut::class);
+    expect($model->type)->toBe('TimeOut');
+    expect($model->address)->toBe("20.71.36.216:54356");
+    expect($model->command)->toBe("mp_pause_match");
+    expect($model->timeOutType)->toBe("technical_timeout");
+    expect($model->team)->toBe("TECH");
+});
+
+test('Technical TimeOut Ended', function () {
+    $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "mp_unpause_match"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(TimeOut::class);
+    expect($model->type)->toBe('TimeOut');
+    expect($model->address)->toBe("20.71.36.216:54356");
+    expect($model->command)->toBe("mp_unpause_match");
+    expect($model->timeOutType)->toBe("technical_timeout_ended");
+    expect($model->team)->toBe("TECH");
+});
+
+test('Molotov Spawned', function () {
+    $log = 'L 01/10/2024 - 20:43:33: Molotov projectile spawned at -1329.640015 -1124.735352 59.975124, velocity 582.460632 595.014771 367.838104';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(MolotovSpawned::class);
+    expect($model->type)->toBe('MolotovSpawned');
+    expect($model->spawnPosX)->toBe(-1329.640015);
+    expect($model->spawnPosY)->toBe(-1124.735352);
+    expect($model->spawnPosZ)->toBe(59.975124);
+    expect($model->velocityPosX)->toBe(582.460632);
+    expect($model->velocityPosY)->toBe(595.014771);
+    expect($model->velocityPosZ)->toBe(367.838104);
 });
