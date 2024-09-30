@@ -29,6 +29,7 @@ use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\Disconnected;
+use CSLog\CS2\Models\FreezePeriod;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\EnteredTheGame;
@@ -633,3 +634,13 @@ test('Molotov Spawned', function () {
     expect($model->velocityPosY)->toBe(595.014771);
     expect($model->velocityPosZ)->toBe(367.838104);
 });
+
+test('Starting Freeze period', function () {
+    $log = 'L 01/10/2024 - 20:52:46: Starting Freeze period';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(FreezePeriod::class);
+    expect($model->type)->toBe('FreezePeriod');
+});
+
+// L 01/10/2024 - 20:52:46: Starting Freeze period

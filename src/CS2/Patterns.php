@@ -33,6 +33,7 @@ use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\BombDefusing;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\Disconnected;
+use CSLog\CS2\Models\FreezePeriod;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\EnteredTheGame;
@@ -77,6 +78,7 @@ class Patterns
         'FlashAssistedKill' => FlashAssistedKill::PATTERN,
         'TimeOut' => TimeOut::PATTERN,
         'MolotovSpawned' => MolotovSpawned::PATTERN,
+        'FreezePeriod' => FreezePeriod::PATTERN,
     ];
 
     public static function match($log): Model|false
