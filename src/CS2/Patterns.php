@@ -17,6 +17,7 @@ use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\RoundEnd;
 use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\Connected;
+use CSLog\CS2\Models\MatchDraw;
 use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\ChangeName;
 use CSLog\CS2\Models\ConsoleSay;
@@ -36,8 +37,10 @@ use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\FreezePeriod;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\RoundRestart;
+use CSLog\CS2\Models\MatchReloaded;
 use CSLog\CS2\Models\EnteredTheGame;
 use CSLog\CS2\Models\MolotovSpawned;
+use CSLog\CS2\Models\BackupFileLoading;
 use CSLog\CS2\Models\FlashAssistedKill;
 
 class Patterns
@@ -79,6 +82,9 @@ class Patterns
         'TimeOut' => TimeOut::PATTERN,
         'MolotovSpawned' => MolotovSpawned::PATTERN,
         'FreezePeriod' => FreezePeriod::PATTERN,
+        'MatchReloaded' => MatchReloaded::PATTERN,
+        'MatchDraw' => MatchDraw::PATTERN,
+        'BackupFileLoading' => BackupFileLoading::PATTERN,
     ];
 
     public static function match($log): Model|false

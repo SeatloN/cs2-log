@@ -35,7 +35,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
-- [Alexander Nilsson](https://github.com/SeatloN)
+- [Alexander Nilsson (SeatloN)](https://github.com/SeatloN)
 - [Harry (hjbdev)](https://github.com/hjbdev)
 - [All Contributors](../../contributors)
 - [eBot](https://github.com/deStrO/eBot-CSGO) (for some of the original Global Offensive patterns, which I have updated and refined for CS2)
