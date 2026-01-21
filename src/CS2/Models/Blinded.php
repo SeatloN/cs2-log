@@ -4,7 +4,7 @@ namespace CSLog\CS2\Models;
 
 use CSLog\Model;
 
-class Blinded extends Model 
+class Blinded extends Model
 {
     public const PATTERN = '/"(?P<victimName>.+)[<](?P<victimId>\d+)[>][<](?P<victimSteamId>.*)[>][<](?P<victimTeam>CT|TERRORIST|Unassigned|Spectator)[>]" blinded for (?<time>[0-9.]+) by "(?P<throwerName>.+)[<](?P<throwerUserId>\d+)[>][<](?P<throwerSteamId>.*)[>][<](?P<throwerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" from flashbang entindex (?<entindex>[0-9]+)/';
 

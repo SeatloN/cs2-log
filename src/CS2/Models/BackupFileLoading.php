@@ -11,6 +11,6 @@ class BackupFileLoading extends Model
     public string $type = 'BackupFileLoading';
 
     public string $ip;
-    
+
     public string $filename;
 }

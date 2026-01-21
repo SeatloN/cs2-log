@@ -19,6 +19,7 @@ use CSLog\CS2\Models\GotTheBomb;
 use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\LeftBuyZone;
+use CSLog\CS2\Models\LogFileStarted;
 use CSLog\CS2\Models\MatchDraw;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\MatchReloaded;
@@ -28,6 +29,7 @@ use CSLog\CS2\Models\MolotovSpawned;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\Purchased;
+use CSLog\CS2\Models\RconCommand;
 use CSLog\CS2\Models\RoundEnd;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\RoundScored;
@@ -37,6 +39,7 @@ use CSLog\CS2\Models\SwitchTeam;
 use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\TimeOut;
+use CSLog\CS2\Models\WarmupEnd;
 use CSLog\CS2\Patterns;
 
 test('Attack', function () {
@@ -671,4 +674,38 @@ test('Backup File Loading', function () {
     expect($model->type)->toBe('BackupFileLoading');
     expect($model->ip)->toBe('20.71.36.216:60696');
     expect($model->filename)->toBe('cm_backup_cs2_match_de345abb-a155-4d1f-7839-08de566fc039_round11.txt');
+});
+
+test('Backup File Not triggering', function () {
+    $log = 'L 01/19/2026 - 18:56:00: rcon from "20.71.36.216:61688": command "mp_backup_round_file_last"';
+    $model = Patterns::match($log);
+
+    expect($model)->not->toBeInstanceOf(BackupFileLoading::class);
+});
+
+test('Log File Started', function () {
+    $log = 'L 01/19/2026 - 18:55:38: Log file started (file "logs//0f870999-5f60-4259-7837-08de566fc039/2026_01_19_185538.log") (game "csgo") (version "10603")';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(LogFileStarted::class);
+    expect($model->file)->toBe('logs//0f870999-5f60-4259-7837-08de566fc039/2026_01_19_185538.log');
+    expect($model->game)->toBe('csgo');
+    expect($model->version)->toBe('10603');
+});
+
+test('Rcon Command', function () {
+    $log = 'L 01/19/2026 - 19:13:54: rcon from "20.71.36.216:60696": command "logaddress_add_http "https://publicapi.challengermode.com/CS2Logs?auth=M16iBkyoFvDAwnMUWqcZ92SnSd6dzjUVj-wRzmZs630&gameId=de345abb-a155-4d1f-7839-08de566fc039""';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->ip)->toBe('20.71.36.216:60696');
+    expect($model->command)->toBe('logaddress_add_http "https://publicapi.challengermode.com/CS2Logs?auth=M16iBkyoFvDAwnMUWqcZ92SnSd6dzjUVj-wRzmZs630&gameId=de345abb-a155-4d1f-7839-08de566fc039"');
+});
+
+test('Warmup End', function () {
+    $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_End"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(WarmupEnd::class);
+    expect($model->type)->toBe('WarmupEnd');
 });

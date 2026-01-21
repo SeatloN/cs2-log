@@ -13,5 +13,4 @@ class MatchDraw extends Model
     public int $scoreA;
 
     public int $scoreB;
-
 }
