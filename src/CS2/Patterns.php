@@ -44,6 +44,7 @@ use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\TimeOut;
 use CSLog\CS2\Models\WarmupEnd;
+use CSLog\CS2\Models\WarmupStart;
 use CSLog\Model;
 
 class Patterns
@@ -91,6 +92,7 @@ class Patterns
         'LogFileStarted' => LogFileStarted::PATTERN,
         'RconCommand' => RconCommand::PATTERN,
         'WarmupEnd' => WarmupEnd::PATTERN,
+        'WarmupStart' => WarmupStart::PATTERN,
     ];
 
     public static function match($log): ?Model

@@ -40,6 +40,7 @@ use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\TimeOut;
 use CSLog\CS2\Models\WarmupEnd;
+use CSLog\CS2\Models\WarmupStart;
 use CSLog\CS2\Patterns;
 
 test('Attack', function () {
@@ -708,4 +709,12 @@ test('Warmup End', function () {
 
     expect($model)->toBeInstanceOf(WarmupEnd::class);
     expect($model->type)->toBe('WarmupEnd');
+});
+
+test('Warmup Start', function () {
+    $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_Start"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(WarmupStart::class);
+    expect($model->type)->toBe('WarmupStart');
 });
