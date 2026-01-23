@@ -2,27 +2,37 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
+use CSLog\CS2\Traits\ParsesTimestamp;
+use CSLog\CS2\ValueObjects\Vector3;
 use CSLog\Model;
 
 class Attack extends Model
 {
-    public const PATTERN = '/"(?P<attackerName>.*)[<](?P<attackerId>\d+)[>][<](?P<attackerSteamId>.*)[>][<](?P<attackerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<attackerX>[\-]?[0-9]+) (?P<attackerY>[\-]?[0-9]+) (?P<attackerZ>[\-]?[0-9]+)\] attacked "(?P<victimName>.*)[<](?P<victimId>\d+)[>][<](?P<victimSteamId>.*)[>][<](?P<victimTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<victimX>[\-]?[0-9]+) (?P<victimY>[\-]?[0-9]+) (?P<victimZ>[\-]?[0-9]+)\] with "(?P<attackerWeapon>[a-zA-Z0-9_]+)" \(damage "(?P<attackerDamage>[0-9]+)"\) \(damage_armor "(?P<attackerDamageArmor>[0-9]+)"\) \(health "(?P<victimHealth>[0-9]+)"\) \(armor "(?P<victimArmor>[0-9]+)"\) \(hitgroup "(?P<victimHitGroup>.*)"\)/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<attacker>'.CommonPatterns::IDENTITY_INNER.') '
+        .CommonPatterns::ATTACKER_VECTOR.' '
+        .'attacked '
+        .'(?P<victim>'.CommonPatterns::IDENTITY_INNER.') '
+        .CommonPatterns::VICTIM_VECTOR.' '
+        .'with "(?P<attackerWeapon>[a-zA-Z0-9_]*)" '
+        .'\(damage "(?P<attackerDamage>[0-9]+)"\) '
+        .'\(damage_armor "(?P<attackerDamageArmor>[0-9]+)"\) '
+        .'\(health "(?P<victimHealth>[0-9]+)"\) '
+        .'\(armor "(?P<victimArmor>[0-9]+)"\) '
+        .'\(hitgroup "(?P<victimHitGroup>[^"]+)"\)/';
 
     public string $type = 'Attack';
 
-    public string $attackerName;
+    public Carbon $timestamp;
 
-    public string $attackerId;
+    public PlayerIdentity $attacker;
 
-    public string $attackerSteamId;
-
-    public string $attackerTeam;
-
-    public int $attackerX;
-
-    public int $attackerY;
-
-    public int $attackerZ;
+    public Vector3 $attackerPos;
 
     public string $attackerWeapon;
 
@@ -30,23 +40,27 @@ class Attack extends Model
 
     public int $attackerDamageArmor;
 
-    public string $victimHitGroup;
+    public PlayerIdentity $victim;
 
-    public string $victimName;
-
-    public string $victimId;
-
-    public string $victimSteamId;
-
-    public string $victimTeam;
-
-    public int $victimX;
-
-    public int $victimY;
-
-    public int $victimZ;
+    public Vector3 $victimPos;
 
     public int $victimHealth;
 
     public int $victimArmor;
+
+    public string $victimHitGroup;
+
+    public function __construct(array $matches)
+    {
+        $attackerString = $matches['attacker'];
+        $victimString = $matches['victim'];
+        unset($matches['attacker'], $matches['victim']);
+
+        parent::__construct($matches);
+
+        $this->attacker = PlayerIdentity::fromString($attackerString);
+        $this->victim = PlayerIdentity::fromString($victimString);
+        $this->attackerPos = Vector3::fromMatches($matches, 'attacker');
+        $this->victimPos = Vector3::fromMatches($matches, 'victim');
+    }
 }

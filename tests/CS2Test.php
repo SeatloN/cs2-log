@@ -1,47 +1,40 @@
 <?php
 
 use CSLog\CS2\Models\Attack;
-use CSLog\CS2\Models\BackupFileLoading;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\BombDefusing;
+use CSLog\CS2\Models\BombEvent;
 use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\BombPlanted;
 use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\ChangeName;
 use CSLog\CS2\Models\Connected;
-use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\EnteredTheGame;
 use CSLog\CS2\Models\FlashAssistedKill;
 use CSLog\CS2\Models\FreezePeriod;
-use CSLog\CS2\Models\GotTheBomb;
 use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\LeftBuyZone;
-use CSLog\CS2\Models\LogFileStarted;
-use CSLog\CS2\Models\MatchDraw;
+use CSLog\CS2\Models\LogFileEvent;
 use CSLog\CS2\Models\MatchEnd;
-use CSLog\CS2\Models\MatchReloaded;
-use CSLog\CS2\Models\MatchStart;
 use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\MolotovSpawned;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\RconCommand;
-use CSLog\CS2\Models\RoundEnd;
-use CSLog\CS2\Models\RoundRestart;
+use CSLog\CS2\Models\RoundDraw;
 use CSLog\CS2\Models\RoundScored;
-use CSLog\CS2\Models\RoundStart;
 use CSLog\CS2\Models\Say;
 use CSLog\CS2\Models\SwitchTeam;
 use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\Threw;
-use CSLog\CS2\Models\TimeOut;
-use CSLog\CS2\Models\WarmupEnd;
-use CSLog\CS2\Models\WarmupStart;
+use CSLog\CS2\Models\WorldTriggered;
 use CSLog\CS2\Patterns;
+use CSLog\CS2\PlayerIdentity;
+use CSLog\CS2\ValueObjects\Vector3;
 
 test('Attack', function () {
     $log = 'L 10/01/2023 - 16:31:58: "GEO<0><[U:1:353168853]><CT>" [-884 537 -32] attacked "Elix<3><[U:1:302549372]><TERRORIST>" [-1035 564 -47] with "m4a1" (damage "90") (damage_armor "19") (health "10") (armor "81") (hitgroup "head")';
@@ -50,24 +43,14 @@ test('Attack', function () {
 
     expect($model)->toBeInstanceOf(Attack::class);
     expect($model->type)->toBe('Attack');
-    expect($model->attackerName)->toBe('GEO');
-    expect($model->attackerId)->toBe('0');
-    expect($model->attackerSteamId)->toBe('[U:1:353168853]');
-    expect($model->attackerTeam)->toBe('CT');
-    expect($model->attackerX)->toBe(-884);
-    expect($model->attackerY)->toBe(537);
-    expect($model->attackerZ)->toBe(-32);
+    expect($model->attacker)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->attackerPos)->toBeInstanceOf(Vector3::class);
     expect($model->attackerWeapon)->toBe('m4a1');
     expect($model->attackerDamage)->toBe(90);
     expect($model->attackerDamageArmor)->toBe(19);
     expect($model->victimHitGroup)->toBe('head');
-    expect($model->victimName)->toBe('Elix');
-    expect($model->victimId)->toBe('3');
-    expect($model->victimSteamId)->toBe('[U:1:302549372]');
-    expect($model->victimTeam)->toBe('TERRORIST');
-    expect($model->victimX)->toBe(-1035);
-    expect($model->victimY)->toBe(564);
-    expect($model->victimZ)->toBe(-47);
+    expect($model->victim)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->victimPos)->toBeInstanceOf(Vector3::class);
     expect($model->victimHealth)->toBe(10);
     expect($model->victimArmor)->toBe(81);
 });
@@ -79,16 +62,9 @@ test('Blinded', function () {
 
     expect($model)->toBeInstanceOf(Blinded::class);
     expect($model->type)->toBe('Blinded');
-
-    expect($model->victimId)->toBe('6');
-    expect($model->victimName)->toBe('Kaph');
-    expect($model->victimTeam)->toBe('CT');
-    expect($model->victimSteamId)->toBe('[U:1:149882025]');
+    expect($model->thrower)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->time)->toBe(1.01);
-    expect($model->throwerUserId)->toBe('8');
-    expect($model->throwerName)->toBe('Scriib');
-    expect($model->throwerTeam)->toBe('CT');
-    expect($model->throwerSteamId)->toBe('[U:1:94156635]');
+    expect($model->victim)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->entindex)->toBe(568);
 });
 
@@ -98,10 +74,7 @@ test('BombDefusing', function () {
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(BombDefusing::class);
-    expect($model->userId)->toBe('4');
-    expect($model->userName)->toBe('index');
-    expect($model->userTeam)->toBe('CT');
-    expect($model->steamId)->toBe('[U:1:98202654]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
 });
 
 test('BombPlanting', function () {
@@ -110,10 +83,7 @@ test('BombPlanting', function () {
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(BombPlanting::class);
-    expect($model->userId)->toBe('6');
-    expect($model->userName)->toBe('Kaph');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:149882025]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->bombsite)->toBe('B');
 });
 
@@ -134,10 +104,7 @@ test('ChangeName', function () {
 
     expect($model)->toBeInstanceOf(ChangeName::class);
     expect($model->type)->toBe('ChangeName');
-    expect($model->userId)->toBe('4');
-    expect($model->userName)->toBe('majky');
-    expect($model->userTeam)->toBe('Unassigned');
-    expect($model->steamId)->toBe('STEAM_1:0:436676464');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->newName)->toBe('majkycs');
 });
 
@@ -148,9 +115,7 @@ test('Connected', function () {
 
     expect($model)->toBeInstanceOf(Connected::class);
     expect($model->type)->toBe('Connected');
-    expect($model->userId)->toBe('8');
-    expect($model->userName)->toBe('Scriib');
-    expect($model->steamId)->toBe('[U:1:94156635]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->address)->toBe('127.0.0.1:1234');
 });
 
@@ -161,10 +126,7 @@ test('Disconnected', function () {
 
     expect($model)->toBeInstanceOf(Disconnected::class);
     expect($model->type)->toBe('Disconnected');
-    expect($model->userId)->toBe('3');
-    expect($model->userName)->toBe('Elix');
-    expect($model->steamId)->toBe('[U:1:302549372]');
-    expect($model->userTeam)->toBe('TERRORIST');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->reason)->toBe('NETWORK_DISCONNECT_DISCONNECT_BY_USER');
 });
 
@@ -175,9 +137,7 @@ test('EnteredTheGame', function () {
 
     expect($model)->toBeInstanceOf(EnteredTheGame::class);
     expect($model->type)->toBe('EnteredTheGame');
-    expect($model->userId)->toBe('0');
-    expect($model->userName)->toBe('GEO');
-    expect($model->steamId)->toBe('[U:1:353168853]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
 });
 
 test('GotTheBomb', function () {
@@ -185,12 +145,10 @@ test('GotTheBomb', function () {
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(GotTheBomb::class);
-    expect($model->type)->toBe('GotTheBomb');
-    expect($model->userName)->toBe('Scriib');
-    expect($model->userId)->toBe('8');
-    expect($model->team)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:94156635]');
+    expect($model)->toBeInstanceOf(BombEvent::class);
+    expect($model->type)->toBe('BombEvent');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->event)->toBe('Got_The_Bomb');
 });
 
 test('Kill', function () {
@@ -200,20 +158,12 @@ test('Kill', function () {
 
     expect($model)->toBeInstanceOf(Kill::class);
     expect($model->type)->toBe('Kill');
-    expect($model->killerId)->toBe('0');
-    expect($model->killerName)->toBe('GEO');
-    expect($model->killerSteamId)->toBe('[U:1:353168853]');
-    expect($model->killerTeam)->toBe('CT');
-    expect($model->killerX)->toBe(-835);
-    expect($model->killerY)->toBe(525);
-    expect($model->killerZ)->toBe(-32);
-    expect($model->killedName)->toBe('Elix');
-    expect($model->killedId)->toBe('3');
-    expect($model->killedSteamId)->toBe('[U:1:302549372]');
-    expect($model->killedTeam)->toBe('TERRORIST');
-    expect($model->killedX)->toBe(-762);
-    expect($model->killedY)->toBe(615);
-    expect($model->killedZ)->toBe(-30);
+    expect($model->killer)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killerPos)->toBeInstanceOf(Vector3::class);
+
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killedPos)->toBeInstanceOf(Vector3::class);
+
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->headshot)->toBe('');
 });
@@ -225,20 +175,10 @@ test('KillHeadshot', function () {
 
     expect($model)->toBeInstanceOf(Kill::class);
     expect($model->type)->toBe('Kill');
-    expect($model->killerId)->toBe('0');
-    expect($model->killerName)->toBe('GEO');
-    expect($model->killerSteamId)->toBe('[U:1:353168853]');
-    expect($model->killerTeam)->toBe('CT');
-    expect($model->killerX)->toBe(-835);
-    expect($model->killerY)->toBe(525);
-    expect($model->killerZ)->toBe(-32);
-    expect($model->killedName)->toBe('Elix');
-    expect($model->killedId)->toBe('3');
-    expect($model->killedSteamId)->toBe('[U:1:302549372]');
-    expect($model->killedTeam)->toBe('TERRORIST');
-    expect($model->killedX)->toBe(-762);
-    expect($model->killedY)->toBe(615);
-    expect($model->killedZ)->toBe(-30);
+    expect($model->killer)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killerPos)->toBeInstanceOf(Vector3::class);
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->headshot)->toBe(' (headshot)');
 });
@@ -250,20 +190,10 @@ test('KillThroughSmoke', function () {
 
     expect($model)->toBeInstanceOf(Kill::class);
     expect($model->type)->toBe('Kill');
-    expect($model->killerId)->toBe('0');
-    expect($model->killerName)->toBe('GEO');
-    expect($model->killerSteamId)->toBe('[U:1:353168853]');
-    expect($model->killerTeam)->toBe('CT');
-    expect($model->killerX)->toBe(-835);
-    expect($model->killerY)->toBe(525);
-    expect($model->killerZ)->toBe(-32);
-    expect($model->killedName)->toBe('Elix');
-    expect($model->killedId)->toBe('3');
-    expect($model->killedSteamId)->toBe('[U:1:302549372]');
-    expect($model->killedTeam)->toBe('TERRORIST');
-    expect($model->killedX)->toBe(-762);
-    expect($model->killedY)->toBe(615);
-    expect($model->killedZ)->toBe(-30);
+    expect($model->killer)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killerPos)->toBeInstanceOf(Vector3::class);
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->headshot)->toBe(' (throughsmoke)');
 });
@@ -275,20 +205,10 @@ test('KillThroughWall', function () {
 
     expect($model)->toBeInstanceOf(Kill::class);
     expect($model->type)->toBe('Kill');
-    expect($model->killerId)->toBe('0');
-    expect($model->killerName)->toBe('GEO');
-    expect($model->killerSteamId)->toBe('[U:1:353168853]');
-    expect($model->killerTeam)->toBe('CT');
-    expect($model->killerX)->toBe(-835);
-    expect($model->killerY)->toBe(525);
-    expect($model->killerZ)->toBe(-32);
-    expect($model->killedName)->toBe('Elix');
-    expect($model->killedId)->toBe('3');
-    expect($model->killedSteamId)->toBe('[U:1:302549372]');
-    expect($model->killedTeam)->toBe('TERRORIST');
-    expect($model->killedX)->toBe(-762);
-    expect($model->killedY)->toBe(615);
-    expect($model->killedZ)->toBe(-30);
+    expect($model->killer)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killerPos)->toBeInstanceOf(Vector3::class);
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->headshot)->toBe(' (penetrated)');
 });
@@ -300,13 +220,8 @@ test('BombKill', function () {
 
     expect($model)->toBeInstanceOf(BombKill::class);
     expect($model->type)->toBe('BombKill');
-    expect($model->killedName)->toBe('sjuush');
-    expect($model->killedId)->toBe('7');
-    expect($model->killedSteamId)->toBe('[U:1:200443857]');
-    expect($model->killedTeam)->toBe('CT');
-    expect($model->killedX)->toBe(-586);
-    expect($model->killedY)->toBe(-856);
-    expect($model->killedZ)->toBe(85);
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killedPos)->toBeInstanceOf(Vector3::class);
 });
 
 test('KillAssist', function () {
@@ -316,14 +231,14 @@ test('KillAssist', function () {
 
     expect($model)->toBeInstanceOf(KillAssist::class);
     expect($model->type)->toBe('KillAssist');
-    expect($model->assisterId)->toBe('3');
-    expect($model->assisterName)->toBe('Elix');
-    expect($model->assisterSteamId)->toBe('[U:1:302549372]');
-    expect($model->assisterTeam)->toBe('TERRORIST');
-    expect($model->killedId)->toBe('0');
-    expect($model->killedName)->toBe('GEO');
-    expect($model->killedSteamId)->toBe('[U:1:353168853]');
-    expect($model->killedTeam)->toBe('CT');
+    expect($model->assister)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->assister->name)->toBe('Elix');
+    expect($model->assister->steam)->toBe('[U:1:302549372]');
+    expect($model->assister->team)->toBe('TERRORIST');
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killed->name)->toBe('GEO');
+    expect($model->killed->steam)->toBe('[U:1:353168853]');
+    expect($model->killed->team)->toBe('CT');
 });
 
 test('MatchEnd', function () {
@@ -333,6 +248,7 @@ test('MatchEnd', function () {
 
     expect($model)->toBeInstanceOf(MatchEnd::class);
     expect($model->type)->toBe('MatchEnd');
+    expect($model->mode)->toBe('competitive');
     expect($model->mapGroup)->toBe('mg_epic_bomb');
     expect($model->map)->toBe('de_inferno');
     expect($model->scoreA)->toBe(15);
@@ -340,13 +256,29 @@ test('MatchEnd', function () {
     expect($model->duration)->toBe(42);
 });
 
+test('MatchEnd - 2', function () {
+    $log = 'L 01/19/2026 - 19:13:13: Game Over: competitive  de_inferno score 2:13 after 10 min';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(MatchEnd::class);
+    expect($model->type)->toBe('MatchEnd');
+    expect($model->mode)->toBe('competitive');
+    expect($model->mapGroup)->toBe('');
+    expect($model->map)->toBe('de_inferno');
+    expect($model->scoreA)->toBe(2);
+    expect($model->scoreB)->toBe(13);
+    expect($model->duration)->toBe(10);
+});
+
 test('MatchStart', function () {
     $log = 'L 10/01/2023 - 17:19:10: World triggered "Match_Start" on "de_inferno"';
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchStart::class);
-    expect($model->type)->toBe('MatchStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Match_Start');
     expect($model->map)->toBe('de_inferno');
 });
 
@@ -370,10 +302,7 @@ test('Purchased', function () {
 
     expect($model)->toBeInstanceOf(Purchased::class);
     expect($model->type)->toBe('Purchased');
-    expect($model->userId)->toBe('3');
-    expect($model->userName)->toBe('Elix');
-    expect($model->steamId)->toBe('[U:1:302549372]');
-    expect($model->userTeam)->toBe('TERRORIST');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->object)->toBe('sawedoff');
 });
 
@@ -382,16 +311,18 @@ test('RoundEnd', function () {
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(RoundEnd::class);
-    expect($model->type)->toBe('RoundEnd');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Round_End');
 });
 
 test('RoundRestart', function () {
     $log = 'L 06/29/2023 - 19:42:20: World triggered "Restart_Round_(1_second)"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(RoundRestart::class);
-    expect($model->type)->toBe('RoundRestart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->restartSeconds)->toBe(1);
 });
 
 test('RoundScored', function () {
@@ -410,8 +341,9 @@ test('RoundStart', function () {
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(RoundStart::class);
-    expect($model->type)->toBe('RoundStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Round_Start');
 });
 
 test('Say', function () {
@@ -420,10 +352,9 @@ test('Say', function () {
 
     expect($model)->toBeInstanceOf(Say::class);
     expect($model->type)->toBe('Say');
-    expect($model->userId)->toBe('5');
-    expect($model->userName)->toBe('boro494');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('STEAM_1:0:52867709');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->player->name)->toBe('boro494');
+    expect($model->player->steam)->toBe('STEAM_1:0:52867709');
     expect($model->text)->toBe('kto hraje wipo bajo? saltovsky?');
 });
 
@@ -434,9 +365,10 @@ test('SwitchTeam', function () {
 
     expect($model)->toBeInstanceOf(SwitchTeam::class);
     expect($model->type)->toBe('SwitchTeam');
-    expect($model->userId)->toBe('0');
-    expect($model->userName)->toBe('GEO');
-    expect($model->steamId)->toBe('[U:1:353168853]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->player->name)->toBe('GEO');
+    expect($model->player->steam)->toBe('[U:1:353168853]');
+    expect($model->player->team)->toBe('');
     expect($model->newTeam)->toBe('TERRORIST');
     expect($model->oldTeam)->toBe('CT');
 });
@@ -462,10 +394,10 @@ test('Threw - flash', function () {
     expect($model)->toBeInstanceOf(Threw::class);
     expect($model->type)->toBe('Threw');
 
-    expect($model->userId)->toBe('4');
-    expect($model->userName)->toBe('index');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:98202654]');
+    expect($model->thrower)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->thrower->name)->toBe('index');
+    expect($model->thrower->steam)->toBe('[U:1:98202654]');
+    expect($model->thrower->team)->toBe('TERRORIST');
     expect($model->item)->toBe('flashbang');
     expect($model->entindex)->toBe(930);
     expect($model->posX)->toBe(1172);
@@ -481,10 +413,10 @@ test('Threw - smoke', function () {
     expect($model)->toBeInstanceOf(Threw::class);
     expect($model->type)->toBe('Threw');
 
-    expect($model->userId)->toBe('8');
-    expect($model->userName)->toBe('Scriib');
-    expect($model->userTeam)->toBe('CT');
-    expect($model->steamId)->toBe('[U:1:94156635]');
+    expect($model->thrower)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->thrower->name)->toBe('Scriib');
+    expect($model->thrower->steam)->toBe('[U:1:94156635]');
+    expect($model->thrower->team)->toBe('CT');
     expect($model->item)->toBe('smokegrenade');
     expect($model->entindex)->toBeNull();
     expect($model->posX)->toBe(735);
@@ -499,43 +431,28 @@ test('Picked Up', function () {
 
     expect($model)->toBeInstanceOf(PickedUp::class);
     expect($model->type)->toBe('PickedUp');
-
-    expect($model->userId)->toBe('2');
-    expect($model->userName)->toBe('SeatloN');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:6318168]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->player->name)->toBe('SeatloN');
+    expect($model->player->steam)->toBe('[U:1:6318168]');
+    expect($model->player->team)->toBe('TERRORIST');
     expect($model->object)->toBe('molotov');
 });
 
 test('Money Changed', function () {
-    $log = 'L 01/09/2024 - 04:04:26.373 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)';
+    $log = 'L 01/19/2026 - 18:56:05: "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)';
 
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(MoneyChanged::class);
     expect($model->type)->toBe('MoneyChanged');
 
-    expect($model->userId)->toBe('3');
-    expect($model->userName)->toBe('SeatloN');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:6318168]');
-    expect($model->before)->toBe('5500');
-    expect($model->cost)->toBe('400');
-    expect($model->bank)->toBe('5100');
-    expect($model->purchase)->toBe('weapon_molotov');
-});
-
-test('Console Say', function () {
-    $log = 'L 01/10/2024 - 20:24:22: "Console<0>" say "[CM] ( 1 / 10 ) players online"';
-
-    $model = Patterns::match($log);
-
-    expect($model)->toBeInstanceOf(ConsoleSay::class);
-    expect($model->type)->toBe('ConsoleSay');
-
-    expect($model->userId)->toBe('0');
-    expect($model->userName)->toBe('Console');
-    expect($model->text)->toBe('[CM] ( 1 / 10 ) players online');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->before)->toBe(5500);
+    expect($model->operation)->toBe('-');
+    expect($model->amount)->toBe(400);
+    expect($model->bank)->toBe(5100);
+    expect($model->actionType)->toBe('purchase');
+    expect($model->actionDetail)->toBe('weapon_molotov');
 });
 
 test('Bomb Planted', function () {
@@ -544,10 +461,7 @@ test('Bomb Planted', function () {
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(BombPlanted::class);
-    expect($model->userId)->toBe('6');
-    expect($model->userName)->toBe('FinigaN');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->steamId)->toBe('[U:1:226095351]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->bombsite)->toBe('B');
 });
 
@@ -556,11 +470,17 @@ test('Left Buyzone', function () {
     $model = Patterns::match($log);
 
     expect($model)->toBeInstanceOf(LeftBuyZone::class);
-    expect($model->userId)->toBe('8');
-    expect($model->userName)->toBe('nicoodoz');
-    expect($model->userTeam)->toBe('TERRORIST');
-    expect($model->userSteamId)->toBe('[U:1:112851399]');
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->items)->toBe('weapon_knife_butterfly weapon_glock weapon_ak47 weapon_molotov weapon_hegrenade weapon_smokegrenade kevlar(100) helmet');
+});
+
+test('Left Buyzone - Without anything.', function () {
+    $log = 'L 01/10/2024 - 21:02:00: "nicoodoz<8><[U:1:112851399]><TERRORIST>" left buyzone with [ ]';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(LeftBuyZone::class);
+    expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->items)->toBeNull();
 });
 
 test('Flash Assisted Kill', function () {
@@ -569,62 +489,52 @@ test('Flash Assisted Kill', function () {
 
     expect($model)->toBeInstanceOf(FlashAssistedKill::class);
     expect($model->type)->toBe('FlashAssistedKill');
-    expect($model->assisterId)->toBe('5');
-    expect($model->assisterName)->toBe('znxjez');
-    expect($model->assisterSteamId)->toBe('[U:1:23528558]');
-    expect($model->assisterTeam)->toBe('TERRORIST');
-    expect($model->killedId)->toBe('7');
-    expect($model->killedName)->toBe('sjuush');
-    expect($model->killedSteamId)->toBe('[U:1:200443857]');
-    expect($model->killedTeam)->toBe('CT');
+    expect($model->assister)->toBeInstanceOf(PlayerIdentity::class);
+    expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
 });
 
 test('Timeout Terrorist', function () {
     $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "timeout_terrorist_start"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(TimeOut::class);
-    expect($model->type)->toBe('TimeOut');
-    expect($model->address)->toBe('20.71.36.216:54356');
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->type)->toBe('RconCommand');
+    expect($model->ip)->toBe('20.71.36.216:54356');
     expect($model->command)->toBe('timeout_terrorist_start');
-    expect($model->timeOutType)->toBe('terrorist_timeout');
-    expect($model->team)->toBe('TERRORIST');
+    expect($model->commandName)->toBe('timeout_terrorist_start');
 });
 
 test('Timeout CT', function () {
     $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "timeout_ct_start"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(TimeOut::class);
-    expect($model->type)->toBe('TimeOut');
-    expect($model->address)->toBe('20.71.36.216:54356');
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->type)->toBe('RconCommand');
+    expect($model->ip)->toBe('20.71.36.216:54356');
     expect($model->command)->toBe('timeout_ct_start');
-    expect($model->timeOutType)->toBe('ct_timeout');
-    expect($model->team)->toBe('CT');
+    expect($model->commandName)->toBe('timeout_ct_start');
 });
 
 test('Technical TimeOut', function () {
     $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "mp_pause_match"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(TimeOut::class);
-    expect($model->type)->toBe('TimeOut');
-    expect($model->address)->toBe('20.71.36.216:54356');
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->type)->toBe('RconCommand');
+    expect($model->ip)->toBe('20.71.36.216:54356');
     expect($model->command)->toBe('mp_pause_match');
-    expect($model->timeOutType)->toBe('technical_timeout');
-    expect($model->team)->toBe('TECH');
+    expect($model->commandName)->toBe('mp_pause_match');
 });
 
 test('Technical TimeOut Ended', function () {
     $log = 'L 01/10/2024 - 20:42:01: rcon from "20.71.36.216:54356": command "mp_unpause_match"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(TimeOut::class);
-    expect($model->type)->toBe('TimeOut');
-    expect($model->address)->toBe('20.71.36.216:54356');
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->type)->toBe('RconCommand');
+    expect($model->ip)->toBe('20.71.36.216:54356');
     expect($model->command)->toBe('mp_unpause_match');
-    expect($model->timeOutType)->toBe('technical_timeout_ended');
-    expect($model->team)->toBe('TECH');
+    expect($model->commandName)->toBe('mp_unpause_match');
 });
 
 test('Molotov Spawned', function () {
@@ -653,16 +563,18 @@ test('Match Reloaded', function () {
     $log = 'L 01/19/2026 - 19:21:35: World triggered "Match_Reloaded" on "de_mirage"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchReloaded::class);
-    expect($model->type)->toBe('MatchReloaded');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Match_Reloaded');
+    expect($model->map)->toBe('de_mirage');
 });
 
-test('Match Draw', function () {
+test('Round Draw', function () {
     $log = 'L 01/19/2026 - 19:21:35: World triggered "SFUI_Notice_Round_Draw" (CT "11") (T "0")';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchDraw::class);
-    expect($model->type)->toBe('MatchDraw');
+    expect($model)->toBeInstanceOf(RoundDraw::class);
+    expect($model->type)->toBe('RoundDraw');
     expect($model->scoreA)->toBe(11);
     expect($model->scoreB)->toBe(0);
 });
@@ -671,24 +583,28 @@ test('Backup File Loading', function () {
     $log = 'L 01/19/2026 - 19:21:35: rcon from "20.71.36.216:60696": command "mp_backup_restore_load_file cm_backup_cs2_match_de345abb-a155-4d1f-7839-08de566fc039_round11.txt"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(BackupFileLoading::class);
-    expect($model->type)->toBe('BackupFileLoading');
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->commandName)->toBe('mp_backup_restore_load_file');
     expect($model->ip)->toBe('20.71.36.216:60696');
-    expect($model->filename)->toBe('cm_backup_cs2_match_de345abb-a155-4d1f-7839-08de566fc039_round11.txt');
+    expect($model->argument)->toBe('cm_backup_cs2_match_de345abb-a155-4d1f-7839-08de566fc039_round11.txt');
 });
 
 test('Backup File Not triggering', function () {
     $log = 'L 01/19/2026 - 18:56:00: rcon from "20.71.36.216:61688": command "mp_backup_round_file_last"';
     $model = Patterns::match($log);
 
-    expect($model)->not->toBeInstanceOf(BackupFileLoading::class);
+    expect($model)->toBeInstanceOf(RconCommand::class);
+    expect($model->commandName)->toBe('mp_backup_round_file_last');
+
 });
 
 test('Log File Started', function () {
     $log = 'L 01/19/2026 - 18:55:38: Log file started (file "logs//0f870999-5f60-4259-7837-08de566fc039/2026_01_19_185538.log") (game "csgo") (version "10603")';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(LogFileStarted::class);
+    expect($model)->toBeInstanceOf(LogFileEvent::class);
+    expect($model->type)->toBe('LogFileEvent');
+    expect($model->event)->toBe('started');
     expect($model->file)->toBe('logs//0f870999-5f60-4259-7837-08de566fc039/2026_01_19_185538.log');
     expect($model->game)->toBe('csgo');
     expect($model->version)->toBe('10603');
@@ -701,20 +617,24 @@ test('Rcon Command', function () {
     expect($model)->toBeInstanceOf(RconCommand::class);
     expect($model->ip)->toBe('20.71.36.216:60696');
     expect($model->command)->toBe('logaddress_add_http "https://publicapi.challengermode.com/CS2Logs?auth=M16iBkyoFvDAwnMUWqcZ92SnSd6dzjUVj-wRzmZs630&gameId=de345abb-a155-4d1f-7839-08de566fc039"');
+    expect($model->commandName)->toBe('logaddress_add_http');
+    expect($model->argument)->toBe('"https://publicapi.challengermode.com/CS2Logs?auth=M16iBkyoFvDAwnMUWqcZ92SnSd6dzjUVj-wRzmZs630&gameId=de345abb-a155-4d1f-7839-08de566fc039"');
 });
 
 test('Warmup End', function () {
     $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_End"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(WarmupEnd::class);
-    expect($model->type)->toBe('WarmupEnd');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Warmup_End');
 });
 
 test('Warmup Start', function () {
     $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_Start"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(WarmupStart::class);
-    expect($model->type)->toBe('WarmupStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Warmup_Start');
 });

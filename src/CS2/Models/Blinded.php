@@ -2,31 +2,43 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class Blinded extends Model
 {
-    public const PATTERN = '/"(?P<victimName>.+)[<](?P<victimId>\d+)[>][<](?P<victimSteamId>.*)[>][<](?P<victimTeam>CT|TERRORIST|Unassigned|Spectator)[>]" blinded for (?<time>[0-9.]+) by "(?P<throwerName>.+)[<](?P<throwerUserId>\d+)[>][<](?P<throwerSteamId>.*)[>][<](?P<throwerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" from flashbang entindex (?<entindex>[0-9]+)/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<victim>'.CommonPatterns::IDENTITY_INNER.') '
+        .'blinded for (?<time>[0-9.]+) by '
+        .'(?P<thrower>'.CommonPatterns::IDENTITY_INNER.') '
+        .'from flashbang entindex (?<entindex>[0-9]+)/';
 
     public string $type = 'Blinded';
 
-    public string $victimId;
+    public Carbon $timestamp;
 
-    public string $victimName;
+    public PlayerIdentity $victim;
 
-    public string $victimTeam;
-
-    public string $victimSteamId;
-
-    public string $throwerUserId;
-
-    public string $throwerName;
-
-    public string $throwerTeam;
-
-    public string $throwerSteamId;
+    public PlayerIdentity $thrower;
 
     public float $time;
 
     public int $entindex;
+
+    public function __construct(array $matches)
+    {
+        $throwerString = $matches['thrower'];
+        $victimString = $matches['victim'];
+        unset($matches['thrower'], $matches['victim']);
+
+        parent::__construct($matches);
+
+        $this->thrower = PlayerIdentity::fromString($throwerString);
+        $this->victim = PlayerIdentity::fromString($victimString);
+    }
 }

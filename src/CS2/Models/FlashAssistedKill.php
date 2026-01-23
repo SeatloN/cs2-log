@@ -2,27 +2,38 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class FlashAssistedKill extends Model
 {
-    public const PATTERN = '/"(?P<assisterName>.+)[<](?P<assisterId>\d+)[>][<](?P<assisterSteamId>.*)[>][<](?P<assisterTeam>CT|TERRORIST|Unassigned|Spectator)[>]" flash-assisted killing "(?P<killedName>.+)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]"/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<assister>'.CommonPatterns::IDENTITY_INNER.') '
+        .'flash-assisted killing '.
+        '(?P<killed>'.CommonPatterns::IDENTITY_INNER.')/';
 
     public string $type = 'FlashAssistedKill';
 
-    public string $assisterId;
+    public Carbon $timestamp;
 
-    public string $assisterName;
+    public PlayerIdentity $assister;
 
-    public string $assisterTeam;
+    public PlayerIdentity $killed;
 
-    public string $assisterSteamId;
+    public function __construct(array $matches)
+    {
+        $assisterString = $matches['assister'];
+        $killedString = $matches['killed'];
+        unset($matches['assister'], $matches['killed']);
 
-    public string $killedId;
+        parent::__construct($matches);
 
-    public string $killedName;
-
-    public string $killedTeam;
-
-    public string $killedSteamId;
+        $this->assister = PlayerIdentity::fromString($assisterString);
+        $this->killed = PlayerIdentity::fromString($killedString);
+    }
 }
