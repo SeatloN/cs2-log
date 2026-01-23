@@ -2,11 +2,16 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\LogPrefix;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class RoundScored extends Model
 {
-    public const PATTERN = '/Team "(?P<team>.*)" triggered "SFUI_Notice_(?P<teamWin>Terrorists_Win|CTs_Win|Target_Bombed|Target_Saved|Bomb_Defused)/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.LogPrefix::CLASSIC.'Team "(?P<team>.*)" triggered "SFUI_Notice_(?P<teamWin>Terrorists_Win|CTs_Win|Target_Bombed|Target_Saved|Bomb_Defused)/';
 
     public const TARGET_BOMBED = 'target_bombed';
 
@@ -17,6 +22,8 @@ class RoundScored extends Model
     public const BOMB_DEFUSED = 'bomb_defused';
 
     public string $type = 'RoundScored';
+
+    public Carbon $timestamp;
 
     public string $teamWin;
 

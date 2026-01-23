@@ -2,11 +2,16 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\LogPrefix;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class TimeOut extends Model
 {
-    public const PATTERN = '/rcon from "(?P<address>.*)": command "(?P<command>timeout_terrorist_start|timeout_ct_start|mp_pause_match|mp_unpause_match)"/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.LogPrefix::CLASSIC.'rcon from "(?P<address>.*)": command "(?P<command>timeout_terrorist_start|timeout_ct_start|mp_pause_match|mp_unpause_match)"/';
 
     public const TERRORIST_TIMEOUT = 'terrorist_timeout';
 
@@ -17,6 +22,8 @@ class TimeOut extends Model
     public const TECHNICAL_TIMEOUT_END = 'technical_timeout_ended';
 
     public string $type = 'TimeOut';
+
+    public Carbon $timestamp;
 
     public string $timeOutType;
 

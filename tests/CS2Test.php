@@ -10,7 +10,6 @@ use CSLog\CS2\Models\BombPlanting;
 use CSLog\CS2\Models\ChangeMap;
 use CSLog\CS2\Models\ChangeName;
 use CSLog\CS2\Models\Connected;
-use CSLog\CS2\Models\ConsoleSay;
 use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\EnteredTheGame;
 use CSLog\CS2\Models\FlashAssistedKill;
@@ -20,27 +19,22 @@ use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\LeftBuyZone;
 use CSLog\CS2\Models\LogFileStarted;
-use CSLog\CS2\Models\MatchDraw;
 use CSLog\CS2\Models\MatchEnd;
-use CSLog\CS2\Models\MatchReloaded;
-use CSLog\CS2\Models\MatchStart;
 use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\MolotovSpawned;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\RconCommand;
-use CSLog\CS2\Models\RoundEnd;
+use CSLog\CS2\Models\RoundDraw;
 use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\RoundScored;
-use CSLog\CS2\Models\RoundStart;
 use CSLog\CS2\Models\Say;
 use CSLog\CS2\Models\SwitchTeam;
 use CSLog\CS2\Models\TeamScored;
 use CSLog\CS2\Models\Threw;
 use CSLog\CS2\Models\TimeOut;
-use CSLog\CS2\Models\WarmupEnd;
-use CSLog\CS2\Models\WarmupStart;
+use CSLog\CS2\Models\WorldTriggered;
 use CSLog\CS2\Patterns;
 
 test('Attack', function () {
@@ -340,13 +334,28 @@ test('MatchEnd', function () {
     expect($model->duration)->toBe(42);
 });
 
+test('MatchEnd - 2', function () {
+    $log = 'L 01/19/2026 - 19:13:13: Game Over: competitive  de_inferno score 2:13 after 10 min';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(MatchEnd::class);
+    expect($model->type)->toBe('MatchEnd');
+    expect($model->mapGroup)->toBe('');
+    expect($model->map)->toBe('de_inferno');
+    expect($model->scoreA)->toBe(2);
+    expect($model->scoreB)->toBe(13);
+    expect($model->duration)->toBe(10);
+});
+
 test('MatchStart', function () {
     $log = 'L 10/01/2023 - 17:19:10: World triggered "Match_Start" on "de_inferno"';
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchStart::class);
-    expect($model->type)->toBe('MatchStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Match_Start');
     expect($model->map)->toBe('de_inferno');
 });
 
@@ -382,8 +391,9 @@ test('RoundEnd', function () {
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(RoundEnd::class);
-    expect($model->type)->toBe('RoundEnd');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Round_End');
 });
 
 test('RoundRestart', function () {
@@ -392,6 +402,7 @@ test('RoundRestart', function () {
 
     expect($model)->toBeInstanceOf(RoundRestart::class);
     expect($model->type)->toBe('RoundRestart');
+    expect($model->seconds)->toBe(1);
 });
 
 test('RoundScored', function () {
@@ -410,8 +421,9 @@ test('RoundStart', function () {
 
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(RoundStart::class);
-    expect($model->type)->toBe('RoundStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Round_Start');
 });
 
 test('Say', function () {
@@ -508,7 +520,7 @@ test('Picked Up', function () {
 });
 
 test('Money Changed', function () {
-    $log = 'L 01/09/2024 - 04:04:26.373 - "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)';
+    $log = 'L 01/19/2026 - 18:56:05: "SeatloN<3><[U:1:6318168]><TERRORIST>" money change 5500-400 = $5100 (tracked) (purchase: weapon_molotov)';
 
     $model = Patterns::match($log);
 
@@ -523,19 +535,6 @@ test('Money Changed', function () {
     expect($model->cost)->toBe('400');
     expect($model->bank)->toBe('5100');
     expect($model->purchase)->toBe('weapon_molotov');
-});
-
-test('Console Say', function () {
-    $log = 'L 01/10/2024 - 20:24:22: "Console<0>" say "[CM] ( 1 / 10 ) players online"';
-
-    $model = Patterns::match($log);
-
-    expect($model)->toBeInstanceOf(ConsoleSay::class);
-    expect($model->type)->toBe('ConsoleSay');
-
-    expect($model->userId)->toBe('0');
-    expect($model->userName)->toBe('Console');
-    expect($model->text)->toBe('[CM] ( 1 / 10 ) players online');
 });
 
 test('Bomb Planted', function () {
@@ -653,16 +652,18 @@ test('Match Reloaded', function () {
     $log = 'L 01/19/2026 - 19:21:35: World triggered "Match_Reloaded" on "de_mirage"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchReloaded::class);
-    expect($model->type)->toBe('MatchReloaded');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Match_Reloaded');
+    expect($model->map)->toBe('de_mirage');
 });
 
-test('Match Draw', function () {
+test('Round Draw', function () {
     $log = 'L 01/19/2026 - 19:21:35: World triggered "SFUI_Notice_Round_Draw" (CT "11") (T "0")';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(MatchDraw::class);
-    expect($model->type)->toBe('MatchDraw');
+    expect($model)->toBeInstanceOf(RoundDraw::class);
+    expect($model->type)->toBe('RoundDraw');
     expect($model->scoreA)->toBe(11);
     expect($model->scoreB)->toBe(0);
 });
@@ -707,14 +708,16 @@ test('Warmup End', function () {
     $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_End"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(WarmupEnd::class);
-    expect($model->type)->toBe('WarmupEnd');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Warmup_End');
 });
 
 test('Warmup Start', function () {
     $log = 'L 01/19/2026 - 19:15:32: World triggered "Warmup_Start"';
     $model = Patterns::match($log);
 
-    expect($model)->toBeInstanceOf(WarmupStart::class);
-    expect($model->type)->toBe('WarmupStart');
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Warmup_Start');
 });

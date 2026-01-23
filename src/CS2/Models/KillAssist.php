@@ -2,13 +2,20 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\LogPrefix;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class KillAssist extends Model
 {
-    public const PATTERN = '/"(?P<assisterName>.+)[<](?P<assisterId>\d+)[>][<](?P<assisterSteamId>.*)[>][<](?P<assisterTeam>CT|TERRORIST|Unassigned|Spectator)[>]" assisted killing "(?P<killedName>.+)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]"/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<assisterName>.+?)[<](?P<assisterId>\d+)[>][<](?P<assisterSteamId>.*)[>][<](?P<assisterTeam>CT|TERRORIST|Unassigned|Spectator)[>]" assisted killing "(?P<killedName>.+?)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]"/';
 
     public string $type = 'KillAssist';
+
+    public Carbon $timestamp;
 
     public string $assisterId;
 

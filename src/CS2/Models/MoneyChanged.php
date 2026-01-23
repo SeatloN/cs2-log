@@ -2,13 +2,20 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\LogPrefix;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class MoneyChanged extends Model
 {
-    public const PATTERN = '/"(?P<userName>.+)[<](?P<userId>\d+)[>][<](?P<steamId>.*)[>][<](?P<userTeam>CT|TERRORIST|Unassigned|Spectator)[>]" money change (?P<before>.\d+)-(?P<cost>.\d+) = \$(?P<bank>.\d+) \(tracked\) \(purchase: (?P<purchase>.*)\)/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<userName>.+?)<(?P<userId>\d+)><(?P<steamId>[^>]*)><(?P<userTeam>CT|TERRORIST|Unassigned|Spectator)>" money change (?P<before>.\d+)-(?P<cost>.\d+) = \$(?P<bank>.\d+) \(tracked\) \(purchase: (?P<purchase>.*)\)/';
 
     public string $type = 'MoneyChanged';
+
+    public Carbon $timestamp;
 
     public string $userId;
 

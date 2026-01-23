@@ -2,13 +2,20 @@
 
 namespace CSLog\CS2\Models;
 
+use Carbon\Carbon;
+use CSLog\CS2\LogPrefix;
+use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
 class Kill extends Model
 {
-    public const PATTERN = '/"(?P<killerName>.+)[<](?P<killerId>\d+)[>][<](?P<killerSteamId>.*)[>][<](?P<killerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killerX>[\-]?[0-9]+) (?P<killerY>[\-]?[0-9]+) (?P<killerZ>[\-]?[0-9]+)\] killed "(?P<killedName>.+)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killedX>[\-]?[0-9]+) (?P<killedY>[\-]?[0-9]+) (?P<killedZ>[\-]?[0-9]+)\] with "(?P<weapon>[a-zA-Z0-9_]+)"(?P<headshot>.*)/';
+    use ParsesTimestamp;
+
+    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<killerName>.+?)[<](?P<killerId>\d+)[>][<](?P<killerSteamId>.*)[>][<](?P<killerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killerX>[\-]?[0-9]+) (?P<killerY>[\-]?[0-9]+) (?P<killerZ>[\-]?[0-9]+)\] killed "(?P<killedName>.+?)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killedX>[\-]?[0-9]+) (?P<killedY>[\-]?[0-9]+) (?P<killedZ>[\-]?[0-9]+)\] with "(?P<weapon>[a-zA-Z0-9_]+)"(?P<headshot>.*)/';
 
     public string $type = 'Kill';
+
+    public Carbon $timestamp;
 
     public string $killerId;
 
