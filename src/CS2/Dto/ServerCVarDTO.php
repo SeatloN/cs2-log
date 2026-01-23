@@ -1,6 +1,6 @@
 <?php
 
-namespace CSLog\CS2\DTO;
+namespace CSLog\CS2\Dto;
 
 class ServerCVarDTO
 {
