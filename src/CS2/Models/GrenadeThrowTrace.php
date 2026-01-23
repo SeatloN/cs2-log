@@ -4,7 +4,7 @@ namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
 use CSLog\CS2\CommonPatterns;
-use CSLog\CS2\DTO\GrenadeThrowTraceDTO;
+use CSLog\CS2\Dto\GrenadeThrowTraceDTO;
 use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
@@ -32,7 +32,7 @@ class GrenadeThrowTrace extends Model
 
     public PlayerIdentity $thrower;
 
-    public string $grenadeType; // 'molotov', 'hegrenade', 'flashgrenade', 'smokegrenade', 'decoy'
+    public string $grenadeType; // 'molotov', 'hegrenade', 'flashgrenade', 'smokegrenade', 'decoygrenade'
 
     public function __construct(array $matches)
     {
