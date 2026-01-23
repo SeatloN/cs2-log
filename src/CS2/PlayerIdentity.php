@@ -15,7 +15,7 @@ class PlayerIdentity
 
     public static function fromString(string $block): self
     {
-        if (! preg_match('/'.IdentityPattern::BLOCK.'/', $block, $m)) {
+        if (! preg_match('/'.CommonPatterns::IDENTITY.'/', $block, $m)) {
             throw new RuntimeException("Invalid identity block: {$block}");
         }
 
@@ -23,7 +23,7 @@ class PlayerIdentity
             name: $m['name'],
             id: (int) $m['id'],
             steam: $m['steam'],
-            team: $m['team'],
+            team: $m['team'] ?? '',
         );
     }
 }

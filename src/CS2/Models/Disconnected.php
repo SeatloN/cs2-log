@@ -3,7 +3,8 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
-use CSLog\CS2\LogPrefix;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
@@ -11,19 +12,25 @@ class Disconnected extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<userName>.+?)[<](?P<userId>\d+)[>][<](?P<steamId>.*)[>][<](?P<userTeam>CT|TERRORIST|Unassigned|Spectator)[>]" disconnected \(reason "(?P<reason>[A-Z_]*)"\)/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<player>'.CommonPatterns::IDENTITY_INNER.') '
+        .'disconnected \(reason "(?P<reason>[^"]*)"\)/';
 
     public string $type = 'Disconnected';
 
     public Carbon $timestamp;
 
-    public string $userId;
-
-    public string $userName;
-
-    public string $userTeam;
-
-    public string $steamId;
+    public PlayerIdentity $player;
 
     public string $reason;
+
+    public function __construct(array $matches)
+    {
+        $playerString = $matches['player'];
+        unset($matches['player']);
+
+        parent::__construct($matches);
+
+        $this->player = PlayerIdentity::fromString($playerString);
+    }
 }

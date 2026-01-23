@@ -3,49 +3,51 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
-use CSLog\CS2\LogPrefix;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
+use CSLog\CS2\ValueObjects\Vector3;
 use CSLog\Model;
 
 class Kill extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<killerName>.+?)[<](?P<killerId>\d+)[>][<](?P<killerSteamId>.*)[>][<](?P<killerTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killerX>[\-]?[0-9]+) (?P<killerY>[\-]?[0-9]+) (?P<killerZ>[\-]?[0-9]+)\] killed "(?P<killedName>.+?)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killedX>[\-]?[0-9]+) (?P<killedY>[\-]?[0-9]+) (?P<killedZ>[\-]?[0-9]+)\] with "(?P<weapon>[a-zA-Z0-9_]+)"(?P<headshot>.*)/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<killer>'.CommonPatterns::IDENTITY_INNER.') '
+        .CommonPatterns::KILLER_VECTOR.' '
+        .'killed '
+        .'(?P<killed>'.CommonPatterns::IDENTITY_INNER.') '
+        .CommonPatterns::KILLED_VECTOR.' '
+        .'with "(?P<weapon>'.CommonPatterns::WEAPON.')"(?P<headshot>.*)/';
 
     public string $type = 'Kill';
 
     public Carbon $timestamp;
 
-    public string $killerId;
+    public PlayerIdentity $killer;
 
-    public string $killerName;
+    public Vector3 $killerPos;
 
-    public string $killerTeam;
+    public PlayerIdentity $killed;
 
-    public string $killerSteamId;
-
-    public int $killerX;
-
-    public int $killerY;
-
-    public int $killerZ;
-
-    public string $killedId;
-
-    public string $killedName;
-
-    public string $killedTeam;
-
-    public string $killedSteamId;
-
-    public int $killedX;
-
-    public int $killedY;
-
-    public int $killedZ;
+    public Vector3 $killedPos;
 
     public string $weapon;
 
     public string $headshot;
+
+    public function __construct(array $matches)
+    {
+        $killerString = $matches['killer'];
+        $killedString = $matches['killed'];
+        unset($matches['killer'], $matches['killed']);
+
+        parent::__construct($matches);
+
+        $this->killer = PlayerIdentity::fromString($killerString);
+        $this->killed = PlayerIdentity::fromString($killedString);
+        $this->killerPos = Vector3::fromMatches($matches, 'killer');
+        $this->killedPos = Vector3::fromMatches($matches, 'killed');
+    }
 }

@@ -3,7 +3,8 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
-use CSLog\CS2\LogPrefix;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
@@ -11,15 +12,22 @@ class EnteredTheGame extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<userName>.+?)[<](?P<userId>\d+)[>][<](?P<steamId>.*)[>][<][>]" entered the game/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<player>'.CommonPatterns::IDENTITY_INNER.') entered the game/';
 
     public string $type = 'EnteredTheGame';
 
     public Carbon $timestamp;
 
-    public string $userId;
+    public PlayerIdentity $player;
 
-    public string $userName;
+    public function __construct(array $matches)
+    {
+        $playerString = $matches['player'];
+        unset($matches['player']);
 
-    public string $steamId;
+        parent::__construct($matches);
+
+        $this->player = PlayerIdentity::fromString($playerString);
+    }
 }

@@ -2,10 +2,11 @@
 
 namespace CSLog\CS2;
 
+use CSLog\CS2\Models\Accolade;
 use CSLog\CS2\Models\Attack;
-use CSLog\CS2\Models\BackupFileLoading;
 use CSLog\CS2\Models\Blinded;
 use CSLog\CS2\Models\BombDefusing;
+use CSLog\CS2\Models\BombEvent;
 use CSLog\CS2\Models\BombKill;
 use CSLog\CS2\Models\BombPlanted;
 use CSLog\CS2\Models\BombPlanting;
@@ -16,23 +17,21 @@ use CSLog\CS2\Models\Disconnected;
 use CSLog\CS2\Models\EnteredTheGame;
 use CSLog\CS2\Models\FlashAssistedKill;
 use CSLog\CS2\Models\FreezePeriod;
-use CSLog\CS2\Models\GotTheBomb;
+use CSLog\CS2\Models\GrenadeThrowTrace;
 use CSLog\CS2\Models\JoinTeam;
 use CSLog\CS2\Models\Kill;
 use CSLog\CS2\Models\KillAssist;
 use CSLog\CS2\Models\LeftBuyZone;
-use CSLog\CS2\Models\LogFileStarted;
+use CSLog\CS2\Models\LogFileEvent;
 use CSLog\CS2\Models\MatchEnd;
 use CSLog\CS2\Models\MatchStatus;
 use CSLog\CS2\Models\MolotovSpawned;
-use CSLog\CS2\Models\MolotovThrowTrace;
 use CSLog\CS2\Models\MoneyChanged;
 use CSLog\CS2\Models\PickedUp;
 use CSLog\CS2\Models\PropKill;
 use CSLog\CS2\Models\Purchased;
 use CSLog\CS2\Models\RconCommand;
 use CSLog\CS2\Models\RoundDraw;
-use CSLog\CS2\Models\RoundRestart;
 use CSLog\CS2\Models\RoundScored;
 use CSLog\CS2\Models\Say;
 use CSLog\CS2\Models\SayTeam;
@@ -53,7 +52,7 @@ use CSLog\Model;
 class Patterns
 {
     // Need to be ordered from most specific to least specific
-    protected array $patterns = [
+    protected static array $patterns = [
         'Attack' => Attack::PATTERN,
         'Kill' => Kill::PATTERN,
         'BombDefusing' => BombDefusing::PATTERN,
@@ -66,7 +65,7 @@ class Patterns
         'Connected' => Connected::PATTERN,
         'Disconnected' => Disconnected::PATTERN,
         'EnteredTheGame' => EnteredTheGame::PATTERN,
-        'GotTheBomb' => GotTheBomb::PATTERN,
+        'BombEvent' => BombEvent::PATTERN,
         'JoinTeam' => JoinTeam::PATTERN,
         'KillAssist' => KillAssist::PATTERN,
         'LeftBuyZone' => LeftBuyZone::PATTERN,
@@ -75,7 +74,6 @@ class Patterns
         'MoneyChanged' => MoneyChanged::PATTERN,
         'PickedUp' => PickedUp::PATTERN,
         'Purchased' => Purchased::PATTERN,
-        'RoundRestart' => RoundRestart::PATTERN,
         'RoundScored' => RoundScored::PATTERN,
         'Say' => Say::PATTERN,
         'SayTeam' => SayTeam::PATTERN,
@@ -83,7 +81,6 @@ class Patterns
         'TeamScored' => TeamScored::PATTERN,
         'Threw' => Threw::PATTERN,
         'FlashAssistedKill' => FlashAssistedKill::PATTERN,
-        'TimeOut' => TimeOut::PATTERN,
         'MolotovSpawned' => MolotovSpawned::PATTERN,
         'FreezePeriod' => FreezePeriod::PATTERN,
         'RoundDraw' => RoundDraw::PATTERN,
@@ -91,20 +88,21 @@ class Patterns
         'ServerCVar' => ServerCVar::PATTERN,
         'ServerCVarBlock' => ServerCVarBlock::PATTERN,
         'ServerCVarPrint' => ServerCVarPrint::PATTERN,
-        'BackupFileLoading' => BackupFileLoading::PATTERN,
         'TeamPlaying' => TeamPlaying::PATTERN,
         'RconCommand' => RconCommand::PATTERN,
-        'LogFileStarted' => LogFileStarted::PATTERN,
         'Started' => Started::PATTERN,
         'SteamIdValidated' => SteamIdValidated::PATTERN,
         'Suicide' => Suicide::PATTERN,
         'PropKill' => PropKill::PATTERN,
-        'MolotovThrowTrace' => MolotovThrowTrace::PATTERN,
+        'TimeOut' => TimeOut::PATTERN,
+        'GrenadeThrowTrace' => GrenadeThrowTrace::PATTERN,
+        'Accolade' => Accolade::PATTERN,
+        'LogFileEvent' => LogFileEvent::PATTERN,
     ];
 
     public static function match($log): ?Model
     {
-        foreach (static::all() as $type => $regex) {
+        foreach (static::sorted() as $type => $regex) {
             // echo "Checking $type\n";
             $matches = [];
             if (preg_match($regex, $log, $matches)) {
@@ -121,16 +119,23 @@ class Patterns
 
     public static function all(): array
     {
-        $obj = new self;
-
-        return $obj->patterns;
+        return static::$patterns;
     }
 
     public static function __callStatic($name, $arguments): ?string
     {
-        $obj = new self;
+        return static::$patterns[$name] ?? null;
+    }
 
-        return $obj->patterns[$name] ?? null;
+    protected static ?array $sorted = null;
+
+    public static function sorted(): array
+    {
+        if (static::$sorted !== null) {
+            return static::$sorted;
+        }
+
+        return static::$sorted = static::autoReorder();
     }
 
     public static function generateSampleLine(string $regex): ?string

@@ -6,27 +6,23 @@ use Carbon\Carbon;
 use CSLog\CS2\CommonPatterns;
 use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
-use CSLog\CS2\ValueObjects\Vector3;
 use CSLog\Model;
 
-class Suicide extends Model
+class BombEvent extends Model
 {
     use ParsesTimestamp;
 
     public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
         .'(?P<player>'.CommonPatterns::IDENTITY_INNER.') '
-        .CommonPatterns::PLAYER_VECTOR.' '
-        .'committed suicide with "(?P<suicideSource>[^"]+)"/';
+        .'triggered "(?P<event>Got_The_Bomb|Dropped_The_Bomb)"/';
 
-    public string $type = 'Suicide';
+    public string $type = 'BombEvent';
 
     public Carbon $timestamp;
 
     public PlayerIdentity $player;
 
-    public Vector3 $playerPos;
-
-    public string $suicideSource;
+    public string $event; // 'Got_The_Bomb' or 'Dropped_The_Bomb'
 
     public function __construct(array $matches)
     {
@@ -36,6 +32,16 @@ class Suicide extends Model
         parent::__construct($matches);
 
         $this->player = PlayerIdentity::fromString($playerString);
-        $this->playerPos = Vector3::fromMatches($matches, 'player');
+        $this->event = $matches['event'];
+    }
+
+    public function isPickup(): bool
+    {
+        return $this->event === 'Got_The_Bomb';
+    }
+
+    public function isDrop(): bool
+    {
+        return $this->event === 'Dropped_The_Bomb';
     }
 }

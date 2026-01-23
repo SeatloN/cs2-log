@@ -3,31 +3,36 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
-use CSLog\CS2\LogPrefix;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
+use CSLog\CS2\ValueObjects\Vector3;
 use CSLog\Model;
 
 class BombKill extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<killedName>.+?)[<](?P<killedId>\d+)[>][<](?P<killedSteamId>.*)[>][<](?P<killedTeam>CT|TERRORIST|Unassigned|Spectator)[>]" \[(?P<killedX>[\-]?[0-9]+) (?P<killedY>[\-]?[0-9]+) (?P<killedZ>[\-]?[0-9]+)\] was killed by the bomb/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<killed>'.CommonPatterns::IDENTITY_INNER.') '
+        .CommonPatterns::KILLED_VECTOR.' was killed by the bomb/';
 
     public string $type = 'BombKill';
 
     public Carbon $timestamp;
 
-    public string $killedId;
+    public PlayerIdentity $killed;
 
-    public string $killedName;
+    public Vector3 $killedPos;
 
-    public string $killedTeam;
+    public function __construct(array $matches)
+    {
+        $killedString = $matches['killed'];
+        unset($matches['killed']);
 
-    public string $killedSteamId;
+        parent::__construct($matches);
 
-    public int $killedX;
-
-    public int $killedY;
-
-    public int $killedZ;
+        $this->killed = PlayerIdentity::fromString($killedString);
+        $this->killedPos = Vector3::fromMatches($matches, 'killed');
+    }
 }

@@ -3,7 +3,8 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
-use CSLog\CS2\LogPrefix;
+use CSLog\CS2\CommonPatterns;
+use CSLog\CS2\PlayerIdentity;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
 
@@ -11,19 +12,16 @@ class Threw extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::CLASSIC.'"(?P<userName>.+?)<(?P<userId>\d+)><(?P<steamId>[^>]*)><(?P<userTeam>CT|TERRORIST|Unassigned|Spectator)>" threw (?P<item>hegrenade|flashbang|smokegrenade|decoy|molotov) \[(?P<posX>[\-]?[0-9]+) (?P<posY>[\-]?[0-9]+) (?P<posZ>[\-]?[0-9]+)\](?: flashbang entindex (?P<entindex>[0-9]+))?/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_CLASSIC
+        .'(?P<thrower>'.CommonPatterns::IDENTITY_INNER.') '
+        .'threw (?P<item>hegrenade|flashbang|smokegrenade|decoy|molotov) '
+        .'\[(?P<posX>[\-]?[0-9]+) (?P<posY>[\-]?[0-9]+) (?P<posZ>[\-]?[0-9]+)\](?: flashbang entindex (?P<entindex>[0-9]+))?/';
 
     public string $type = 'Threw';
 
     public Carbon $timestamp;
 
-    public string $userId;
-
-    public string $userName;
-
-    public string $userTeam;
-
-    public string $steamId;
+    public PlayerIdentity $thrower;
 
     public int $posX;
 
@@ -34,4 +32,14 @@ class Threw extends Model
     public string $item;
 
     public ?int $entindex = null;
+
+    public function __construct(array $matches)
+    {
+        $throwerString = $matches['thrower'];
+        unset($matches['thrower']);
+
+        parent::__construct($matches);
+
+        $this->thrower = PlayerIdentity::fromString($throwerString);
+    }
 }

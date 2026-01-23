@@ -3,8 +3,8 @@
 namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
+use CSLog\CS2\CommonPatterns;
 use CSLog\CS2\DTO\ServerCVarDTO;
-use CSLog\CS2\LogPrefix;
 use CSLog\CS2\Parsers\CVarValueParser;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
@@ -13,7 +13,8 @@ class ServerCVar extends Model
 {
     use ParsesTimestamp;
 
-    public const PATTERN = '/'.LogPrefix::UNIVERSAL.'server_cvar: "(?P<cvar>[^"]+)" "(?P<value>[^"]*)"$/';
+    public const PATTERN = '/'.CommonPatterns::PREFIX_UNIVERSAL
+        .'server_cvar: "(?P<cvar>[^"]+)" "(?P<value>[^"]*)"$/';
 
     public string $type = 'ServerCVar';
 
