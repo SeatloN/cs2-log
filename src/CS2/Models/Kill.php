@@ -19,7 +19,8 @@ class Kill extends Model
         .'killed '
         .'(?P<killed>'.CommonPatterns::IDENTITY_INNER.') '
         .CommonPatterns::KILLED_VECTOR.' '
-        .'with "(?P<weapon>'.CommonPatterns::WEAPON.')"(?P<headshot>.*)/';
+        .'with "(?P<weapon>'.CommonPatterns::WEAPON.')"'
+        .CommonPatterns::FLAGS.'/';
 
     public string $type = 'Kill';
 
@@ -35,13 +36,15 @@ class Kill extends Model
 
     public string $weapon;
 
-    public string $headshot;
+    public ?array $flags = null;
 
     public function __construct(array $matches)
     {
         $killerString = $matches['killer'];
         $killedString = $matches['killed'];
-        unset($matches['killer'], $matches['killed']);
+        $flagsString = $matches['flags'] ?? null;
+
+        unset($matches['killer'], $matches['killed'], $matches['flags']);
 
         parent::__construct($matches);
 
@@ -49,5 +52,7 @@ class Kill extends Model
         $this->killed = PlayerIdentity::fromString($killedString);
         $this->killerPos = Vector3::fromMatches($matches, 'killer');
         $this->killedPos = Vector3::fromMatches($matches, 'killed');
+
+        $this->flags = CommonPatterns::parseFlags($flagsString);
     }
 }

@@ -165,7 +165,7 @@ test('Kill', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
 
     expect($model->weapon)->toBe('m4a1_silencer');
-    expect($model->headshot)->toBe('');
+    expect($model->flags)->toBe([]);
 });
 
 test('KillHeadshot', function () {
@@ -180,7 +180,7 @@ test('KillHeadshot', function () {
     expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
-    expect($model->headshot)->toBe(' (headshot)');
+    expect($model->flags)->toBe(['headshot']);
 });
 
 test('KillThroughSmoke', function () {
@@ -195,7 +195,7 @@ test('KillThroughSmoke', function () {
     expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
-    expect($model->headshot)->toBe(' (throughsmoke)');
+    expect($model->flags)->toBe(['throughsmoke']);
 });
 
 test('KillThroughWall', function () {
@@ -210,7 +210,7 @@ test('KillThroughWall', function () {
     expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
-    expect($model->headshot)->toBe(' (penetrated)');
+    expect($model->flags)->toBe(['penetrated']);
 });
 
 test('BombKill', function () {
