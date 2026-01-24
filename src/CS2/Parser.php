@@ -157,7 +157,8 @@ class Parser
         }
 
         $rawJson = $this->jsonBlockBuffer['raw_json'];
-
+        $timestamp = $this->jsonBlockBuffer['timestamp'];
+        /*
         // Try to decode JSON
         $decoded = json_decode($rawJson, true);
 
@@ -178,13 +179,9 @@ class Parser
                 unset($data['players']);
             }
         }
+        */
 
-        $stats = new RoundStats([
-            'timestamp' => $this->jsonBlockBuffer['timestamp'],
-            'data' => $data,
-            'players' => $players,
-            'raw_json' => $rawJson,
-        ]);
+        $stats = RoundStats::fromRawJson($timestamp, $rawJson);
 
         $this->jsonBlockBuffer = null;
 

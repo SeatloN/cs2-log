@@ -91,4 +91,38 @@ class RoundStats extends Model
             'chicken_kills' => (int) ($values[25] ?? 0),
         ];
     }
+
+    public static function fromRawJson(string $timestamp, string $rawJson): self
+    {
+        $json = json_decode($rawJson, true);
+
+        if (! is_array($json)) {
+            return new self([
+                'timestamp' => $timestamp,
+                'rawJson' => $rawJson,
+            ]);
+        }
+
+        // Parse players
+        $players = [];
+        if (isset($json['players']) && is_array($json['players'])) {
+            foreach ($json['players'] as $key => $statsString) {
+                $players[$key] = self::parsePlayerStats($statsString);
+            }
+        }
+
+        return new self([
+            'timestamp' => $timestamp,
+            'data' => [
+                'name' => $json['name'] ?? null,
+                'round_number' => (int) ($json['round_number'] ?? 0),
+                'score_t' => (int) ($json['score_t'] ?? 0),
+                'score_ct' => (int) ($json['score_ct'] ?? 0),
+                'map' => $json['map'] ?? null,
+                'server' => $json['server'] ?? null,
+            ],
+            'players' => $players,
+            'raw_json' => $rawJson,
+        ]);
+    }
 }
