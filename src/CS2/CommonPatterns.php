@@ -97,10 +97,25 @@ class CommonPatterns
      * Boolean flags inside parentheses.
      */
     public const FLAGS =
-        '\((?P<flags>[^)]*)\)';
+        '(?:\s*\((?P<flags>[^)]*)\))?$';
 
     public static function vector3(string $prefix): string
     {
         return '\[(?P<'.$prefix.'X>-?\d+) (?P<'.$prefix.'Y>-?\d+) (?P<'.$prefix.'Z>-?\d+)\]';
+    }
+
+    public static function parseFlags(?string $raw): array
+    {
+        if ($raw === null) {
+            return [];
+        }
+
+        $trimmed = trim($raw);
+
+        if ($trimmed === '') {
+            return [];
+        }
+
+        return preg_split('/\s+/', $trimmed);
     }
 }

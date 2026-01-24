@@ -14,6 +14,9 @@ abstract class Model
 {
     public const PATTERN = null;
 
+    /**
+     * The type of the event.
+     */
     public string $type;
 
     public function __construct($data = [])

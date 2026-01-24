@@ -19,7 +19,8 @@ class PropKill extends Model
         .CommonPatterns::KILLER_VECTOR.' '
         .'killed other "(?P<propName>[a-zA-Z0-9_]+)<(?P<propId>\d+)>" '
         .CommonPatterns::PROP_VECTOR.' '
-        .'with "(?P<weapon>[a-zA-Z0-9_]+)"(?: \((?P<flags>[^)]*)\))?$/';
+        .'with "(?P<weapon>[a-zA-Z0-9_]+)"'
+        .CommonPatterns::FLAGS.'/';
 
     public string $type = 'PropKill';
 
@@ -37,12 +38,12 @@ class PropKill extends Model
 
     public string $weapon;
 
-    public ?string $flags = null;
+    public ?array $flags = null;
 
     public function __construct(array $matches)
     {
         $killerString = $matches['killer'];
-        $flagsString = $matches['flags'];
+        $flagsString = $matches['flags'] ?? null;
         unset($matches['killer'], $matches['flags']);
 
         parent::__construct($matches);
@@ -51,9 +52,6 @@ class PropKill extends Model
         $this->killerPos = Vector3::fromMatches($matches, 'killer');
         $this->propPos = Vector3::fromMatches($matches, 'prop');
 
-        // Only set items if the string is not empty
-        if (isset($flagsString) && trim($flagsString) !== '') {
-            $this->flags = trim($flagsString);
-        }
+        $this->flags = CommonPatterns::parseFlags($flagsString);
     }
 }
