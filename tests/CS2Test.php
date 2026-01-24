@@ -282,7 +282,7 @@ test('MatchStart', function () {
     expect($model->map)->toBe('de_inferno');
 });
 
-test('MatchStatus', function () {
+test('MatchStatus - 0:1', function () {
     $log = 'L 10/01/2023 - 16:38:24: MatchStatus: Score: 0:1 on map "de_inferno" RoundsPlayed: 1';
 
     $model = Patterns::match($log);
@@ -293,6 +293,19 @@ test('MatchStatus', function () {
     expect($model->scoreB)->toBe(1);
     expect($model->map)->toBe('de_inferno');
     expect($model->roundsPlayed)->toBe(1);
+});
+
+test('MatchStatus - 2:13', function () {
+    $log = 'L 10/01/2023 - 16:38:24: MatchStatus: Score: 2:13 on map "de_inferno" RoundsPlayed: 15';
+
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(MatchStatus::class);
+    expect($model->type)->toBe('MatchStatus');
+    expect($model->scoreA)->toBe(2);
+    expect($model->scoreB)->toBe(13);
+    expect($model->map)->toBe('de_inferno');
+    expect($model->roundsPlayed)->toBe(15);
 });
 
 test('Purchased', function () {
