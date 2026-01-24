@@ -1,0 +1,4 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.defaultFormatter": "amiralizadeh9480.laravel-extra-intellisense"
+}

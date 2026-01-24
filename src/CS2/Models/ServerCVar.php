@@ -18,7 +18,7 @@ class ServerCVar extends Model
 
     public string $type = 'ServerCVar';
 
-    public Carbon $timestamp;   
+    public Carbon $timestamp;
 
     public ServerCVarDTO $dto;
 
