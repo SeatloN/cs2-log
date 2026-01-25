@@ -82,4 +82,19 @@ class Kill extends Model
 
         $this->flags = CommonPatterns::parseFlags($flagsString);
     }
+
+    public function isHeadshot(): bool
+    {
+        return in_array('headshot', $this->flags ?? []);
+    }
+
+    public function isThroughSmoke(): bool
+    {
+        return in_array('throughsmoke', $this->flags ?? []);
+    }
+
+    public function isPenetrated(): bool
+    {
+        return in_array('penetrated', $this->flags ?? []);
+    }
 }

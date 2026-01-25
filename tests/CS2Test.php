@@ -166,6 +166,9 @@ test('Kill', function () {
 
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe([]);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('KillHeadshot', function () {
@@ -181,6 +184,9 @@ test('KillHeadshot', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['headshot']);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeTrue();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('KillThroughSmoke', function () {
@@ -196,6 +202,9 @@ test('KillThroughSmoke', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['throughsmoke']);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeTrue();
 });
 
 test('KillThroughWall', function () {
@@ -211,6 +220,9 @@ test('KillThroughWall', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['penetrated']);
+    expect($model->isPenetrated())->toBeTrue();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('BombKill', function () {
