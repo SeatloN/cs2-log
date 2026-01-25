@@ -651,3 +651,13 @@ test('Warmup Start', function () {
     expect($model->type)->toBe('WorldTriggered');
     expect($model->event)->toBe('Warmup_Start');
 });
+
+test('Match Restart', function () {
+    $log = 'L 01/19/2026 - 19:15:32: World triggered "Restart_Round_(4_seconds)"';
+    $model = Patterns::match($log);
+
+    expect($model)->toBeInstanceOf(WorldTriggered::class);
+    expect($model->type)->toBe('WorldTriggered');
+    expect($model->event)->toBe('Restart_Round');
+    expect($model->restartSeconds)->toBe(4);
+});
