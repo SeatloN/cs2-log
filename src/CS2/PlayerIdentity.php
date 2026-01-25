@@ -9,13 +9,13 @@ class PlayerIdentity
     /**
      * @param  string  $name  Player's name.
      * @param  int  $id  Player's ID.
-     * @param  string  $steam  Player's Steam ID.
+     * @param  string  $steamId  Player's Steam ID.
      * @param  string  $team  Player's team.
      */
     public function __construct(
         public string $name,
         public int $id,
-        public string $steam,
+        public string $steamId,
         public string $team,
     ) {}
 
@@ -36,7 +36,7 @@ class PlayerIdentity
         return new self(
             name: $m['name'],
             id: (int) $m['id'],
-            steam: $m['steam'],
+            steamId: $m['steam'],
             team: $m['team'] ?? '',
         );
     }

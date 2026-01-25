@@ -166,6 +166,9 @@ test('Kill', function () {
 
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe([]);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('KillHeadshot', function () {
@@ -181,6 +184,9 @@ test('KillHeadshot', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['headshot']);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeTrue();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('KillThroughSmoke', function () {
@@ -196,6 +202,9 @@ test('KillThroughSmoke', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['throughsmoke']);
+    expect($model->isPenetrated())->toBeFalse();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeTrue();
 });
 
 test('KillThroughWall', function () {
@@ -211,6 +220,9 @@ test('KillThroughWall', function () {
     expect($model->killedPos)->toBeInstanceOf(Vector3::class);
     expect($model->weapon)->toBe('m4a1_silencer');
     expect($model->flags)->toBe(['penetrated']);
+    expect($model->isPenetrated())->toBeTrue();
+    expect($model->isHeadshot())->toBeFalse();
+    expect($model->isThroughSmoke())->toBeFalse();
 });
 
 test('BombKill', function () {
@@ -233,11 +245,11 @@ test('KillAssist', function () {
     expect($model->type)->toBe('KillAssist');
     expect($model->assister)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->assister->name)->toBe('Elix');
-    expect($model->assister->steam)->toBe('[U:1:302549372]');
+    expect($model->assister->steamId)->toBe('[U:1:302549372]');
     expect($model->assister->team)->toBe('TERRORIST');
     expect($model->killed)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->killed->name)->toBe('GEO');
-    expect($model->killed->steam)->toBe('[U:1:353168853]');
+    expect($model->killed->steamId)->toBe('[U:1:353168853]');
     expect($model->killed->team)->toBe('CT');
 });
 
@@ -367,7 +379,7 @@ test('Say', function () {
     expect($model->type)->toBe('Say');
     expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->player->name)->toBe('boro494');
-    expect($model->player->steam)->toBe('STEAM_1:0:52867709');
+    expect($model->player->steamId)->toBe('STEAM_1:0:52867709');
     expect($model->text)->toBe('kto hraje wipo bajo? saltovsky?');
 });
 
@@ -380,7 +392,7 @@ test('SwitchTeam', function () {
     expect($model->type)->toBe('SwitchTeam');
     expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->player->name)->toBe('GEO');
-    expect($model->player->steam)->toBe('[U:1:353168853]');
+    expect($model->player->steamId)->toBe('[U:1:353168853]');
     expect($model->player->team)->toBe('');
     expect($model->newTeam)->toBe('TERRORIST');
     expect($model->oldTeam)->toBe('CT');
@@ -409,7 +421,7 @@ test('Threw - flash', function () {
 
     expect($model->thrower)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->thrower->name)->toBe('index');
-    expect($model->thrower->steam)->toBe('[U:1:98202654]');
+    expect($model->thrower->steamId)->toBe('[U:1:98202654]');
     expect($model->thrower->team)->toBe('TERRORIST');
     expect($model->item)->toBe('flashbang');
     expect($model->entindex)->toBe(930);
@@ -428,7 +440,7 @@ test('Threw - smoke', function () {
 
     expect($model->thrower)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->thrower->name)->toBe('Scriib');
-    expect($model->thrower->steam)->toBe('[U:1:94156635]');
+    expect($model->thrower->steamId)->toBe('[U:1:94156635]');
     expect($model->thrower->team)->toBe('CT');
     expect($model->item)->toBe('smokegrenade');
     expect($model->entindex)->toBeNull();
@@ -446,7 +458,7 @@ test('Picked Up', function () {
     expect($model->type)->toBe('PickedUp');
     expect($model->player)->toBeInstanceOf(PlayerIdentity::class);
     expect($model->player->name)->toBe('SeatloN');
-    expect($model->player->steam)->toBe('[U:1:6318168]');
+    expect($model->player->steamId)->toBe('[U:1:6318168]');
     expect($model->player->team)->toBe('TERRORIST');
     expect($model->object)->toBe('molotov');
 });

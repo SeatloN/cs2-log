@@ -105,3 +105,50 @@ LOG;
     $this->assertEquals(5, $events[0]->players['player_1']['kills']);
 }
 );
+
+test('can parse json stats block - With more than 1 player', function () {
+    $log = <<<'LOG'
+L 01/19/2026 - 18:59:47: JSON_BEGIN{
+L 01/19/2026 - 18:59:47: "name": "round_stats",
+L 01/19/2026 - 18:59:47: "round_number" : "1",
+L 01/19/2026 - 18:59:47: "score_t" : "0",
+L 01/19/2026 - 18:59:47: "score_ct" : "0",
+L 01/19/2026 - 18:59:47: "map" : "de_inferno",
+L 01/19/2026 - 18:59:47: "server" : "challengermode.com - Register to join",
+L 01/19/2026 - 18:59:47: "fields" : "             accountid,   team,  money,  kills, deaths,assists,    dmg,    hsp,    kdr,    adr,    mvp,     ef,     ud,     3k,     4k,     5k,clutchk, firstk,pistolk,sniperk, blindk,  bombk,firedmg,uniquek,  dinks,chickenk"
+L 01/19/2026 - 18:59:47: "players" : {
+L 01/19/2026 - 18:59:47: "player_0" : "                   0,      0,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_1" : "            91379634,      3,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_2" : "            91023233,      2,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_3" : "           133954850,      3,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_4" : "           193288330,      3,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_5" : "           442078920,      3,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_6" : "           188337394,      2,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_7" : "           268200068,      2,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_8" : "          1047133778,      2,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_9" : "            97679279,      3,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: "player_10" : "            29856109,      2,      0,      0,      0,      0,   0.00,   0.00,   0.00,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,0.000000,0.000000,      0,      0,      0"
+L 01/19/2026 - 18:59:47: }}JSON_END
+LOG;
+
+    $parser = new Parser;
+    $events = $parser->parse($log);
+
+    $this->assertCount(1, $events);
+    $this->assertInstanceOf(RoundStats::class, $events[0]);
+    $this->assertInstanceOf(Carbon::class, $events[0]->timestamp);
+    $this->assertEquals('2026-01-19 18:59:47', $events[0]->timestamp->format('Y-m-d H:i:s'));
+    $this->assertEquals('round_stats', $events[0]->name);
+    $this->assertEquals(1, $events[0]->roundNumber);
+    $this->assertEquals('de_inferno', $events[0]->map);
+    $this->assertArrayHasKey('player_0', $events[0]->players);
+    $this->assertEquals(0, $events[0]->players['player_0']['accountid']);
+    $this->assertEquals(0, $events[0]->players['player_0']['team']);
+    $this->assertEquals(0, $events[0]->players['player_0']['kills']);
+
+    $this->assertArrayHasKey('player_10', $events[0]->players);
+    $this->assertEquals(29856109, $events[0]->players['player_10']['accountid']);
+    $this->assertEquals(2, $events[0]->players['player_10']['team']);
+    $this->assertEquals(0, $events[0]->players['player_10']['kills']);
+}
+);
