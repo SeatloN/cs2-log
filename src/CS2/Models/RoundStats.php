@@ -38,24 +38,7 @@ class RoundStats extends Model
 
     public function __construct(array $data)
     {
-        // Handle nested 'data' structure from Parser
-        if (isset($data['data'])) {
-            $flatData = [
-                'timestamp' => $data['timestamp'],
-                'name' => $data['data']['name'] ?? null,
-                'roundNumber' => $data['data']['round_number'] ?? 0,
-                'scoreT' => $data['data']['score_t'] ?? 0,
-                'scoreCT' => $data['data']['score_ct'] ?? 0,
-                'map' => $data['data']['map'] ?? null,
-                'server' => $data['data']['server'] ?? null,
-                'players' => $data['players'] ?? [],
-                'rawJson' => $data['raw_json'] ?? '',
-            ];
-
-            parent::__construct($flatData);
-        } else {
-            parent::__construct($data);
-        }
+        parent::__construct($data);
     }
 
     public static function parsePlayerStats(string $statsString): array
@@ -94,18 +77,15 @@ class RoundStats extends Model
 
     public static function fromRawJson(string $timestamp, string $rawJson): self
     {
-        $json = json_decode($rawJson, true);
+        $normalized = self::normalizeValveJson($rawJson);
+        $json = json_decode($normalized, true);
 
         if (! is_array($json)) {
-            return new self([
-                'timestamp' => $timestamp,
-                'rawJson' => $rawJson,
-            ]);
+            throw new \RuntimeException('Invalid RoundStats JSON block');
         }
 
-        // Parse players
         $players = [];
-        if (isset($json['players']) && is_array($json['players'])) {
+        if (isset($json['players'])) {
             foreach ($json['players'] as $key => $statsString) {
                 $players[$key] = self::parsePlayerStats($statsString);
             }
@@ -113,16 +93,39 @@ class RoundStats extends Model
 
         return new self([
             'timestamp' => $timestamp,
-            'data' => [
-                'name' => $json['name'] ?? null,
-                'round_number' => (int) ($json['round_number'] ?? 0),
-                'score_t' => (int) ($json['score_t'] ?? 0),
-                'score_ct' => (int) ($json['score_ct'] ?? 0),
-                'map' => $json['map'] ?? null,
-                'server' => $json['server'] ?? null,
-            ],
+            'name' => $json['name'] ?? null,
+            'roundNumber' => (int) ($json['round_number'] ?? 0),
+            'scoreT' => (int) ($json['score_t'] ?? 0),
+            'scoreCT' => (int) ($json['score_ct'] ?? 0),
+            'map' => $json['map'] ?? null,
+            'server' => $json['server'] ?? null,
             'players' => $players,
-            'raw_json' => $rawJson,
+            'rawJson' => $normalized,
         ]);
+
+    }
+
+    private static function normalizeValveJson(string $raw): string
+    {
+        // Remove control characters except newline, tab, carriage return
+        $raw = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/', '', $raw);
+
+        // Insert missing commas between JSON fields
+        $raw = preg_replace('/"\s*\n\s*"/', '", "', $raw);
+
+        // Insert missing commas between object entries
+        $raw = preg_replace('/"\s*\n\s*([a-zA-Z0-9_]+")/', '", "$1', $raw);
+
+        // Remove trailing commas before } or ]
+        $raw = preg_replace('/,\s*([}\]])/', '$1', $raw);
+
+        // Collapse multi-line quoted strings
+        $raw = preg_replace_callback(
+            '/"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"/s',
+            fn ($m) => '"'.preg_replace('/\s+/', ' ', $m[1]).'"',
+            $raw
+        );
+
+        return trim($raw);
     }
 }
