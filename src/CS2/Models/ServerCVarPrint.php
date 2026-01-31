@@ -4,7 +4,7 @@ namespace CSLog\CS2\Models;
 
 use Carbon\Carbon;
 use CSLog\CS2\CommonPatterns;
-use CSLog\CS2\DTO\ServerCVarDTO;
+use CSLog\CS2\Dto\ServerCVarDTO;
 use CSLog\CS2\Parsers\CVarValueParser;
 use CSLog\CS2\Traits\ParsesTimestamp;
 use CSLog\Model;
