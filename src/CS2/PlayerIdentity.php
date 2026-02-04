@@ -40,4 +40,24 @@ class PlayerIdentity
             team: $m['team'] ?? '',
         );
     }
+
+    public function getPlayerId(): int
+    {
+        return $this->id;
+    }
+
+    public function getPlayerSteamId(): string
+    {
+        return $this->steamId;
+    }
+
+    public function getPlayerName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPlayerTeam(): string
+    {
+        return $this->team;
+    }
 }
