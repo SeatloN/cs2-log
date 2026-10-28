@@ -18,9 +18,9 @@ class Vector3
     /**
      * Parses a raw log line into a PlayerHurtEvent.
      *
-     * @param  string  $m  contains the matches.
+     * @param  array<string, string>  $m  Regex matches keyed by capture name.
      * @param  string  $prefix  optional prefix for the match keys.
-     * @return self if the line does not match.
+     * @return self Vector parsed from the matches.
      */
     public static function fromMatches(array $m, string $prefix = ''): self
     {

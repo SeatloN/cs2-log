@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests;
-
 use Carbon\Carbon;
 use CSLog\CS2\Models\RoundStats;
 use CSLog\CS2\Models\ServerCVar;
@@ -9,18 +7,19 @@ use CSLog\CS2\Models\TeamPlaying;
 use CSLog\CS2\Models\WorldTriggered;
 use CSLog\CS2\Parser;
 
+
 test('can parse team playing with carbon', function () {
     $log = 'L 01/19/2026 - 19:03:11: Team playing "CT": rvls test team 1';
 
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(TeamPlaying::class, $events[0]);
-    $this->assertInstanceOf(Carbon::class, $events[0]->timestamp);
-    $this->assertEquals('2026-01-19 19:03:11', $events[0]->timestamp->format('Y-m-d H:i:s'));
-    $this->assertEquals('CT', $events[0]->side);
-    $this->assertEquals('rvls test team 1', $events[0]->teamName);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(TeamPlaying::class);
+    expect($events[0]->timestamp)->toBeInstanceOf(Carbon::class);
+    expect($events[0]->timestamp->format('Y-m-d H:i:s'))->toEqual('2026-01-19 19:03:11');
+    expect($events[0]->side)->toEqual('CT');
+    expect($events[0]->teamName)->toEqual('rvls test team 1');
 });
 
 test('can parse server cvar with carbon', function () {
@@ -29,11 +28,11 @@ test('can parse server cvar with carbon', function () {
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(ServerCVar::class, $events[0]);
-    $this->assertInstanceOf(Carbon::class, $events[0]->timestamp);
-    $this->assertEquals('mp_friendlyfire', $events[0]->cvar);
-    $this->assertEquals('true', $events[0]->value);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(ServerCVar::class);
+    expect($events[0]->timestamp)->toBeInstanceOf(Carbon::class);
+    expect($events[0]->cvar)->toEqual('mp_friendlyfire');
+    expect($events[0]->value)->toEqual('true');
 });
 
 test('can parse world triggered with map', function () {
@@ -42,10 +41,10 @@ test('can parse world triggered with map', function () {
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(WorldTriggered::class, $events[0]);
-    $this->assertEquals('Match_Start', $events[0]->event);
-    $this->assertEquals('de_inferno', $events[0]->map);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(WorldTriggered::class);
+    expect($events[0]->event)->toEqual('Match_Start');
+    expect($events[0]->map)->toEqual('de_inferno');
 });
 
 test('can parse world triggered without map', function () {
@@ -54,10 +53,10 @@ test('can parse world triggered without map', function () {
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(WorldTriggered::class, $events[0]);
-    $this->assertEquals('Round_Start', $events[0]->event);
-    $this->assertNull($events[0]->map);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(WorldTriggered::class);
+    expect($events[0]->event)->toEqual('Round_Start');
+    expect($events[0]->map)->toBeNull();
 });
 
 test('can use carbon methods on timestamp', function () {
@@ -69,12 +68,12 @@ test('can use carbon methods on timestamp', function () {
     $event = $events[0];
 
     // Test Carbon methods work
-    $this->assertEquals(2026, $event->timestamp->year);
-    $this->assertEquals(1, $event->timestamp->month);
-    $this->assertEquals(19, $event->timestamp->day);
-    $this->assertEquals(19, $event->timestamp->hour);
-    $this->assertEquals(3, $event->timestamp->minute);
-    $this->assertEquals(11, $event->timestamp->second);
+    expect($event->timestamp->year)->toEqual(2026);
+    expect($event->timestamp->month)->toEqual(1);
+    expect($event->timestamp->day)->toEqual(19);
+    expect($event->timestamp->hour)->toEqual(19);
+    expect($event->timestamp->minute)->toEqual(3);
+    expect($event->timestamp->second)->toEqual(11);
 });
 
 test('can parse json stats block with carbon', function () {
@@ -93,16 +92,16 @@ LOG;
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(RoundStats::class, $events[0]);
-    $this->assertInstanceOf(Carbon::class, $events[0]->timestamp);
-    $this->assertEquals('2026-01-19 19:03:11', $events[0]->timestamp->format('Y-m-d H:i:s'));
-    $this->assertEquals('round_stats', $events[0]->name);
-    $this->assertEquals(1, $events[0]->roundNumber);
-    $this->assertEquals('de_inferno', $events[0]->map);
-    $this->assertArrayHasKey('player_1', $events[0]->players);
-    $this->assertEquals(91379634, $events[0]->players['player_1']['accountid']);
-    $this->assertEquals(5, $events[0]->players['player_1']['kills']);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(RoundStats::class);
+    expect($events[0]->timestamp)->toBeInstanceOf(Carbon::class);
+    expect($events[0]->timestamp->format('Y-m-d H:i:s'))->toEqual('2026-01-19 19:03:11');
+    expect($events[0]->name)->toEqual('round_stats');
+    expect($events[0]->roundNumber)->toEqual(1);
+    expect($events[0]->map)->toEqual('de_inferno');
+    expect($events[0]->players)->toHaveKey('player_1');
+    expect($events[0]->players['player_1']['accountid'])->toEqual(91379634);
+    expect($events[0]->players['player_1']['kills'])->toEqual(5);
 }
 );
 
@@ -134,21 +133,21 @@ LOG;
     $parser = new Parser;
     $events = $parser->parse($log);
 
-    $this->assertCount(1, $events);
-    $this->assertInstanceOf(RoundStats::class, $events[0]);
-    $this->assertInstanceOf(Carbon::class, $events[0]->timestamp);
-    $this->assertEquals('2026-01-19 18:59:47', $events[0]->timestamp->format('Y-m-d H:i:s'));
-    $this->assertEquals('round_stats', $events[0]->name);
-    $this->assertEquals(1, $events[0]->roundNumber);
-    $this->assertEquals('de_inferno', $events[0]->map);
-    $this->assertArrayHasKey('player_0', $events[0]->players);
-    $this->assertEquals(0, $events[0]->players['player_0']['accountid']);
-    $this->assertEquals(0, $events[0]->players['player_0']['team']);
-    $this->assertEquals(0, $events[0]->players['player_0']['kills']);
+    expect($events)->toHaveCount(1);
+    expect($events[0])->toBeInstanceOf(RoundStats::class);
+    expect($events[0]->timestamp)->toBeInstanceOf(Carbon::class);
+    expect($events[0]->timestamp->format('Y-m-d H:i:s'))->toEqual('2026-01-19 18:59:47');
+    expect($events[0]->name)->toEqual('round_stats');
+    expect($events[0]->roundNumber)->toEqual(1);
+    expect($events[0]->map)->toEqual('de_inferno');
+    expect($events[0]->players)->toHaveKey('player_0');
+    expect($events[0]->players['player_0']['accountid'])->toEqual(0);
+    expect($events[0]->players['player_0']['team'])->toEqual(0);
+    expect($events[0]->players['player_0']['kills'])->toEqual(0);
 
-    $this->assertArrayHasKey('player_10', $events[0]->players);
-    $this->assertEquals(29856109, $events[0]->players['player_10']['accountid']);
-    $this->assertEquals(2, $events[0]->players['player_10']['team']);
-    $this->assertEquals(0, $events[0]->players['player_10']['kills']);
+    expect($events[0]->players)->toHaveKey('player_10');
+    expect($events[0]->players['player_10']['accountid'])->toEqual(29856109);
+    expect($events[0]->players['player_10']['team'])->toEqual(2);
+    expect($events[0]->players['player_10']['kills'])->toEqual(0);
 }
 );

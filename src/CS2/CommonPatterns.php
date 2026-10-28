@@ -104,6 +104,7 @@ class CommonPatterns
         return '\[(?P<'.$prefix.'X>-?\d+) (?P<'.$prefix.'Y>-?\d+) (?P<'.$prefix.'Z>-?\d+)\]';
     }
 
+    /** @return list<string> */
     public static function parseFlags(?string $raw): array
     {
         if ($raw === null) {

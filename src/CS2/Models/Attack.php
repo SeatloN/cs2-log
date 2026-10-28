@@ -50,6 +50,7 @@ class Attack extends Model
 
     public string $victimHitGroup;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $attackerString = $matches['attacker'];

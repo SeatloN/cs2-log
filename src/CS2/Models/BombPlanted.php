@@ -24,6 +24,7 @@ class BombPlanted extends Model
 
     public string $bombsite;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $playerString = $matches['player'];

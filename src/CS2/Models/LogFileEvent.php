@@ -27,6 +27,7 @@ class LogFileEvent extends Model
 
     public ?string $version = null;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         parent::__construct($matches);

@@ -9,6 +9,15 @@ use CSLog\Model;
 /**
  * Round Statistics from JSON blocks
  * This is a special model that gets constructed differently since it spans multiple lines
+ *
+ * @phpstan-type PlayerStats array{
+ *     accountid: int, team: int, money: int, kills: int, deaths: int,
+ *     assists: int, damage: float, hsp: float, kdr: float, adr: int,
+ *     mvp: int, ef: int, ud: int, triple_kills: int, quad_kills: int,
+ *     ace: int, clutch_kills: int, first_kills: int, pistol_kills: int,
+ *     sniper_kills: int, blind_kills: int, bomb_kills: int,
+ *     fire_damage: float, unique_kills: float, dinks: int, chicken_kills: int
+ * }
  */
 class RoundStats extends Model
 {
@@ -32,15 +41,18 @@ class RoundStats extends Model
 
     public ?string $server = null;
 
+    /** @var array<string, self::PlayerStats> */
     public array $players = [];
 
     public string $rawJson = '';
 
+    /** @param array<string, mixed> $data */
     public function __construct(array $data)
     {
         parent::__construct($data);
     }
 
+    /** @return self::PlayerStats */
     public static function parsePlayerStats(string $statsString): array
     {
         $values = array_map('trim', explode(',', $statsString));

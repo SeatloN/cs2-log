@@ -25,6 +25,7 @@ class FlashAssistedKill extends Model
 
     public PlayerIdentity $killed;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $assisterString = $matches['assister'];

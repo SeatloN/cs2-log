@@ -49,9 +49,57 @@ use CSLog\CS2\Models\TimeOut;
 use CSLog\CS2\Models\WorldTriggered;
 use CSLog\Model;
 
+/**
+ * @method static string Attack()
+ * @method static string Kill()
+ * @method static string BombDefusing()
+ * @method static string Blinded()
+ * @method static string BombPlanted()
+ * @method static string BombPlanting()
+ * @method static string BombKill()
+ * @method static string ChangeMap()
+ * @method static string ChangeName()
+ * @method static string Connected()
+ * @method static string Disconnected()
+ * @method static string EnteredTheGame()
+ * @method static string BombEvent()
+ * @method static string JoinTeam()
+ * @method static string KillAssist()
+ * @method static string LeftBuyZone()
+ * @method static string MatchEnd()
+ * @method static string MatchStatus()
+ * @method static string MoneyChanged()
+ * @method static string PickedUp()
+ * @method static string Purchased()
+ * @method static string RoundScored()
+ * @method static string Say()
+ * @method static string SayTeam()
+ * @method static string SwitchTeam()
+ * @method static string TeamScored()
+ * @method static string Threw()
+ * @method static string FlashAssistedKill()
+ * @method static string MolotovSpawned()
+ * @method static string FreezePeriod()
+ * @method static string RoundDraw()
+ * @method static string WorldTriggered()
+ * @method static string ServerCVar()
+ * @method static string ServerCVarBlock()
+ * @method static string ServerCVarPrint()
+ * @method static string TeamPlaying()
+ * @method static string RconCommand()
+ * @method static string Started()
+ * @method static string SteamIdValidated()
+ * @method static string Suicide()
+ * @method static string PropKill()
+ * @method static string TimeOut()
+ * @method static string GrenadeThrowTrace()
+ * @method static string Accolade()
+ * @method static string LogFileEvent()
+ */
 class Patterns
 {
     // Need to be ordered from most specific to least specific
+    /** @var array<string, string> */
     protected static array $patterns = [
         'Attack' => Attack::PATTERN,
         'Kill' => Kill::PATTERN,
@@ -100,6 +148,7 @@ class Patterns
         'LogFileEvent' => LogFileEvent::PATTERN,
     ];
 
+    /** @param string $log Raw log line to match. */
     public static function match($log): ?Model
     {
         foreach (static::sorted() as $type => $regex) {
@@ -117,18 +166,25 @@ class Patterns
         return null;
     }
 
+    /** @return array<string, string> */
     public static function all(): array
     {
         return static::$patterns;
     }
 
+    /**
+     * @param  string  $name  Pattern name.
+     * @param  array<int, mixed>  $arguments  Arguments passed to the dynamic call.
+     */
     public static function __callStatic($name, $arguments): ?string
     {
         return static::$patterns[$name] ?? null;
     }
 
+    /** @var array<string, string>|null */
     protected static ?array $sorted = null;
 
+    /** @return array<string, string> */
     public static function sorted(): array
     {
         if (static::$sorted !== null) {
@@ -181,6 +237,7 @@ class Patterns
         return max($score, 0);
     }
 
+    /** @return array<string, int> */
     public static function rankedBySpecificity(): array
     {
         $patterns = static::all();
@@ -195,6 +252,7 @@ class Patterns
         return $ranked;
     }
 
+    /** @return array<string, string> */
     public static function autoReorder(): array
     {
         $patterns = static::all();

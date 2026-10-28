@@ -33,6 +33,7 @@ class Threw extends Model
 
     public ?int $entindex = null;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $throwerString = $matches['thrower'];

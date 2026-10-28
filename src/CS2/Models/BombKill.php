@@ -25,6 +25,7 @@ class BombKill extends Model
 
     public Vector3 $killedPos;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $killedString = $matches['killed'];

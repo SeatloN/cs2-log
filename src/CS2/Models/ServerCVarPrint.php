@@ -22,6 +22,7 @@ class ServerCVarPrint extends Model
 
     public ServerCVarDTO $dto;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         parent::__construct($matches);

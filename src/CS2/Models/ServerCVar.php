@@ -26,6 +26,7 @@ class ServerCVar extends Model
 
     public string $value;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         parent::__construct($matches);

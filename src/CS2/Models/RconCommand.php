@@ -39,6 +39,7 @@ class RconCommand extends Model
 
     public ?string $argument = null;
 
+    /** @param array<string, mixed> $data Event data keyed by property name. */
     public function __construct(array $data = [])
     {
         parent::__construct($data);

@@ -36,6 +36,7 @@ class TimeOut extends Model
 
     public ?string $team = null;
 
+    /** @param array<string, mixed> $data Event data keyed by property name. */
     public function __construct($data = [])
     {
         parent::__construct($data);

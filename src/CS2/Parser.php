@@ -3,17 +3,22 @@
 namespace CSLog\CS2;
 
 use CSLog\CS2\Models\RoundStats;
+use CSLog\Model;
 
 class Parser
 {
+    /** @var array{timestamp: ?string, raw_json: string}|null */
     protected ?array $jsonBlockBuffer = null;
 
     protected bool $inJsonBlock = false;
 
+    /** @var list<Model> */
     protected array $events = [];
 
     /**
      * Parse entire log content
+     *
+     * @return list<Model>
      */
     public function parse(string $content): array
     {
@@ -34,10 +39,10 @@ class Parser
     }
 
     /**
-     * Parse a single line
-     * Returns null for lines that are part of multi-line blocks
+     * Parse a single line.
+     * Returns null for lines that are part of multi-line blocks.
      */
-    public function parseLine(string $line): mixed
+    public function parseLine(string $line): ?Model
     {
         // JSON block start
         if ($this->isJsonBegin($line, $timestamp)) {
@@ -190,6 +195,8 @@ class Parser
 
     /**
      * Get all parsed events
+     *
+     * @return list<Model>
      */
     public function getEvents(): array
     {
@@ -198,6 +205,12 @@ class Parser
 
     /**
      * Filter events by type
+     */
+    /**
+     * @template T of Model
+     *
+     * @param  class-string<T>  $className
+     * @return list<T>
      */
     public function filterByType(string $className): array
     {

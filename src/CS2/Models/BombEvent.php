@@ -24,6 +24,7 @@ class BombEvent extends Model
 
     public string $event; // 'Got_The_Bomb' or 'Dropped_The_Bomb'
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $playerString = $matches['player'];

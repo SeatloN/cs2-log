@@ -38,8 +38,10 @@ class PropKill extends Model
 
     public string $weapon;
 
+    /** @var list<string>|null */
     public ?array $flags = null;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $killerString = $matches['killer'];

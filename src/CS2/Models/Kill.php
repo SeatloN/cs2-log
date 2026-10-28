@@ -54,6 +54,7 @@ class Kill extends Model
 
     /* The line `public ?array  = null;` in the `Kill` class is declaring a public property named
     `` with a type hint of `array` that can also be `null`. */
+    /** @var list<string>|null */
     public ?array $flags = null;
 
     /**
@@ -65,6 +66,7 @@ class Kill extends Model
      * array such as 'killer', 'killed', and 'flags' to initialize properties of the object being
      * constructed.
      */
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $killerString = $matches['killer'];

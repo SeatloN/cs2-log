@@ -35,6 +35,7 @@ class MoneyChanged extends Model
 
     public ?string $actionDetail = null; // e.g., 'weapon_ak47', 'sellback' - nullable
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         // Convert player identity before parent constructor

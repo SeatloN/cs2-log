@@ -34,6 +34,7 @@ class GrenadeThrowTrace extends Model
 
     public string $grenadeType; // 'molotov', 'hegrenade', 'flashgrenade', 'smokegrenade', 'decoygrenade'
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $throwerString = $matches['thrower'];

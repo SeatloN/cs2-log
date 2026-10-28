@@ -32,6 +32,7 @@ class WorldTriggered extends Model
 
     public ?int $restartSeconds = null;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
 

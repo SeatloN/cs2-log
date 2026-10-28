@@ -33,6 +33,7 @@ class RoundScored extends Model
 
     public string $winType;
 
+    /** @param array<string, mixed> $data Event data keyed by property name. */
     public function __construct($data = [])
     {
         parent::__construct($data);

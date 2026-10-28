@@ -28,6 +28,7 @@ class Suicide extends Model
 
     public string $suicideSource;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $playerString = $matches['player'];

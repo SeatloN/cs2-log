@@ -17,6 +17,7 @@ abstract class SayBase extends Model
 
     public string $text;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         // Extract identity block

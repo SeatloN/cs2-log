@@ -24,6 +24,7 @@ class LeftBuyZone extends Model
 
     public ?string $items = null;
 
+    /** @param array<int|string, string> $matches Regex matches and named captures. */
     public function __construct(array $matches)
     {
         $playerString = $matches['player'];
@@ -46,6 +47,7 @@ class LeftBuyZone extends Model
         return $this->items !== null;
     }
 
+    /** @return list<string> */
     public function getItemsArray(): array
     {
         if ($this->items === null) {
